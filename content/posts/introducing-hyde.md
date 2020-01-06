@@ -20,7 +20,6 @@ Roller coasters stand outs in the past have been its flexibility and simplicity.
 
 These user stories are desired features for the application from the type of user’s perspective. At a high level 4 domains came out with account, coasters, achievements, and reporting.
 
-
 ### Coding Principles
 
 I have decided on 4 principles to drive the project. After and having many discussions with work colleagues I determined coding principles highly depend on our project. For example, I have a brother who writes mobile app games for a living. Many don’t store any user data like a username or a password, so security is less important. Additionally, putting in the extra effort to help ensure correctness, and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as they are in a sense a prototype. I am instead aiming for a production ready system and these 4 principles fit with my user stories.
