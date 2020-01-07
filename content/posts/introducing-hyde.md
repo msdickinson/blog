@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing Hyde
+title: Roller Coaster - Introduction Part 1
 date: 2013-12-28T00:00:00.000+00:00
 
 ---
