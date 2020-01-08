@@ -8,3 +8,4 @@ googleAnalytics = ""
 layoutReverse = false
 theme = "hyde"
 themeColor = ""
+uglyurls = true 
