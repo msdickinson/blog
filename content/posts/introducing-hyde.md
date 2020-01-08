@@ -20,9 +20,69 @@ Roller coasters stand outs in the past have been its flexibility and simplicity.
 
 These user stories are desired features for the application from the type of user’s perspective. At a high level 4 domains came out with account, coasters, achievements, and reporting.
 
+_Account_
+
+* Create Account (Email Optional)
+* Login
+* Reset Password (Email)
+* Update Password
+* Update Email Settings directly from all emails
+* Update Email Settings when logged in
+
+_Coaster_
+
+* Create
+* Save
+* Load
+* Share (Private Link)
+* Publish (Public)
+* Find Rate Published coasters
+* Get notification when someone a published coaster
+
+_Achievement_
+
+* Gain Achievements
+* View Achievements
+* Get notification when I receive an achievement
+
+Administration
+
+* Query anonymous data to gain insights (Database)
+* Reporting
+  * Account -  Creations, Activation, Logins
+  * Coasters - Creations, Meta Data (Tracks, Length, Duration)
+  * Achievements
+  * System Health - Response Times, Up time, Throughput, Errors
+
 ### Coding Principles
 
 I have decided on 4 principles to drive the project. After and having many discussions with work colleagues I determined coding principles highly depend on our project. For example, I have a brother who writes mobile app games for a living. Many don’t store any user data like a username or a password, so security is less important. Additionally, putting in the extra effort to help ensure correctness, and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as they are in a sense a prototype. I am instead aiming for a production ready system and these 4 principles fit with my user stories.
+
+_Secure_
+
+* Modern Password encryption
+* Login Attempts Guarded
+* Communication Encrypted
+* No PII In Logs, or Reporting database
+
+_Correct_
+
+* Testing - Unit, Integration, Manual 
+* Multiple environments 
+* Blue / Green Deployment
+* High Fidelity logging
+
+_Service Level Agreement_
+
+* Load Testing
+* Monitoring 
+
+_Maintenance_
+
+* High Fidelity logging (Yes this in here twice)
+* Source Control
+* Continuous Integration
+* Documentation and health checks
 
 I have seen differing opinions on the degree of correctness and ability to maintain a project. My experience has shown me even for short lived projects It is generally worth the extra effort to ensure its correct and maintainable. Having to patch a project depending on the company even for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. Even if these can be done quickly it adds context switching to what you would have been working on. If this is done with low degrees throughout enough systems, you may find your self-spending most of your time patching.
 
