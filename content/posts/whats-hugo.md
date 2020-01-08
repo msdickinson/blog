@@ -4,7 +4,7 @@ title: Roller Coaster Design Decisions
 date: 2012-02-06T00:00:00.000+00:00
 
 ---
-# Design Decisions
+# TESTDesign Decisions
 
 This section will deal with SOLID, system designs, API flows, cross cutting concerns, dependency injection, unit testing, Integration testing, and proxies
 
