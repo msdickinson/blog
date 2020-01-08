@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master  git submodule update --init --recursive
+    - uses: actions/checkout@master
   
     - name: Pull Submodules
       run: git submodule update --init --recursive
