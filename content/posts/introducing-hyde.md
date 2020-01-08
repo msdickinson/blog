@@ -18,7 +18,7 @@ Roller coasters stand outs in the past have been its flexibility and simplicity.
 
 ### User Stories
 
-These user stories are desired features for the application from the type of user’s perspective. At a high level 4 domains came out with account, coasters, achievements, and reporting.
+These user stories are desired features for the application from the users perspective.
 
 _Account_
 
@@ -44,15 +44,6 @@ _Achievement_
 * Gain Achievements
 * View Achievements
 * Get notification when I receive an achievement
-
-Administration
-
-* Query anonymous data to gain insights (Database)
-* Reporting
-  * Account -  Creations, Activation, Logins
-  * Coasters - Creations, Meta Data (Tracks, Length, Duration)
-  * Achievements
-  * System Health - Response Times, Up time, Throughput, Errors
 
 ### Coding Principles
 
@@ -80,11 +71,12 @@ _Service Level Agreement_
 _Maintenance_
 
 * High Fidelity logging (Yes this in here twice)
+* Reporting - High level reports (Accounts, Coasters, Achievements, System Health)
 * Source Control
 * Continuous Integration
 * Documentation and health checks
 
-I have seen differing opinions on the degree of correctness and ability to maintain a project. My experience has shown me even for short lived projects It is generally worth the extra effort to ensure its correct and maintainable. Having to patch a project depending on the company even for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. Even if these can be done quickly it adds context switching to what you would have been working on. If this is done with low degrees throughout enough systems, you may find your self-spending most of your time patching.
+I have seen differing opinions on the degree of correctness and ability to maintain a project. My experience has shown me even for short lived projects It is generally worth the extra effort to ensure its correct and maintainable. Having to patch a project for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. (summary sen)
 
 ### Conclusion
 
