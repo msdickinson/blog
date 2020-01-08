@@ -2,10 +2,10 @@ baseURL = "https://d3efwhw5kd1q0b.cloudfront.net/"
 languageCode = "en-us"
 theme = "hyde"
 title = "My New Hugo Site"
+uglyurls = true 
 [params]
 disqusShortname = ""
 googleAnalytics = ""
 layoutReverse = false
 theme = "hyde"
 themeColor = ""
-uglyurls = true 
