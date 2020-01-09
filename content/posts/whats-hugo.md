@@ -19,6 +19,21 @@ A single project and database.
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design1.png)
 | Pros · Simple | Cons · Direct API Coupling · Database Coupling · No Partial deploys · Cannot scale parts Independently |
 
+| Pros | Cons |
+| ------ | ----------- |
+| 
+* Simple   | 
+* Direct API Coupling 
+* No Partial deploys
+* Cannot scale parts Independently
+
+| Pros | Cons |
+| ------ | ----------- |
+| Simple   | Direct API Coupling |
+|  | Database Coupling |
+|  | No Partial deploys |
+|  | Cannot scale parts Independently |
+
 ### (2) Monolith with Isolated Schemas
 
 A single project and a single database with Isolated data access using schemas.
