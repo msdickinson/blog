@@ -2,11 +2,9 @@
 date = 2013-12-28T00:00:00Z
 draft = true
 layout = "post"
-title = "Roller Coaster Overview (Part 1)2"
+title = "Roller Coaster Overview (Part 1)"
 
 +++
-Roller Coaster 2020
-
 # Roller Coaster
 
 ### Project Summary
@@ -59,15 +57,15 @@ _Secure_
 
 _Correct_
 
-* Testing - Unit, Integration, Manual 
-* Multiple environments 
+* Testing - Unit, Integration, Manual
+* Multiple environments
 * Blue / Green Deployment
 * High Fidelity logging
 
 _Service Level Agreement_
 
 * Load Testing
-* Monitoring 
+* Monitoring
 
 _Maintenance_
 
