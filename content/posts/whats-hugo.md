@@ -21,7 +21,7 @@ A single project and database.
 
 | Pros | Cons |
 | ------ | ----------- |
-| * Simple   | * Direct API Coupling * No Partial deploys * Cannot scale parts Independently |
+| *Simple   | *Direct API Coupling *No Partial deploys *Cannot scale parts Independently |
 
 | Pros | Cons |
 | ------ | ----------- |
