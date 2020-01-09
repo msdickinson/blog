@@ -61,18 +61,7 @@ I have used SQL professionally often with very limited experience in noSQL. I de
 | Database designed for fast reads (with data duplication as needed)    | Complex Records |
 | Cheaper    |  |
 
-_Pros_
 
-* Increased Up time (Redundancy)
-* Ability to scale out instead of Up (Avoiding potential bottle necks)
-* Database designed for fast reads (with data duplication as needed)
-* Cheaper
-
-_Cons_
-
-* Limited to inability to query
-* Potential Expensive Writes (As may be in records)
-* Complex Records
 
 Reviewing the cons, the inability to query won’t be a problem as ill have duplicate data in the reporting database using SQL. Expensive writes are not really a concern for me. But complex records are where I have a lot of pause. I worked out what the coasters API may look like using it and it brought a lot of additional complexity and concerns to the table. The additional up time is the only pro that I feel I would strongly desire, but It is not worth the additional complexity for this project. To be fair my noSQL experience is limited but I am going to stick with SQL in all APIS for the MVP.
 
