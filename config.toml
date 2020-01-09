@@ -10,3 +10,4 @@ layoutReverse = false
 theme = "hyde"
 themeColor = ""
 description = "A Programing Blog"
+paginatedsections = ["posts"]
