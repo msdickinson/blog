@@ -20,8 +20,8 @@ A single project and database.
 | Pros · Simple | Cons · Direct API Coupling · Database Coupling · No Partial deploys · Cannot scale parts Independently |
 
 | Pros | Cons |
-| ------ | ----------- |
-| Simple   | Direct API Coupling |
+| --- | --- |
+| Simple | Direct API Coupling |
 |  | Database Coupling |
 |  | No Partial deploys |
 |  | Cannot scale parts Independently |
@@ -30,15 +30,14 @@ A single project and database.
 
 A single project and a single database with isolated data access using schemas.
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Design2.png) 
+![](https://d3efwhw5kd1q0b.cloudfront.net/Design2.png)
 
 | Pros | Cons |
-| ------ | ------ |
-| Data is protected by domain logic and limited access reducing coupling   | Direct API Coupling |
+| --- | --- |
+| Data is protected by domain logic and limited access reducing coupling | Direct API Coupling |
 |  | Database Coupling |
 |  | No Partial deploys |
 |  | Cannot scale parts Independently |
-
 
 ### (3) Monolith with Isolated Database
 
@@ -47,8 +46,8 @@ A single project with multiple databases and a reporting API that contains any r
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design3.png)
 
 | Pros | Cons |
-| ------ | ------ |
-| Data is protected by domain logic and limited access reducing coupling   | Direct API coupling |
+| --- | --- |
+| Data is protected by domain logic and limited access reducing coupling | Direct API coupling |
 | Ability to change databases at in API Level without affecting other APIS and reporting | No partial deploys |
 | Reporting API reduces access for reporting purposes, and removes calls from production databases | Cannot scale parts independently |
 | APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple databases) |
@@ -60,14 +59,14 @@ Multiple project with their own database and a reporting API that contains any r
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design4.png)
 
 | Pros | Cons |
-| ------ | ------ |
-| Data is protected by domain logic and limited access reducing coupling   | Direct API coupling |
+| --- | --- |
+| Data is protected by domain logic and limited access reducing coupling | Direct API coupling |
 | Ability to change databases at in API Level without affecting other APIS and reporting | Increased Response Times (Between APIS) |
 | Reporting API reduces access for reporting purposes, and removes calls from production databases | Cross cutting concerns require NuGet Packages to stay DRY |
 | APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple APIs and databases) |
 | Ability to deploy Single APIS at a time |  |
 | Ability to scale APIS independently |  |
-| APIS  |  |
+| APIS |  |
 
 ### (5) Microservices with Isolated Databases, Bus (Pub/Sub), and SignalR
 
@@ -76,15 +75,14 @@ Multiple project with their own database and a reporting API that contains any r
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design5.png)
 
 | Pros | Cons |
-| ------ | ------ |
-| Data is protected by domain logic and limited access reducing coupling  | Bus Coupling |
+| --- | --- |
+| Data is protected by domain logic and limited access reducing coupling | Bus Coupling |
 | Ability to change databases at in API Level without affecting other APIS and reporting | Increased Response Times (Bus) |
 | Reporting API reduces access for reporting purposes, and removes calls from production databases | Cross cutting concerns require NuGet Packages to stay DRY |
 | APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple APIs and databases) |
 | Ability to deploy Single APIS at a time |  |
 | Ability to scale APIS independently |  |
 | Ability for Any API to respound to message user |  |
-
 
 ### Additional System Design Considerations
 
@@ -93,13 +91,11 @@ Multiple project with their own database and a reporting API that contains any r
 I have used SQL professionally often with very limited experience in noSQL. I decided to do some reading and talked to multiple teams at three companies who are using CosmosDB or MonogDB in production.
 
 | Pros | Cons |
-| ------ | ------ |
-| Increased Up time (Redundancy)   | Limited ability to query |
+| --- | --- |
+| Increased Up time (Redundancy) | Limited ability to query |
 | Ability to scale out instead of Up (Avoiding potential bottle necks) | Potential Expensive Writes (As may be in records) |
-| Database designed for fast reads (with data duplication as needed)    | Complex Records |
-| Cheaper    |  |
-
-
+| Database designed for fast reads (with data duplication as needed) | Complex Records |
+| Cheaper |  |
 
 Reviewing the cons, the inability to query won’t be a problem as ill have duplicate data in the reporting database using SQL. Expensive writes are not really a concern for me. But complex records are where I have a lot of pause. I worked out what the coasters API may look like using it and it brought a lot of additional complexity and concerns to the table. The additional up time is the only pro that I feel I would strongly desire, but It is not worth the additional complexity for this project. To be fair my noSQL experience is limited but I am going to stick with SQL in all APIS for the MVP.
 
@@ -134,7 +130,7 @@ _Pros_
 
 Cons
 
-*  Code needs to be designed to be unit tested (If you already follow SOLID, its rarely in issue)
+* Code needs to be designed to be unit tested (If you already follow SOLID, its rarely in issue)
 * Takes additional time, that should be done when the code is written
 
 There are a lot of different styles and opinions on unit testing. These are mine.
@@ -156,17 +152,12 @@ Integration testing is a great way to test before deployments and after. I have 
 
 Each API Will include the following Projects
 
-· Abstractions – Shares models between View API and Proxy
-
-· View API (ASP.net)
-
-· Logic API (Library)
-
-· Infrastructure (Library)
-
-· Database (SQL Scripts)
-
-· Proxy (Library) and Proxy Runner (Console)
+* Abstractions – Shares models between View API and Proxy
+* View API (ASP.net)
+* Logic API (Library)
+* Infrastructure (Library)
+* Database (SQL Scripts)
+* Proxy (Library) and Proxy Runner (Console)
 
 The two interesting points here are database, and proxy. Keeping all of my queries inside of source control with some intellisense has served me well in the past. The proxy for most APIS won’t be used in production, but will give me another option to test my API when running local, and when running integration tests.
 
@@ -176,38 +167,35 @@ Each Project (excluding Database and Proxy runner) will have a Unit test project
 
 Now that I have a design, I reviewed my coding principles and practices and created this flow here. In this example, I can see that APIS will be using REST, SQL, and redacted logging.
 
-Before taking my theory too far, I decided it was time to create a quick prototype of Account API and flush out unit tests. Doing so turned up concerns about testability and repeating patterns of code.
+**High level Flow**
+
+![](https://d3efwhw5kd1q0b.cloudfront.net/Flows 1.png)
+
+Before taking my theory too far, I decided it was time to create a quick prototype of Account API and flush out unit tests. Doing so turned up concerns about testability and repeating patterns of code. Here are 2 of my main prototype flows.
+
+![](https://d3efwhw5kd1q0b.cloudfront.net/Flows 2.png)
 
 After reviewing my prototype, I came up with these cross-cutting concerns.
 
-· SQL – High Fidelity logging, Ability to unit test
+* SQL – High Fidelity logging, Ability to unit test
+* Middleware - High Fidelity logging, correlation Ids, and handles exceptions
+* Durable Rest - High Fidelity logging, adds ability to retry requests
+* Guid - Ability to unit test
+* DateTime - Ability to unit test
+* Encryption (Certificate) – Ability to encode and decode strings with certs
+* Logger – Adds correlation ids and redaction to all logging
+* Redactor – redacts objects and json strings with regular expression and property names
 
-· Middleware - High Fidelity logging, correlation Ids, and handles exceptions
+_Versioning_
 
-· Durable Rest - High Fidelity logging, adds ability to retry requests
+After reading [https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/](https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/ "https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/") from Microseroft I decdied to follow there lead. All of the packages follow semantic versioning. For development I add CI + Datetime to the version.
 
-· Guid - Ability to unit test
+_Abstractions_
 
-· DateTime - Ability to unit test
-
-· Encryption (Certificate) – Ability to encode and decode strings with certs
-
-· Logger – Adds correlation ids and redaction to all logging
-
-· Redactor – redacts objects and json strings with regular expression and property names
-
-After considering these I spun up a few protype packages. I did some additional reading and decided to follow Microsoft’s advice on versioning. At my place of work, we have a much larger stack for our use cases, and there is strong coupling between packages. I reviewed solutions to this and found Microsoft solves this by creating abstraction packages. For all packages I now follow these 2 guidelines.
-
-· All of the packages follow semantic versioning. For development I add CI + Datetime to the version.
-
-· Any package that another package depends on it, I have added in abstraction package to reduce coupling.
-
-Microsoft Versioning - [https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/](https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/ "https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/")
-
-Semantic Versioning - [https://semver.org/](https://semver.org/ "https://semver.org/")
+At my place of work, we have a much larger stack for our use cases, and there is strong coupling between packages. I reviewed solutions to this and found Microsoft solves this by creating abstraction packages. I will add them only when another pacakge depends on one.
 
 ## Conclusion
 
-After careful though on multiple system designs a plan emerged that fits well for the user stories and coding principles. Next walking though implementation decisions with SOILD using dependency injection. Following though considerations using unit testing, and Integration testing. Then creating a general guideline for APIS to follow to follow N-Tier, proxies, and SQL Scripts. Finally looking at a request and creating a quick prototype to find cross cutting concerns and implementation decisions when making them.
+After careful thought on multiple system designs a plan emerged that fits well for the user stories and coding principles. Next walking though implementation decisions with SOILD using dependency injection. Following though considerations using unit testing, and Integration testing. Then creating a general guideline for APIS to follow to follow N-Tier, proxies, and SQL Scripts. Finally looking at a request and creating a quick prototype to find cross cutting concerns and implementation decisions when making them.
 
 These decisions have help set the table to hit the ground running. To be clear this is still going to be in agile effort but the planning help give insight, and vision.
