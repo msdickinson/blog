@@ -94,7 +94,7 @@ I have used SQL professionally often with very limited experience in noSQL. I de
 
 | Pros | Cons |
 | ------ | ------ |
-| Increased Up time (Redundancy)   | Ability to scale out instead of Up (Avoiding potential bottle necks) |
+| Increased Up time (Redundancy)   | Limited ability to query |
 | Ability to scale out instead of Up (Avoiding potential bottle necks) | Potential Expensive Writes (As may be in records) |
 | Database designed for fast reads (with data duplication as needed)    | Complex Records |
 | Cheaper    |  |
