@@ -4,8 +4,6 @@ title: Roller Coaster Overview (Part 1)
 date: 2013-12-28T00:00:00.000+00:00
 
 ---
-Roller Coaster 2020
-
 # Roller Coaster
 
 ### Project Summary
