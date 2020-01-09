@@ -7,7 +7,6 @@ uglyurls = true
 disqusShortname = ""
 googleAnalytics = ""
 layoutReverse = false
-theme = "hyde"
 themeColor = ""
 description = "A Programing Blog"
 paginatedsections = ["posts"]
