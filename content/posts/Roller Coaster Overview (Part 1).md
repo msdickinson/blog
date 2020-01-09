@@ -8,17 +8,17 @@ date: 2013-12-24T00:00:00+00:00
 
 ### Project Summary
 
-Roller coaster is a game will allows you to build, ride, and share coasters. Its major stand out features have been the simplicity of building coasters. The game is designed that you should be able to mash buttons and still complete a coaster This time around I intend to build services and the game at production grade. To stay focused the following posts will be focused on the APIs instead of the game it self that will do the building, riding, and rendering.
+Roller coaster is a game will allow you to build, ride, and share coasters. Its major stand out features have been the simplicity of building coasters. The game is designed that you should be able to mash buttons and still complete a coaster This time around I intend to build services and the game at production grade. 
 
-To accomplish this, I built versions of this game with web assembly (Blazor C#) and WebGL (Three.Js). This time around I intend to build the game and surrounding services in the same way I would solve problems in my place of work. This will give me a portofio peice, and a quailty project. The following will focus entirely on the surrounding services.
+To accomplish this, I built versions of this game with web assembly (Blazor C#) and WebGL (Three.Js). This time around I intend to build the game and surrounding services in the same way I would solve problems in my place of work. This will give me a portfolio piece, reusable code, and a quality project.
 
-My last version in 2018 has a semi finshed builder and no rider. This version was built with web assembly (Blazor C#) and WebGL (Three.Js) [http://rollercoaster.dickinsonbros.com/](http://rollercoaster.dickinsonbros.com/ "http://rollercoaster.dickinsonbros.com/").
+My last version was in 2018 it has a semi-finished builder and no rider.  [http://rollercoaster.dickinsonbros.com](http://rollercoaster.dickinsonbros.com/ "http://rollercoaster.dickinsonbros.com/")
 
 ![](/uploads/Tracks.PNG)
 
 ### User Stories
 
-These user stories are desired features for the application from the users perspective.
+For now, I will only scope in the services instead of the game itself that does the building, riding and rendering. These user stories are desired features for the application from the user’s perspective.
 
 _Account_
 
@@ -47,7 +47,7 @@ _Achievement_
 
 ### Principles
 
-After much consisdartion and speaking with many collagues I determined principles highly depend on our project. For example, I have a brother who writes mobile app games for a living and many of his projects do not store any personal data or passwords. Putting in the extra effort to help ensure correctness, and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as many of them are in a sense a prototype. I am aiming for a production ready system that contains some personal data this drove me to the following principles. 
+After much consideration and speaking with many colleagues I determined principles highly depend on our project. For example, I have a brother who writes mobile app games for a living and many of his projects do not store any personal data or passwords. Putting in the extra effort to help ensure correctness, and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as many of them are in a sense a prototype. I am aiming for a production ready system that contains some personal data this drove me to the following principles.
 
 _Secure_
 
@@ -76,7 +76,7 @@ _Maintenance_
 * Continuous Integration
 * Documentation and health checks
 
-I have seen differing opinions on the degree of correctness and ability to maintain a project. I am of the thought that you can not be secure if you can not ensure correctness. Lower quaitly proejcts tend to have more patching and having to patch even for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. My experience has shown me It is generally worth the extra effort to ensure its secure, correct, handles expected load (SLA), and is maintainable. 
+I have seen differing opinions on the degree of correctness and ability to maintain a project. I am of the thought that you cannot be secure if you’re not ensuring correctness. Lower quality projects tend to have more patching and having to patch even for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. My experience has shown me It is generally worth the extra effort to ensure its secure, correct, handles expected load (SLA), and is maintainable.
 
 ### Conclusion
 
