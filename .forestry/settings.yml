@@ -25,7 +25,7 @@ sections:
   label: First Steps
   read_only: true
 upload_dir: ''
-public_path: https://d3efwhw5kd1q0b.cloudfront.net
+public_path: "/Media"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
