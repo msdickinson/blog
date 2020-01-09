@@ -6,7 +6,7 @@ date: 2020-01-09T07:00:00+00:00
 ---
 # Design Decisions
 
-This section will deal with system designs, SOLID Implenation details, unit testing, Integration testing, ,API flows cross cutting concerns
+This section will deal with system designs, SOLID, unit testing, Integration testing, API considerations, API flows and cross cutting concerns.
 
 ## System Designs
 
@@ -82,7 +82,7 @@ Multiple project with their own database and a reporting API that contains any r
 | APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple APIs and databases) |
 | Ability to deploy Single APIS at a time |  |
 | Ability to scale APIS independently |  |
-| Ability for Any API to respound to message user |  |
+| Ability for Any API to respond  to message user |  |
 
 ### Additional System Design Considerations
 
@@ -94,7 +94,7 @@ I have used SQL professionally often with very limited experience in noSQL. I de
 | --- | --- |
 | Increased Up time (Redundancy) | Limited ability to query |
 | Ability to scale out instead of Up (Avoiding potential bottle necks) | Complex Records |
-| Database designed for fast reads (with data duplication as needed) | |
+| Database designed for fast reads (with data duplication as needed) |  |
 | Cheaper |  |
 
 Reviewing the cons, the inability to query for reporting purposes won’t be a problem. Complex records are where I have a lot of pause. I worked out what the coasters API may look like using it and it brought a lot of additional complexity and concerns to the table. The additional up time is the only pro that I feel I would strongly desire, but It is not worth the additional complexity for this project. To be fair my noSQL experience is limited but I am going to stick with SQL in all APIS for the MVP.
@@ -148,7 +148,7 @@ I have written unit tests on the daily for 12 months. I have found the process o
 
 Integration testing is a great way to test before deployments and after. I have a single project that runs integration tests for all projects. I write an integration test for all expected return flows from each end point in the service, with the exception of 500s. If in API is supposed to update the user in the database and It returns a 200. I accept the 200 and unless needed do not inspect the database for the expected change. All tests are designed to be able to run repeatedly and in parallel.
 
-## API Solutions
+## API Considerations
 
 Each API Will include the following Projects
 
@@ -171,7 +171,7 @@ Now that I have a design, I reviewed my coding principles and practices and crea
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Flows 1.png)
 
-Before taking my theory too far, I decided it was time to create a quick prototype of Account API and flush out unit tests. Doing so turned up concerns about testability and repeating patterns of code. Here are 2 of my main prototype flows. 
+Before taking my theory too far, I decided it was time to create a quick prototype of Account API and flush out unit tests. Doing so turned up concerns about testability and repeating patterns of code. Here are 2 of my main prototype flows.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Flows 2.png)
 
@@ -196,6 +196,6 @@ At my place of work, we have a much larger stack for our use cases, and there is
 
 ## Conclusion
 
-After careful thought on multiple system designs a plan emerged that fits well for the user stories and coding principles. Next walking though implementation decisions with SOILD using dependency injection. Considerations with unit and integeartion testing were reviewed. Then creating a general guideline for APIS using N-Tier, proxies, and SQL Scripts. Finally looking thought request flows and protyping to find cross cutting concerns.
+After careful thought on multiple system designs a plan emerged that fits well for the user stories and coding principles. Next walking though implementation decisions with SOILD using dependency injection. Considerations with unit and integration testing were reviewed. Then creating a general guideline for APIS using N-Tier, proxies, and SQL Scripts. Finally looking thought request flows and prototyping to find cross cutting concerns.
 
-These considerations have help set the table to hit the ground running with a clear high level plan. I have heard that designing to early can cause over archtecture instead of growing it as you need it. I have found that by the time its a major problem it can be a massive effort and level of risk to change it. Even if its a moderate effort explaning to your boss that you need take a few days, weeks, months to rewrite code for maintaince is a up hill battle.
+These considerations have help set the table to hit the ground running with a clear high-level plan. I have heard that designing to early can cause over architecture instead of growing it as you need it. I have found that by the time it’s a major problem it can be a massive effort and level of risk to change it. Even if it’s a moderate effort explaining to your boss that you need take a few days, weeks, months to rewrite code for maintenance is an uphill battle.
