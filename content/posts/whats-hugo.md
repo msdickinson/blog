@@ -77,16 +77,6 @@ Multiple project with their own database and a reporting API that contains any r
 
 | Pros | Cons |
 | ------ | ------ |
-| Data is protected by domain logic and limited access reducing coupling   | Direct API coupling |
-| Ability to change databases at in API Level without affecting other APIS and reporting | Increased Response Times (Between APIS) |
-| Reporting API reduces access for reporting purposes, and removes calls from production databases | Cross cutting concerns require NuGet Packages to stay DRY |
-| APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple APIs and databases) |
-| Ability to deploy Single APIS at a time |  |
-| Ability to scale APIS independently |  |
-| APIS  |  |
-
-| Pros | Cons |
-| ------ | ------ |
 | Data is protected by domain logic and limited access reducing coupling  | Bus Coupling |
 | Ability to change databases at in API Level without affecting other APIS and reporting | Increased Response Times (Bus) |
 | Reporting API reduces access for reporting purposes, and removes calls from production databases | Cross cutting concerns require NuGet Packages to stay DRY |
