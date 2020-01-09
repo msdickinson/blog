@@ -49,25 +49,41 @@ A single project with multiple databases and a reporting API that contains any r
 | Pros | Cons |
 | ------ | ----------- |
 | Data is protected by domain logic and limited access reducing coupling   | Direct API coupling |
-| Ability to switch in non-SQL database at an API level without effecting reporting | Database coupling | Reporting API reduces access for reporting purposes, and removes calls from production databases
-| APIs are fully independently functional and pass forward information to others instead of requesting data | No partial deploys |
-|  | Cannot scale parts independently |
-|  | Increased hosting cost (multiple databases) |
-
+| Ability to change databases at in API Level without affecting other APIS and reporting | No partial deploys |
+| Reporting API reduces access for reporting purposes, and removes calls from production databases | Cannot scale parts independently |
+| APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple databases) |
 
 ### (4) Microservices with Isolated Databases
 
 Multiple project with their own database and a reporting API that contains any relevant non sensitive information.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design4.png)
-| Pros · Data is protected by domain logic and limited access · Ability to switch in non-SQL database at an API level without effecting reporting. · Reporting API reduces access for reporting purposes, and removes calls from production databases. · APIs are fully independently functional and pass forward information to others instead of requesting data. · Ability to deploy Single APIS at a time (Partial deploys) · Can scale APIS Independently | Cons · Increased complexity and response time with API to API calls. Due to coupling APIs can fail if another API is down. Also, the failure may cause databases to get out of sync. · Increased complexity with independent databases · Increased complexity with Reporting API · Increased hosting cost (multiple projects and databases) · Cross cutting concerns now require a NuGet package to stay DRY. |
+
+| Pros | Cons |
+| ------ | ----------- |
+| Data is protected by domain logic and limited access reducing coupling   | Direct API coupling |
+| Ability to change databases at in API Level without affecting other APIS and reporting | Increased Response Times (Between APIS) |
+| Reporting API reduces access for reporting purposes, and removes calls from production databases | Cross cutting concerns require NuGet Packages to stay DRY |
+| APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple APIs and databases) |
+| Ability to deploy Single APIS at a time |  |
+| Ability to scale APIS independently |  |
+| APIS  |  |
 
 ### (5) Microservices with Isolated Databases, Bus (Pub/Sub), and SignalR
 
 Multiple project with their own database and a reporting API that contains any relevant non sensitive information. Communication between APIS is done though a bus, and APIS can push responses to the user using SignalR. The Bus communicates with APIs via a pub/sub modal using SignalR to alert then when there is data available.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design5.png)
-| Pros · Data is protected by domain logic and limited access · Ability to switch in non-SQL database at an API level without effecting reporting. · Reporting API reduces access for reporting purposes, and removes calls from production databases. · APIs are fully independently functional and pass forward information to others instead of requesting data. · Ability to deploy Single APIS at a time (Partial deploys) · Can scale APIS Independently · APIS are not directly coupled beyond a bus · Durable requests though the bus. If another API is down or is failing. The bus can continue to retry or be retried manually to ensure all requests go though. · Push notifications – Ability for other users to rate your coaster and for you to get a push notification. | Cons · Increased complexity and response time with API to API calls. Due to coupling APIs can fail if another API is down. Also, the failure may cause databases to get out of sync. · Increased complexity and response time using a bus. · Increased complexity with independent databases · Cross cutting concerns now require a NuGet package to stay DRY. · Increased hosting cost (multiple projects and databases) · Cross cutting concerns now require a NuGet package to stay DRY. |
+| Pros | Cons |
+| ------ | ----------- |
+| Data is protected by domain logic and limited access reducing coupling   | Bus Coupling |
+| Ability to change databases at in API Level without affecting other APIS and reporting | Increased Response Times (Bus) |
+| Reporting API reduces access for reporting purposes, and removes calls from production databases | Cross cutting concerns require NuGet Packages to stay DRY |
+| APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple APIs and databases) |
+| Ability to deploy Single APIS at a time |  |
+| Ability to scale APIS independently |  |
+| Ability for Any API to respound to message user |  |
+
 
 ### Additional System Design Considerations
 
