@@ -6,7 +6,7 @@ date: 2020-01-09T07:00:00+00:00
 ---
 # Design Decisions
 
-This section will deal with SOLID, system designs, API flows, cross cutting concerns, dependency injection, unit testing, Integration testing, and proxies
+This section will deal with system designs, SOLID Implenation details, unit testing, Integration testing, ,API flows cross cutting concerns
 
 ## System Designs
 
@@ -93,11 +93,11 @@ I have used SQL professionally often with very limited experience in noSQL. I de
 | Pros | Cons |
 | --- | --- |
 | Increased Up time (Redundancy) | Limited ability to query |
-| Ability to scale out instead of Up (Avoiding potential bottle necks) | Potential Expensive Writes (As may be in records) |
-| Database designed for fast reads (with data duplication as needed) | Complex Records |
+| Ability to scale out instead of Up (Avoiding potential bottle necks) | Complex Records |
+| Database designed for fast reads (with data duplication as needed) | |
 | Cheaper |  |
 
-Reviewing the cons, the inability to query won’t be a problem as ill have duplicate data in the reporting database using SQL. Expensive writes are not really a concern for me. But complex records are where I have a lot of pause. I worked out what the coasters API may look like using it and it brought a lot of additional complexity and concerns to the table. The additional up time is the only pro that I feel I would strongly desire, but It is not worth the additional complexity for this project. To be fair my noSQL experience is limited but I am going to stick with SQL in all APIS for the MVP.
+Reviewing the cons, the inability to query for reporting purposes won’t be a problem. Complex records are where I have a lot of pause. I worked out what the coasters API may look like using it and it brought a lot of additional complexity and concerns to the table. The additional up time is the only pro that I feel I would strongly desire, but It is not worth the additional complexity for this project. To be fair my noSQL experience is limited but I am going to stick with SQL in all APIS for the MVP.
 
 #### Redis
 
@@ -196,6 +196,6 @@ At my place of work, we have a much larger stack for our use cases, and there is
 
 ## Conclusion
 
-After careful thought on multiple system designs a plan emerged that fits well for the user stories and coding principles. Next walking though implementation decisions with SOILD using dependency injection. Following though considerations using unit testing, and Integration testing. Then creating a general guideline for APIS to follow to follow N-Tier, proxies, and SQL Scripts. Finally looking at a request and creating a quick prototype to find cross cutting concerns and implementation decisions when making them.
+After careful thought on multiple system designs a plan emerged that fits well for the user stories and coding principles. Next walking though implementation decisions with SOILD using dependency injection. Considerations with unit and integeartion testing were reviewed. Then creating a general guideline for APIS using N-Tier, proxies, and SQL Scripts. Finally looking thought request flows and protyping to find cross cutting concerns.
 
-These decisions have help set the table to hit the ground running. To be clear this is still going to be in agile effort but the planning help give insight, and vision.
+These considerations have help set the table to hit the ground running with a clear high level plan. I have heard that designing to early can cause over archtecture instead of growing it as you need it. I have found that by the time its a major problem it can be a massive effort and level of risk to change it. Even if its a moderate effort explaning to your boss that you need take a few days, weeks, months to rewrite code for maintaince is a up hill battle.
