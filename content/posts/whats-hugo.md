@@ -188,11 +188,11 @@ After reviewing my prototype, I came up with these cross-cutting concerns.
 
 _Versioning_
 
-After reading [https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/](https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/ "https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/") from Microseroft I decdied to follow there lead. All of the packages follow semantic versioning. For development I add CI + Datetime to the version.
+After reading [https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/](https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/ "https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/") from Microsoft I decided to follow their lead. All of the packages follow semantic versioning. For development I add CI + Datetime to the version.
 
 _Abstractions_
 
-At my place of work, we have a much larger stack for our use cases, and there is strong coupling between packages. I reviewed solutions to this and found Microsoft solves this by creating abstraction packages. I will add them only when another pacakge depends on one.
+At my place of work, we have a much larger stack for our use cases, and there is strong coupling between packages. I reviewed solutions to this and found Microsoft solves this by creating abstraction packages. I will add them only when another package depends on one.
 
 ## Conclusion
 
