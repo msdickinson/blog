@@ -21,10 +21,6 @@ A single project and database.
 
 | Pros | Cons |
 | ------ | ----------- |
-| *Simple   | *Direct API Coupling *No Partial deploys *Cannot scale parts Independently |
-
-| Pros | Cons |
-| ------ | ----------- |
 | Simple   | Direct API Coupling |
 |  | Database Coupling |
 |  | No Partial deploys |
@@ -32,18 +28,32 @@ A single project and database.
 
 ### (2) Monolith with Isolated Schemas
 
-A single project and a single database with Isolated data access using schemas.
+A single project and a single database with isolated data access using schemas.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design2.png) 
 
-Pros · Data is protected by domain logic and limited access reducing coupling. | Cons · Direct API Coupling · No Partial deploys · Cannot scale parts Independently · Increased complexity with independent schemas |
+| Pros | Cons |
+| ------ | ----------- |
+| Data is protected by domain logic and limited access reducing coupling   | Direct API Coupling |
+|  | Database Coupling |
+|  | No Partial deploys |
+|  | Cannot scale parts Independently |
+
 
 ### (3) Monolith with Isolated Database
 
 A single project with multiple databases and a reporting API that contains any relevant non sensitive information.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design3.png)
-| Pros · Data is protected by domain logic and limited access · Ability to switch in non-SQL database at an API level without effecting reporting. · Reporting API reduces access for reporting purposes, and removes calls from production databases. · APIs are fully independently functional and pass forward information to others instead of requesting data. | Cons · Direct API Coupling · No Partial deploys · Cannot scale APIS Independently · Increased complexity with independent databases · Increased complexity with Reporting API · Increased hosting cost (multiple databases) |
+
+| Pros | Cons |
+| ------ | ----------- |
+| Data is protected by domain logic and limited access reducing coupling   | Direct API coupling |
+| Ability to switch in non-SQL database at an API level without effecting reporting | Database coupling | Reporting API reduces access for reporting purposes, and removes calls from production databases
+| APIs are fully independently functional and pass forward information to others instead of requesting data | No partial deploys |
+|  | Cannot scale parts independently |
+|  | Increased hosting cost (multiple databases) |
+
 
 ### (4) Microservices with Isolated Databases
 
