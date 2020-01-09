@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Roller Coaster Design Decisions
-date: 2012-02-06T00:00:00.000+00:00
+date: 2020-01-09T07:00:00+00:00
 
 ---
 # TESTDesign Decisions
@@ -16,35 +16,36 @@ I’ll walk though different designs and find the design that fits my coding pri
 
 A single project and database.
 
-| --- | --- |
+![](https://d3efwhw5kd1q0b.cloudfront.net/Design1.png)
 | Pros · Simple | Cons · Direct API Coupling · Database Coupling · No Partial deploys · Cannot scale parts Independently |
 
 ### (2) Monolith with Isolated Schemas
 
 A single project and a single database with Isolated data access using schemas.
 
-| --- | --- |
-| Pros · Data is protected by domain logic and limited access reducing coupling. | Cons · Direct API Coupling · No Partial deploys · Cannot scale parts Independently · Increased complexity with independent schemas |
+![](https://d3efwhw5kd1q0b.cloudfront.net/Design2.png) 
+
+Pros · Data is protected by domain logic and limited access reducing coupling. | Cons · Direct API Coupling · No Partial deploys · Cannot scale parts Independently · Increased complexity with independent schemas |
 
 ### (3) Monolith with Isolated Database
 
 A single project with multiple databases and a reporting API that contains any relevant non sensitive information.
 
-| --- | --- |
+![](https://d3efwhw5kd1q0b.cloudfront.net/Design3.png)
 | Pros · Data is protected by domain logic and limited access · Ability to switch in non-SQL database at an API level without effecting reporting. · Reporting API reduces access for reporting purposes, and removes calls from production databases. · APIs are fully independently functional and pass forward information to others instead of requesting data. | Cons · Direct API Coupling · No Partial deploys · Cannot scale APIS Independently · Increased complexity with independent databases · Increased complexity with Reporting API · Increased hosting cost (multiple databases) |
 
 ### (4) Microservices with Isolated Databases
 
 Multiple project with their own database and a reporting API that contains any relevant non sensitive information.
 
-| --- | --- |
+![](https://d3efwhw5kd1q0b.cloudfront.net/Design4.png)
 | Pros · Data is protected by domain logic and limited access · Ability to switch in non-SQL database at an API level without effecting reporting. · Reporting API reduces access for reporting purposes, and removes calls from production databases. · APIs are fully independently functional and pass forward information to others instead of requesting data. · Ability to deploy Single APIS at a time (Partial deploys) · Can scale APIS Independently | Cons · Increased complexity and response time with API to API calls. Due to coupling APIs can fail if another API is down. Also, the failure may cause databases to get out of sync. · Increased complexity with independent databases · Increased complexity with Reporting API · Increased hosting cost (multiple projects and databases) · Cross cutting concerns now require a NuGet package to stay DRY. |
 
 ### (5) Microservices with Isolated Databases, Bus (Pub/Sub), and SignalR
 
 Multiple project with their own database and a reporting API that contains any relevant non sensitive information. Communication between APIS is done though a bus, and APIS can push responses to the user using SignalR. The Bus communicates with APIs via a pub/sub modal using SignalR to alert then when there is data available.
 
-| --- | --- |
+![](https://d3efwhw5kd1q0b.cloudfront.net/Design5.png)
 | Pros · Data is protected by domain logic and limited access · Ability to switch in non-SQL database at an API level without effecting reporting. · Reporting API reduces access for reporting purposes, and removes calls from production databases. · APIs are fully independently functional and pass forward information to others instead of requesting data. · Ability to deploy Single APIS at a time (Partial deploys) · Can scale APIS Independently · APIS are not directly coupled beyond a bus · Durable requests though the bus. If another API is down or is failing. The bus can continue to retry or be retried manually to ensure all requests go though. · Push notifications – Ability for other users to rate your coaster and for you to get a push notification. | Cons · Increased complexity and response time with API to API calls. Due to coupling APIs can fail if another API is down. Also, the failure may cause databases to get out of sync. · Increased complexity and response time using a bus. · Increased complexity with independent databases · Cross cutting concerns now require a NuGet package to stay DRY. · Increased hosting cost (multiple projects and databases) · Cross cutting concerns now require a NuGet package to stay DRY. |
 
 ### Additional System Design Considerations
@@ -53,8 +54,18 @@ Multiple project with their own database and a reporting API that contains any r
 
 I have used SQL professionally often with very limited experience in noSQL. I decided to do some reading and talked to multiple teams at three companies who are using CosmosDB or MonogDB in production.
 
-| --- | --- |
-| Pros · Increased Up time (Redundancy) · Ability to scale out instead of Up (Avoiding potential bottle necks) · Database designed for fast reads (with data duplication as needed) · Cheaper | Cons · Limited to inability to query (My colleagues that use noSQL often have to scale up just to query or do bulk inserts) · Potential Expensive Writes (As may be in records) · Complex Records (Every API need considered ahead of time) |
+_Pros_
+
+* Increased Up time (Redundancy)
+* Ability to scale out instead of Up (Avoiding potential bottle necks)
+* Database designed for fast reads (with data duplication as needed)
+* Cheaper
+
+_Cons_
+
+* Limited to inability to query
+* Potential Expensive Writes (As may be in records)
+* Complex Records
 
 Reviewing the cons, the inability to query won’t be a problem as ill have duplicate data in the reporting database using SQL. Expensive writes are not really a concern for me. But complex records are where I have a lot of pause. I worked out what the coasters API may look like using it and it brought a lot of additional complexity and concerns to the table. The additional up time is the only pro that I feel I would strongly desire, but It is not worth the additional complexity for this project. To be fair my noSQL experience is limited but I am going to stick with SQL in all APIS for the MVP.
 
@@ -80,22 +91,26 @@ I have chosen to use dependency injection because It reduces my code, reduces te
 
 I have discussed with many developers the pros of cons of unit testing, and have made my own conclusions.
 
-| --- | --- |
-| Pros · Find a class of concerns early · Tests can be reused as regression tests · Requires fine grain look at code. Often solves for problems that unit testing does not directly test for. · Saves time in the long run (From my experience) | Cons · Code needs to be designed to be unit tested (If you already follow SOLID, its rarely in issue) · Takes additional time, that should be done when the code is written |
+_Pros_
+
+* Find a class of concerns early
+* Tests can be reused as regression tests
+* Requires fine grain look at code. Often solves for problems that unit testing does not directly test for.
+* Saves time in the long run (From my experience)
+
+Cons
+
+*  Code needs to be designed to be unit tested (If you already follow SOLID, its rarely in issue)
+* Takes additional time, that should be done when the code is written
 
 There are a lot of different styles and opinions on unit testing. These are mine.
 
-· Test for return value, exceptions, state change, and interactions.
-
-· Test names follow UnitUndertest_Sencrio_Expected convention.
-
-· Each unit test I target one line of code and use as many asserts as needed for that line.
-
-· 100% Unit Test Coverage, every method independently tested (even if indirectly tested) and change my private methods to internal.
-
-· For dependencies that have statics, and very challenging to test code, I choose to wrap them in another class and then add exclude from coverage.
-
-· For plan data objects that have no logic I exclude form code coverage.
+* Test for return value, exceptions, state change, and interactions.
+* Test names follow UnitUndertest_Sencrio_Expected convention.
+* Each unit test I target one line of code and use as many asserts as needed for that line.
+* 100% Unit Test Coverage, every method independently tested (even if indirectly tested) and change my private methods to internal.
+* For dependencies that have statics, and very challenging to test code, I choose to wrap them in another class and then add exclude from coverage.
+* For plan data objects that have no logic I exclude form code coverage.
 
 I have written unit tests on the daily for 12 months. I have found the process of writing units to be even more valuable than the unit tests. It forces me to slow down and take heavy considerations of my code by walk through all the of code paths without glossing over anything. I also enjoy the increased confidence I have when modifying in existing solution as breaks existing tests pointing me to places that I caused a change.
 
