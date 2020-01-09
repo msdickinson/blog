@@ -171,7 +171,7 @@ Now that I have a design, I reviewed my coding principles and practices and crea
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Flows 1.png)
 
-Before taking my theory too far, I decided it was time to create a quick prototype of Account API and flush out unit tests. Doing so turned up concerns about testability and repeating patterns of code. Here are 2 of my main prototype flows.
+Before taking my theory too far, I decided it was time to create a quick prototype of Account API and flush out unit tests. Doing so turned up concerns about testability and repeating patterns of code. Here are 2 of my main prototype flows. 
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Flows 2.png)
 
