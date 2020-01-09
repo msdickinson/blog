@@ -1,11 +1,9 @@
 ---
 layout: post
 title: Roller Coaster Overview (Part 1)
-date: 2013-12-28T00:00:00.000+00:00
+date: 2013-12-24T00:00:00+00:00
 
 ---
-Roller Coaster 2020
-
 # Roller Coaster
 
 ### Project Summary
@@ -45,9 +43,9 @@ _Achievement_
 * View Achievements
 * Get notification when I receive an achievement
 
-### Coding Principles
+### Principles
 
-I have decided on 4 principles to drive the project. After and having many discussions with work colleagues I determined coding principles highly depend on our project. For example, I have a brother who writes mobile app games for a living. Many don’t store any user data like a username or a password, so security is less important. Additionally, putting in the extra effort to help ensure correctness, and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as they are in a sense a prototype. I am instead aiming for a production ready system and these 4 principles fit with my user stories.
+After much consisdartion and speaking with many collagues I determined coding principles highly depend on our project. For example, I have a brother who writes mobile app games for a living. Many of his projects do not store any personal data or passwords. Additionally, putting in the extra effort to help ensure correctness, and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as many of them are in a sense a prototype. I am aiming for a production ready system that contains some pessonal data this drove me to the following project principles. a users email and password and landed on decided on these principles.
 
 _Secure_
 
@@ -58,15 +56,15 @@ _Secure_
 
 _Correct_
 
-* Testing - Unit, Integration, Manual 
-* Multiple environments 
+* Testing - Unit, Integration, Manual
+* Multiple environments
 * Blue / Green Deployment
 * High Fidelity logging
 
 _Service Level Agreement_
 
 * Load Testing
-* Monitoring 
+* Monitoring
 
 _Maintenance_
 
@@ -76,8 +74,8 @@ _Maintenance_
 * Continuous Integration
 * Documentation and health checks
 
-I have seen differing opinions on the degree of correctness and ability to maintain a project. My experience has shown me even for short lived projects It is generally worth the extra effort to ensure its correct and maintainable. Having to patch a project for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. (summary sen)
+I have seen differing opinions on the degree of correctness and ability to maintain a project. I am of the thought that you can not be secure if you can not ensure correctness. Having to patch even for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. My experience has shown me It is generally worth the extra effort to ensure its secure, correct, handles expected load (SLA), and is maintainable. 
 
 ### Conclusion
 
-I have laid out the project overview and user stories and decided to build a production ready system over a prototype. I have created coding principles and items that to help measure and ensure they are meet. Finally, I added coding practices that I feel fit well with the coding principals. These high-level decisions will guide design decisions, and creation of the project.
+I have laid out the project and user stories and decided to build a production ready system. I have created principles and items that to help measure and ensure they are meet. These high-level decisions will guide design decisions and creation of the project.
