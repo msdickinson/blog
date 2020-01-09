@@ -16,14 +16,6 @@ sections:
   match: "*.md"
 - type: heading
   label: Documentation
-- type: document
-  path: README.md
-  label: README
-  read_only: false
-- type: document
-  path: FIRSTSTEPS.md
-  label: First Steps
-  read_only: true
 upload_dir: Media
 public_path: "/Media"
 front_matter_path: ''
