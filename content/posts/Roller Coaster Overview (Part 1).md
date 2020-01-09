@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Roller Coaster Overview (Part 1)
-date: 2013-12-24T00:00:00+00:00
+date: 2013-12-24T00:00:00.000+00:00
 
 ---
 # Roller Coaster
@@ -10,7 +10,7 @@ date: 2013-12-24T00:00:00+00:00
 
 Roller coaster is a game will allow you to build, ride, and share coasters. Its major stand out features have been the simplicity of building coasters. The game is designed that you should be able to mash buttons and still complete a coaster This time around I intend to build services and the game at production grade.
 
-To accomplish this, I built versions of this game with web assembly (Blazor C#) and WebGL (Three.Js). This time around I intend to build the game and surrounding services in the same way I would solve problems in my place of work. This will give me a portfolio piece, reusable code, and a quality project.
+To accomplish this, I built versions of this game with web assembly (Blazor C#) and WebGL (Three.Js). This time around I intend to build the game and surrounding services in the same way I would solve problems in my place of work. This will give me a portfolio piece, reusable code, and a quality project.![](/Media/Design1.png)
 
 My last version was in 2018 it has a semi-finished builder and no rider.  [http://rollercoaster.dickinsonbros.com](http://rollercoaster.dickinsonbros.com/ "http://rollercoaster.dickinsonbros.com/")
 
