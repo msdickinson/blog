@@ -1,3 +1,3 @@
 # Blog
 
-https://www.MarkSDickinson.com
+https://www.marksdickinson.com
