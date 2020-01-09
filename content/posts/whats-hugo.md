@@ -33,7 +33,7 @@ A single project and a single database with isolated data access using schemas.
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design2.png) 
 
 | Pros | Cons |
-| ------ | ----------- |
+| ------ | ------ |
 | Data is protected by domain logic and limited access reducing coupling   | Direct API Coupling |
 |  | Database Coupling |
 |  | No Partial deploys |
@@ -47,7 +47,7 @@ A single project with multiple databases and a reporting API that contains any r
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design3.png)
 
 | Pros | Cons |
-| ------ | ----------- |
+| ------ | ------ |
 | Data is protected by domain logic and limited access reducing coupling   | Direct API coupling |
 | Ability to change databases at in API Level without affecting other APIS and reporting | No partial deploys |
 | Reporting API reduces access for reporting purposes, and removes calls from production databases | Cannot scale parts independently |
@@ -60,7 +60,7 @@ Multiple project with their own database and a reporting API that contains any r
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design4.png)
 
 | Pros | Cons |
-| ------ | ----------- |
+| ------ | ------ |
 | Data is protected by domain logic and limited access reducing coupling   | Direct API coupling |
 | Ability to change databases at in API Level without affecting other APIS and reporting | Increased Response Times (Between APIS) |
 | Reporting API reduces access for reporting purposes, and removes calls from production databases | Cross cutting concerns require NuGet Packages to stay DRY |
@@ -74,9 +74,10 @@ Multiple project with their own database and a reporting API that contains any r
 Multiple project with their own database and a reporting API that contains any relevant non sensitive information. Communication between APIS is done though a bus, and APIS can push responses to the user using SignalR. The Bus communicates with APIs via a pub/sub modal using SignalR to alert then when there is data available.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Design5.png)
+
 | Pros | Cons |
-| ------ | ----------- |
-| Data is protected by domain logic and limited access reducing coupling   | Bus Coupling |
+| ------ | ------ |
+| Data is protected by domain logic and limited access reducing coupling  | Bus Coupling |
 | Ability to change databases at in API Level without affecting other APIS and reporting | Increased Response Times (Bus) |
 | Reporting API reduces access for reporting purposes, and removes calls from production databases | Cross cutting concerns require NuGet Packages to stay DRY |
 | APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple APIs and databases) |
@@ -92,7 +93,7 @@ Multiple project with their own database and a reporting API that contains any r
 I have used SQL professionally often with very limited experience in noSQL. I decided to do some reading and talked to multiple teams at three companies who are using CosmosDB or MonogDB in production.
 
 | Pros | Cons |
-| ------ | ----------- |
+| ------ | ------ |
 | Increased Up time (Redundancy)   | Ability to scale out instead of Up (Avoiding potential bottle necks) |
 | Ability to scale out instead of Up (Avoiding potential bottle necks) | Potential Expensive Writes (As may be in records) |
 | Database designed for fast reads (with data duplication as needed)    | Complex Records |
