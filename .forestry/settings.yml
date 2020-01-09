@@ -24,10 +24,10 @@ sections:
   path: FIRSTSTEPS.md
   label: First Steps
   read_only: true
-upload_dir: ''
+upload_dir: Media
 public_path: "/Media"
 front_matter_path: ''
-use_front_matter_path: false
+use_front_matter_path: 
 file_template: ":filename:"
 build:
   preview_env:
