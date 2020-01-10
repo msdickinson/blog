@@ -8,11 +8,11 @@ date: 2013-12-24T00:00:00.000+00:00
 
 ### Project Summary
 
-Roller coaster is a game that allows you to build and ride coasters. Over the past 8 years I have had a version on warcraft 3, windows phone, and the web. Roller coaster has brought in over 1 Million downloads on windows back when windows phone was a thing. My latest version in 2018 was a web version using web assembly (Blazor C#) and WebGL (Three.Js). This version only has the builder completed. My next version will allow you build, ride and share coasters on the web.
+Roller coaster is a game that allows you to build and ride coasters. Over the past 8 years I have had a version on warcraft 3, windows phone, and the web. Roller coaster has brought in over 1 Million downloads on windows back when windows phone was a thing. My latest version in 2018 was a web version using web assembly (Blazor C#) and WebGL (Three.Js). My next version will allow you build, ride and share coasters on the web.
 
-12 months ago, I entered a new job and I joined a team with significantly different practices then what I was a custom to. Eventually most of those practices sunk in. There is a strong difference though between following practices, design decisions, and packages that were largely set in place vs going though that process myself.
+12 months ago, I entered a new job and I joined a team with significantly different practices then what I was a custom to. Eventually most of those practices sunk in. There is a strong difference though between following practices, high level design decisions, and packages that were largely set in place vs going though that process myself.
 
-This project primary purposes are growing my skills by working though design decisions and praticeing my craft. Build a portfolio project at a professional grade. To create a foundation for other projects to come, and to create a successful (10 new accounts daily) roller coaster project.  
+This project primary purposes are growing my skills by working though design decisions and practicing my craft. Build a portfolio project at a professional grade, create a foundation for other projects to come and to create a successful (100 new accounts daily) roller coaster game.
 
 [http://rollercoaster.dickinsonbros.com](http://rollercoaster.dickinsonbros.com "http://rollercoaster.dickinsonbros.com") (2018 Version - Builder Only)
 
@@ -26,7 +26,7 @@ _Account_
 
 * Create Account (Email Optional)
 * Login
-* Reset Password (Email)
+* Reset Password (If Email Exist)
 * Update Password
 * Update Email Settings directly from all emails
 * Update Email Settings when logged in
@@ -38,49 +38,49 @@ _Coaster_
 * Load
 * Share (Private Link)
 * Publish (Public)
-* Find and Rate published coasters
-* Get notifications when your coaster is is riden or rated
+* Find and rate published coasters
+* Get notifications when your coaster is is ridden or rated
 
 _Achievement_
 
-* Gain Achievements
-* View Achievements
+* Gain achievements
+* View achievements
 * Get notification when you receive an achievement
 
 ### Principles
 
-After much consideration and speaking with many colleagues I determined principles highly depend on our project. For example, I have a brother who writes mobile app games for a living and many of his projects do not store any personal data or passwords. Putting in the extra effort to help ensure correctness, and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as many of them are in a sense a prototype. I am aiming for a production ready system that contains some personal data and this drove me to the following principles.
+After much consideration and speaking with many colleagues I determined principles highly depend on our project. For example, I have a brother who writes mobile app games for a living and many of his projects do not store any personal data or passwords. Putting in the extra effort to help ensure secure, correct and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as many of them are in a sense a prototype. I am aiming for a production ready system that contains some personal data and this drove me to the following principles.
 
 _Secure_
 
 * Modern password encryption
 * Login attempts guarded
 * Communication encrypted
-* No Personally identifiable information (PII) In logs, or reporting database
+* No personally identifiable information (PII) In logs or reporting database
 
 _Correct_
 
 * Testing - Unit, Integration, Manual
 * Multiple environments
 * Blue / Green Deployment
-* High Fidelity logging
+* High fidelity logging
 * Durable
 
 _Service Level Agreement_
 
-* Load Testing
+* Load testing
 * Monitoring
 
 _Maintenance_
 
 * High fidelity logging (Yes this in here twice)
-* Reporting - Accounts, Coasters, Achievements, and System Health
+* Reporting - accounts, coasters, achievements, and system health
 * Source control
 * Continuous integration
 * Documentation
 * Health checks
 
-For producton applications I have seen differing opinions on the degree of correctness and ability to maintain a project. Lower quality projects tend to have more patching and having to patch even for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. My experience has shown me It is worth the extra effort to ensure its secure, correct, handles expected load (SLA), and is maintainable.
+For production applications I have seen differing opinions on the degree of correctness and ability to maintain a project. Lower quality projects tend to have more patching and having to patch even for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. My experience has shown me It is worth the extra effort to ensure its secure, correct, handles expected load, and is maintainable.
 
 ### Conclusion
 
