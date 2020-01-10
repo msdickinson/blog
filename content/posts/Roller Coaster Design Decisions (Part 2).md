@@ -33,7 +33,7 @@ A single project and database with isolated data access using schemas.
 
 | Pros | Cons |
 | --- | --- |
-| Data is protected by domain logic and limited access reducing coupling | Direct API Coupling |
+| Data is protected by domain logic and limited access reducing coupling | Direct API coupling |
 |  | Database coupling |
 |  | No partial deploys |
 |  | Cannot scale parts independently |
