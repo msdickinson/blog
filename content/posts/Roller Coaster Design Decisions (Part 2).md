@@ -18,12 +18,16 @@ A single project and database.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design1.png)
 
-| Pros | Cons |
-| --- | --- |
-| Simple | API coupling |
-|  | Database coupling (Reporting queries are built on it)|
-|  | No partial deploys |
-|  | Cannot scale APIs and databases independently  |
+_Pros_
+
+* Simple
+
+_Cons_
+
+* API coupling
+* Database coupling (Reporting queries are built on it)
+* No partial deploys
+* Cannot scale APIs and databases independently
 
 ### (2) Monolith with Isolated Schemas
 
@@ -31,12 +35,16 @@ A single project and database with isolated data access using schemas.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design2.png)
 
-| Pros | Cons |
-| --- | --- |
-| Data is protected by domain logic and limited access | API coupling |
-|  | Database coupling (Reporting queries are built on it) |
-|  | No partial deploys |
-|  | Cannot scale APIs and databases independently |
+_Pros_
+
+* Data is protected by domain logic and limited access 
+
+_Cons_
+
+* API coupling
+* Database coupling (Reporting queries are built on it)
+* No partial deploys
+* Cannot scale APIs and databases independently
 
 ### (3) Monolith with Isolated Database
 
@@ -44,13 +52,20 @@ A single project with multiple databases and a reporting API that contains non s
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design3.png)
 
-| Pros | Cons |
-| --- | --- |
-| Data is protected by domain logic and limited access | API coupling |
-| Scale databases independently | No partial deploys |
-| Reporting API cannot query sensitive data and removes load from production databases  | Cannot scale APIs independently |
-| APIs run independently and push out results to other APIS | API Failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity |
-|  | Increased hosting cost (multiple databases) |
+_Pros_
+
+* Data is protected by domain logic and limited access
+* Scale databases independently
+* Reporting API cannot query sensitive data and removes load from production databases
+* APIs run independently and push out results to other APIS
+
+_Cons_
+
+* API coupling
+* No partial deploys
+* Cannot scale APIs independently
+* API Failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity
+* Increased hosting cost (multiple databases)
 
 ### (4) Microservices with Isolated Databases
 
@@ -58,13 +73,21 @@ Multiple projects with their own database and a reporting API that contains non 
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design4.png)
 
-| Pros | Cons |
-| --- | --- |
-| Data is protected by domain logic and limited access | API coupling |
-| Scale APIS and databases independently | Cross cutting concerns require NuGet Packages |
-| Reporting API cannot query sensitive data and removes load from production databases | Increased Response Times (Between APIS) |
-| APIs run independently and push out results to other APIS | API Failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity |
-| Ability to deploy single API | Increased hosting cost (multiple APIs and databases) |
+_Pros_
+
+* Data is protected by domain logic and limited access
+* Scale APIS and databases independently
+* Reporting API cannot query sensitive data and removes load from production databases
+* APIs run independently and push out results to other APIS
+* Ability to deploy single API r
+
+_Cons_
+
+* API coupling
+* Cross cutting concerns require NuGet Packages
+* Increased Response Times (Between APIS)
+* API Failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity
+* Increased hosting cost (multiple APIs and databases)
 
 
 ### (5) Microservices with Isolated Databases, Bus (Pub/Sub), and SignalR
@@ -73,15 +96,25 @@ Multiple projects with their own database and a reporting API that contains non 
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design5.png)
 
-| Pros | Cons |
-| --- | --- |
-| Data is protected by domain logic and limited access | Bus coupling |
-| Scale APIS and databases independently | Cross cutting concerns require NuGet Packages |
-| Reporting API cannot query sensitive data and removes load from production databases | Increased Response times (Bus) |
-| APIS are durable, in the case of in outage they can recover with retries from the Bus |
-| Increased hosting cost (multiple APIs and databases) |
-| Ability to deploy single API |  |
-| APIs can push a message to a user |  |
+
+_Pros_
+
+* Data is protected by domain logic and limited access
+* Scale APIS and databases independently
+* Reporting API cannot query sensitive data and removes load from production databases
+* APIS are durable, in the case of in outage they can recover with retries from the Bus
+* Increased hosting cost (multiple APIs and databases)
+* Ability to deploy single API
+* APIs can push a message to a user
+
+_Cons_
+
+* Bus coupling
+* Cross cutting concerns require NuGet Packages
+* Increased Response times (Bus)
+* Increased hosting cost (multiple APIs and databases)
+
+
 
 ### Additional System Design Considerations
 
@@ -129,7 +162,7 @@ _Pros_
 * Requires fine grain look at code. Often solves for problems that unit testing does not directly test for.
 * Saves time in the long run (From my experience)
 
-Cons
+_Cons_
 
 * Code needs to be designed to be unit tested (If you already follow SOLID, its rarely in issue)
 * Takes additional time, that should be done when the code is written
