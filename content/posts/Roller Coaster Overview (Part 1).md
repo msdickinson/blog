@@ -8,7 +8,7 @@ date: 2013-12-31T00:00:00.000+00:00
 
 ### Project Summary
 
-Roller coaster is a game that allows you to build and ride coasters. Over the past 8 years I have had a version on warcraft 3, windows phone, and the web. Roller coaster has brought in over 1.5 Million downloads on windows back when windows phone was a thing. My latest version in 2018 was a web version using web assembly (Blazor C#) and WebGL (Three.Js). My next version will allow you build, ride and share coasters on the web.
+Roller coaster is a game that allows you to build and ride coasters. Over the past 8 years I have had a version on warcraft 3, windows phone, and the web. Roller coaster has brought in over 1.5 million downloads on windows back when windows phone was a thing. My latest version in 2018 was a web version using web assembly (Blazor C#) and WebGL (Three.Js). My next version will allow you build, ride and share coasters on the web.
 
 12 months ago, I entered a new job and I joined a team with significantly different practices then what I was a custom to. Eventually most of those practices sunk in. There is a strong difference though between following practices, high level design decisions, and packages that were largely set in place vs going though that process myself.
 
