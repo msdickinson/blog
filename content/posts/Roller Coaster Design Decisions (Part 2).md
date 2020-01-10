@@ -6,7 +6,7 @@ date: 2020-01-09T07:00:00.000+00:00
 ---
 # Design Decisions
 
-This section will deal with system designs, SOLID, unit testing, integration testing, API considerations, API flows and cross cutting concerns.
+This section will deal with system designs, SOLID, unit testing, API considerations, API flows and cross cutting concerns.
 
 ## System Designs
 
@@ -104,7 +104,7 @@ The pros look fantastic. I have concerns being able to query for reporting purpo
 
 All designs except for (1) have intendent databases that require you to go through the API to access it. With these requirements the benefits of Redis became greatly diminished. If I find I have queries taking a long time or have load concerns on my database I will reconsider Redis in the future.
 
-### Conclusion
+### Design Conclusion
 
 After reviewing designs, reviewing their pros and con and then comparing them to my principles a clear winner stands out. I am going to go ahead with microservices with isolated databases, bus (Pub/Sub), and SignalR. The durableness of the design, ability to maintain, and flexibility it brings are worth increased responses times, complexity, additional work and hosting costs.
 
@@ -145,13 +145,10 @@ There are a lot of different styles and opinions on unit testing. These are mine
 
 I have written unit tests on the daily for 12 months. I have found the process of writing units to be even more valuable than the unit tests. It forces me to slow down and take heavy considerations of my code by walk through all the of code paths without glossing over anything. I also enjoy the increased confidence I have when modifying in existing solution as breaks existing tests pointing me to places that I caused a change.
 
-## Integration Testing
-
-Integration testing is a great way to test before deployments and after. I have a single project that runs integration tests for all projects. I write an integration test for all expected return flows from each end point in the service, with the exception of 500s. If in API is supposed to update the user in the database and It returns a 200. I accept the 200 and unless needed do not inspect the database for the expected change. All tests are designed to be able to run repeatedly and in parallel.
 
 ## API Considerations
 
-Each API Will include the following Projects
+Each API will include the following Projects
 
 * Abstractions – Shares models between View API and Proxy
 * View API (ASP.net)
@@ -160,7 +157,7 @@ Each API Will include the following Projects
 * Database (SQL Scripts)
 * Proxy (Library) and Proxy Runner (Console)
 
-The two interesting points here are database, and proxy. Keeping all of my queries inside of source control with some intellisense has served me well in the past. The proxy for most APIS won’t be used in production, but will give me another option to test my API when running local, and when running integration tests.
+The two interesting points here are database and proxy. Keeping all of my queries inside of source control has served me well in the past. The proxy for most APIS won’t be used in production, but will give me another option to test my API when running local, and when running integration tests.
 
 Each Project (excluding Database and Proxy runner) will have a Unit test project with them.
 
