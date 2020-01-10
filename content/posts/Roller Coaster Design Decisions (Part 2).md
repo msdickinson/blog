@@ -10,7 +10,7 @@ This section will deal with system designs, SOLID, unit testing, integration tes
 
 ## System Designs
 
-I’ll walk though different designs and find the design that fits my principles best.
+I’ll work though different designs and find the design that fits my principles best.
 
 ### (1) Monolith
 
