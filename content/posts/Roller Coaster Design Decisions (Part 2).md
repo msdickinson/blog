@@ -15,8 +15,7 @@ I’ll walk though different designs and find the design that fits my coding pri
 ### (1) Monolith
 
 A single project and database.
-
-![](https://d3efwhw5kd1q0b.cloudfront.net/Design1.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design1.png)
 | Pros · Simple | Cons · Direct API Coupling · Database Coupling · No Partial deploys · Cannot scale parts Independently |
 
 | Pros | Cons |
