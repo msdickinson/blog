@@ -20,10 +20,10 @@ A single project and database.
 
 | Pros | Cons |
 | --- | --- |
-| Simple | Direct API Coupling |
-|  | Database coupling |
+| Simple | API coupling |
+|  | Database coupling (Reporting queries are built on it)|
 |  | No partial deploys |
-|  | Cannot scale parts independently |
+|  | Cannot scale APIs and databases independently  |
 
 ### (2) Monolith with Isolated Schemas
 
@@ -33,61 +33,61 @@ A single project and database with isolated data access using schemas.
 
 | Pros | Cons |
 | --- | --- |
-| Data is protected by domain logic and limited access reducing coupling | Direct API coupling |
-|  | Database coupling |
+| Data is protected by domain logic and limited access | API coupling |
+|  | Database coupling (Reporting queries are built on it) |
 |  | No partial deploys |
-|  | Cannot scale parts independently |
+|  | Cannot scale APIs and databases independently |
 
 ### (3) Monolith with Isolated Database
 
-A single project with multiple databases and a reporting API that contains any relevant non sensitive information.
+A single project with multiple databases and a reporting API that contains non sensitive data.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design3.png)
 
 | Pros | Cons |
 | --- | --- |
-| Data is protected by domain logic and limited access reducing coupling | Direct API coupling |
-| Ability to change databases at in API Level without affecting other APIS and reporting | No partial deploys |
-| Reporting API reduces access for reporting purposes, and removes calls from production databases | Cannot scale parts independently |
-| APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple databases) |
+| Data is protected by domain logic and limited access | API coupling |
+| Scale databases independently | No partial deploys |
+| Reporting API cannot query sensitive data and removes load from production databases  | Cannot scale APIs independently |
+| APIs run independently and push out results to other APIS | API Failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity |
+|  | Increased hosting cost (multiple databases) |
 
 ### (4) Microservices with Isolated Databases
 
-Multiple project with their own database and a reporting API that contains any relevant non sensitive information.
+Multiple projects with their own database and a reporting API that contains non sensitive data.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design4.png)
 
 | Pros | Cons |
 | --- | --- |
-| Data is protected by domain logic and limited access reducing coupling | Direct API coupling |
-| Ability to change databases at in API Level without affecting other APIS and reporting | Increased Response Times (Between APIS) |
-| Reporting API reduces access for reporting purposes, and removes calls from production databases | Cross cutting concerns require NuGet Packages to stay DRY |
-| APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple APIs and databases) |
-| Ability to deploy Single APIS at a time |  |
-| Ability to scale APIS independently |  |
-| APIS |  |
+| Data is protected by domain logic and limited access | API coupling |
+| Scale APIS and databases independently | Cross cutting concerns require NuGet Packages |
+| Reporting API cannot query sensitive data and removes load from production databases | Increased Response Times (Between APIS) |
+| APIs run independently and push out results to other APIS | API Failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity |
+| Ability to deploy single API | Increased hosting cost (multiple APIs and databases) |
+
 
 ### (5) Microservices with Isolated Databases, Bus (Pub/Sub), and SignalR
 
-Multiple project with their own database and a reporting API that contains any relevant non sensitive information. Communication between APIS is done though a bus, and APIS can push responses to the user using SignalR. The Bus communicates with APIs via a pub/sub modal using SignalR to alert then when there is data available.
+Multiple projects with their own database and a reporting API that contains non sensitive data. Communication between APIS is done though a bus via a pub/sub modal using SignalR for signaling. APIS can push to the user using SignalR. 
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design5.png)
 
 | Pros | Cons |
 | --- | --- |
-| Data is protected by domain logic and limited access reducing coupling | Bus Coupling |
-| Ability to change databases at in API Level without affecting other APIS and reporting | Increased Response Times (Bus) |
-| Reporting API reduces access for reporting purposes, and removes calls from production databases | Cross cutting concerns require NuGet Packages to stay DRY |
-| APIs are fully independently functional and pass forward information to others instead of requesting data | Increased hosting cost (multiple APIs and databases) |
-| Ability to deploy Single APIS at a time |  |
-| Ability to scale APIS independently |  |
-| Ability for Any API to respond  to message user |  |
+| Data is protected by domain logic and limited access | Bus coupling |
+| Scale APIS and databases independently | Cross cutting concerns require NuGet Packages |
+| Reporting API cannot query sensitive data and removes load from production databases | Increased Response times (Bus) |
+| APIS are durable, in the case of in outage they can recover with retries from the Bus |
+| Increased hosting cost (multiple APIs and databases) |
+| Ability to deploy single API |  |
+| APIs can push a message to a user |  |
 
 ### Additional System Design Considerations
 
 #### SQL / NoSQL
 
-I have used SQL professionally often with very limited experience in noSQL. I decided to do some reading and talked to multiple teams at three companies who are using CosmosDB or MonogDB in production.
+I have limited experince using CosmosDB (noSQL) professionally. But I wanted to consider the pros and cons and see if noSQL was a good fit.
 
 | Pros | Cons |
 | --- | --- |
@@ -96,25 +96,27 @@ I have used SQL professionally often with very limited experience in noSQL. I de
 | Database designed for fast reads (with data duplication as needed) |  |
 | Cheaper |  |
 
-Reviewing the cons, the inability to query for reporting purposes won’t be a problem. Complex records are where I have a lot of pause. I worked out what the coasters API may look like using it and it brought a lot of additional complexity and concerns to the table. The additional up time is the only pro that I feel I would strongly desire, but It is not worth the additional complexity for this project. To be fair my noSQL experience is limited but I am going to stick with SQL in all APIS for the MVP.
+
+The pros look fantastic. I have concerns being able to query for reporting purposes but design (5) solves for that. The inability to query and complexity of the records for the coasters API do not seem worth the effort. I hope one day to improve my noSQL skills further but It does not appear to be a good fit for this project.
+
 
 #### Redis
 
-After concluding that I am going to put each database on the same machine as there API, the benefits of Redis became greatly diminished. If I find I have queries taking a long time or have load concerns on my database I will reconsider Redis in the future.
+All designs except for (1) have intendent databases that require you to go through the API to access it. With these requirements the benefits of Redis became greatly diminished. If I find I have queries taking a long time or have load concerns on my database I will reconsider Redis in the future.
 
 ### Conclusion
 
-After reviewing designs, reviewing their pros and con and then comparing them to my coding principles a clear winner stands out. I am going to go ahead with microservices with isolated databases, bus (Pub/Sub), and SignalR. The durableness of the design, ability to maintain, and flexibility it brings are worth increased responses times, complexity, additional work and hosting costs.
+After reviewing designs, reviewing their pros and con and then comparing them to my principles a clear winner stands out. I am going to go ahead with microservices with isolated databases, bus (Pub/Sub), and SignalR. The durableness of the design, ability to maintain, and flexibility it brings are worth increased responses times, complexity, additional work and hosting costs.
 
 ## SOLID
 
-SOLID helps keep applications maintainable and this fits well with my coding principles.
+SOLID helps keep applications maintainable and testable. These traits fit very well with my project principles. 
 
-One principle that needs in implementation detail is dependency inversion. This dictates that dependencies should depend upon abstractions instead of concrete classes. This brings the benefits of classes being extensible, and testable. To solve for this generally factories or dependency injection are used.
+In implementation detail that needs consideration is dependency inversion. This dictates that dependencies should depend upon abstractions instead of concrete classes. This brings the benefits of classes being extensible and testable. To solve for this generally factories or dependency injection are used.
 
 Factories generate in instance of another class. Dependency injection (DI) uses configuration, and injects the dependency where you need them. In reality DI injects them in more places then where you ask for your dependency but only as needed.
 
-I have chosen to use dependency injection because It reduces my code, reduces tests, scope, has additional extensibility options.
+I have chosen to use dependency injection because it reduces code, reduces tests, reduces scope and has additional extensibility options.
 
 ## Unit Testing
 
@@ -168,11 +170,11 @@ Now that I have a design, I reviewed my coding principles and practices and crea
 
 **High level Flow**
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Flows 1.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Flows+1.png)
 
 Before taking my theory too far, I decided it was time to create a quick prototype of Account API and flush out unit tests. Doing so turned up concerns about testability and repeating patterns of code. Here are 2 of my main prototype flows.
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Flows 2.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Flows+2.png)
 
 After reviewing my prototype, I came up with these cross-cutting concerns.
 
