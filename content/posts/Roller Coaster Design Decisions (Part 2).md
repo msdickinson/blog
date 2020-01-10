@@ -6,7 +6,7 @@ date: 2020-01-09T07:00:00.000+00:00
 ---
 # Design Decisions
 
-This section will deal with system designs, SOLID, unit testing, integration testing, API considerations, API flows and cross cutting concerns. 
+This section will deal with system designs, SOLID, unit testing, integration testing, API considerations, API flows and cross cutting concerns.
 
 ## System Designs
 
@@ -16,8 +16,7 @@ I’ll walk though different designs and find the design that fits my principles
 
 A single project and database.
 
-
-![](d3efwhw5kd1q0b.cloudfront.net/Media/Design1-1.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design1-1.png)
 
 | Pros | Cons |
 | --- | --- |
@@ -30,7 +29,7 @@ A single project and database.
 
 A single project and a single database with isolated data access using schemas.
 
-![](d3efwhw5kd1q0b.cloudfront.net/Media/Design2.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design2.png)
 
 | Pros | Cons |
 | --- | --- |
@@ -43,7 +42,7 @@ A single project and a single database with isolated data access using schemas.
 
 A single project with multiple databases and a reporting API that contains any relevant non sensitive information.
 
-![](d3efwhw5kd1q0b.cloudfront.net/Media/Design3.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design3.png)
 
 | Pros | Cons |
 | --- | --- |
@@ -56,7 +55,7 @@ A single project with multiple databases and a reporting API that contains any r
 
 Multiple project with their own database and a reporting API that contains any relevant non sensitive information.
 
-![](d3efwhw5kd1q0b.cloudfront.net/Media/Design4.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design4.png)
 
 | Pros | Cons |
 | --- | --- |
@@ -72,7 +71,7 @@ Multiple project with their own database and a reporting API that contains any r
 
 Multiple project with their own database and a reporting API that contains any relevant non sensitive information. Communication between APIS is done though a bus, and APIS can push responses to the user using SignalR. The Bus communicates with APIs via a pub/sub modal using SignalR to alert then when there is data available.
 
-![](d3efwhw5kd1q0b.cloudfront.net/Media/Design5.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design5.png)
 
 | Pros | Cons |
 | --- | --- |
@@ -169,11 +168,11 @@ Now that I have a design, I reviewed my coding principles and practices and crea
 
 **High level Flow**
 
-![](d3efwhw5kd1q0b.cloudfront.net/Media/Flows 1.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Flows 1.png)
 
 Before taking my theory too far, I decided it was time to create a quick prototype of Account API and flush out unit tests. Doing so turned up concerns about testability and repeating patterns of code. Here are 2 of my main prototype flows.
 
-![](d3efwhw5kd1q0b.cloudfront.net/Media/Flows 2.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Flows 2.png)
 
 After reviewing my prototype, I came up with these cross-cutting concerns.
 
