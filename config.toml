@@ -1,13 +1,13 @@
 baseURL = "https://d3efwhw5kd1q0b.cloudfront.net/"
 languageCode = "en-us"
 theme = "hyde"
-[Menus]
-  main = [
-      {Name = "Github", URL = "https://github.com/msdickinson"},
-      {Name = "LinkedIn", URL = "www.linkedin.com/in/marksamdickinson"}
-  ]
 title = "Mark Dickinson"
 uglyurls = true
+[Menus]
+main = [
+    {Name = "Github", URL = "https://github.com/msdickinson"},
+    {Name = "LinkedIn", URL = "www.linkedin.com/in/marksamdickinson"}
+]
 [params]
 disqusShortname = ""
 googleAnalytics = ""
