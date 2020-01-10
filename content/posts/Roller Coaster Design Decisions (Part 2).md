@@ -4,7 +4,7 @@ title: Roller Coaster Design Decisions (Part 2)
 date: 2020-01-09T07:00:00+00:00
 
 ---
-# Design Decisions
+# Roller Coaster - Design Decisions
 
 This section will deal with system designs, SOLID, API considerations, cross cutting concerns, unit testing, and integration testing.
 
