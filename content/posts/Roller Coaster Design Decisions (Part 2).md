@@ -16,7 +16,7 @@ I’ll walk though different designs and find the design that fits my principles
 
 A single project and database.
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design1-1.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design1.png)
 
 | Pros | Cons |
 | --- | --- |
