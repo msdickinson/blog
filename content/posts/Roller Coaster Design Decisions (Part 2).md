@@ -122,13 +122,17 @@ _Cons_
 
 I have limited experince using CosmosDB (noSQL) professionally. But I wanted to consider the pros and cons and see if noSQL was a good fit.
 
-| Pros | Cons |
-| --- | --- |
-| Increased Up time (Redundancy) | Limited ability to query |
-| Ability to scale out instead of Up (Avoiding potential bottle necks) | Complex Records |
-| Database designed for fast reads (with data duplication as needed) |  |
-| Cheaper |  |
+_Pros_
 
+* Increased Up time (Redundancy)
+* Ability to scale out instead of Up (Avoiding potential bottle necks)
+* Database designed for fast reads (with data duplication as needed
+* Reduced Costs
+
+_Cons_
+
+* Limited ability to query
+* Complex Records
 
 The pros look fantastic. I have concerns being able to query for reporting purposes but design (5) solves for that. The inability to query and complexity of the records for the coasters API do not seem worth the effort. I hope one day to improve my noSQL skills further but It does not appear to be a good fit for this project.
 
