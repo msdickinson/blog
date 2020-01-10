@@ -139,7 +139,7 @@ The pros look fantastic. I have concerns being able to query for reporting purpo
 
 #### Redis
 
-All designs except for (1) have intendent databases that require you to go through the API to access it. With these requirements the benefits of Redis became greatly diminished. If I find I have queries taking a long time or have load concerns on my database I will reconsider Redis in the future.
+All designs except for (1) have databases that require you to go through the API to access it. Addtionly I intend to keep the database and there API on the same machine. With these requirements the benefits of redis became greatly diminished. If I find I have queries taking a long time or have load concerns on my database I will reconsider Redis in the future.
 
 ### Design Conclusion
 
