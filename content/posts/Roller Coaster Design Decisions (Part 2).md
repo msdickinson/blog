@@ -79,7 +79,7 @@ _Pros_
 * Scale APIS and databases independently
 * Reporting API cannot query sensitive data and removes load from production databases
 * APIs run independently and push out results to other APIS
-* Ability to deploy single API r
+* Ability to deploy single API
 
 _Cons_
 
