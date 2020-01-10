@@ -17,7 +17,7 @@ sections:
 - type: heading
   label: Documentation
 upload_dir: Media
-public_path: d3efwhw5kd1q0b.cloudfront.net/Media
+public_path: https://d3efwhw5kd1q0b.cloudfront.net/Media
 front_matter_path: ''
 use_front_matter_path: 
 file_template: ":filename:"
