@@ -146,7 +146,7 @@ SOLID helps keep applications maintainable and testable. These traits fit very w
 
 In implementation detail of SOLID that needs consideration is dependency inversion. This dictates that dependencies should depend upon abstractions instead of concrete classes. This brings the benefits of classes being extensible and testable. To solve for this generally factories or dependency injection are used.
 
-Factories are methods that generate in instance of another class. Dependency injection (DI) uses configuration, and injects the dependency where you need them. In reality DI injects them in more places then where you ask for your dependency but only as needed.
+Factories are methods that generate in instance of a class. Dependency injection (DI) uses configuration, and injects the dependency where you need them. In reality DI injects them in more places then where you ask for your dependency but only as needed.
 
 I have chosen to use dependency injection because it reduces code, reduces tests, reduces scope and has additional extensibility options.
 
