@@ -6,17 +6,18 @@ date: 2020-01-09T07:00:00.000+00:00
 ---
 # Design Decisions
 
-This section will deal with system designs, SOLID, unit testing, Integration testing, API considerations, API flows and cross cutting concerns.
+This section will deal with system designs, SOLID, unit testing, integration testing, API considerations, API flows and cross cutting concerns. 
 
 ## System Designs
 
-I’ll walk though different designs and find the design that fits my coding principles best.
+I’ll walk though different designs and find the design that fits my principles best.
 
 ### (1) Monolith
 
 A single project and database.
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design1.png)
-| Pros · Simple | Cons · Direct API Coupling · Database Coupling · No Partial deploys · Cannot scale parts Independently |
+
+
+![](d3efwhw5kd1q0b.cloudfront.net/Media/Design1-1.png)
 
 | Pros | Cons |
 | --- | --- |
@@ -29,7 +30,7 @@ A single project and database.
 
 A single project and a single database with isolated data access using schemas.
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Design2.png)
+![](d3efwhw5kd1q0b.cloudfront.net/Media/Design2.png)
 
 | Pros | Cons |
 | --- | --- |
@@ -42,7 +43,7 @@ A single project and a single database with isolated data access using schemas.
 
 A single project with multiple databases and a reporting API that contains any relevant non sensitive information.
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Design3.png)
+![](d3efwhw5kd1q0b.cloudfront.net/Media/Design3.png)
 
 | Pros | Cons |
 | --- | --- |
@@ -55,7 +56,7 @@ A single project with multiple databases and a reporting API that contains any r
 
 Multiple project with their own database and a reporting API that contains any relevant non sensitive information.
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Design4.png)
+![](d3efwhw5kd1q0b.cloudfront.net/Media/Design4.png)
 
 | Pros | Cons |
 | --- | --- |
@@ -71,7 +72,7 @@ Multiple project with their own database and a reporting API that contains any r
 
 Multiple project with their own database and a reporting API that contains any relevant non sensitive information. Communication between APIS is done though a bus, and APIS can push responses to the user using SignalR. The Bus communicates with APIs via a pub/sub modal using SignalR to alert then when there is data available.
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Design5.png)
+![](d3efwhw5kd1q0b.cloudfront.net/Media/Design5.png)
 
 | Pros | Cons |
 | --- | --- |
@@ -168,11 +169,11 @@ Now that I have a design, I reviewed my coding principles and practices and crea
 
 **High level Flow**
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Flows 1.png)
+![](d3efwhw5kd1q0b.cloudfront.net/Media/Flows 1.png)
 
 Before taking my theory too far, I decided it was time to create a quick prototype of Account API and flush out unit tests. Doing so turned up concerns about testability and repeating patterns of code. Here are 2 of my main prototype flows.
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Flows 2.png)
+![](d3efwhw5kd1q0b.cloudfront.net/Media/Flows 2.png)
 
 After reviewing my prototype, I came up with these cross-cutting concerns.
 
