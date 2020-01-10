@@ -143,7 +143,7 @@ All designs except for (1) have intendent databases that require you to go throu
 
 ### Design Conclusion
 
-After reviewing designs, reviewing their pros and con and then comparing them to my principles a clear winner stands out. I am going to go ahead with microservices with isolated databases, bus (Pub/Sub), and SignalR. The durableness of the design, ability to maintain, and flexibility it brings are worth increased responses times, complexity, additional work and hosting costs.
+After reviewing designs with there pros and cons and then comparing them to my principles a clear winner stands out. I am going to go ahead with microservices with isolated databases, bus (Pub/Sub), and SignalR. The durableness of the design, ability to maintain, and flexibility it brings are worth increased responses times, complexity, additional work and hosting costs.
 
 ## SOLID
 
