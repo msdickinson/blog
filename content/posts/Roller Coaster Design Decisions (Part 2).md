@@ -179,16 +179,16 @@ I have written unit tests on the daily for 12 months. I have found the process o
 
 ## API Considerations
 
-Each API will include the following Projects
+Each API will include the following projects
 
-* Abstractions – Shares models between View API and Proxy
+* Abstractions – Shares models between view and proxy
 * View API (ASP.net)
 * Logic API (Library)
 * Infrastructure (Library)
 * Database (SQL Scripts)
 * Proxy (Library) and Proxy Runner (Console)
 
-The two interesting points here are database and proxy. Keeping all of my queries inside of source control has served me well in the past. The proxy for most APIS won’t be used in production, but will give me another option to test my API when running local, and when running integration tests.
+The two interesting points here are database and proxy. Keeping all of my database queries inside of source control has served me well in the past. The proxy for most APIS won’t be used in production, but will give me another option to test my API when running local, and when running integration tests.
 
 Each Project (excluding Database and Proxy runner) will have a Unit test project with them.
 
