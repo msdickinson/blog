@@ -6,7 +6,7 @@ uglyurls = true
 [Menus]
 main = [
     {Name = "Github", URL = "https://github.com/msdickinson"},
-    {Name = "LinkedIn", URL = "www.linkedin.com/in/marksamdickinson"}
+    {Name = "LinkedIn", URL = "https://www.linkedin.com/in/marksamdickinson"}
 ]
 [params]
 disqusShortname = ""
