@@ -182,8 +182,8 @@ I have written unit tests on the daily for 12 months. I have found the process o
 Each API will include the following projects
 
 * Abstractions – Shares models between view and proxy
-* View API (ASP.net)
-* Logic API (Library)
+* View (Asp.net)
+* Logic (Library)
 * Infrastructure (Library)
 * Database (SQL Scripts)
 * Proxy (Library) and Proxy Runner (Console)
@@ -194,7 +194,7 @@ Each Project (excluding Database and Proxy runner) will have a Unit test project
 
 ## Cross Cutting Concerns (NuGet Packages)
 
-Now that I have a design, I reviewed my coding principles and practices and created this flow here. In this example, I can see that APIS will be using REST, SQL, and redacted logging.
+Now that I have a principles, design, and project stucture I created this flow here. In this example, I can see that APIS will be using REST, SQL, and redacted logging.
 
 **High level Flow**
 
@@ -225,6 +225,6 @@ At my place of work, we have a much larger stack for our use cases, and there is
 
 ## Conclusion
 
-After careful thought on multiple system designs a plan emerged that fits well for the user stories and coding principles. Next walking though implementation decisions with SOILD using dependency injection. Considerations with unit and integration testing were reviewed. Then creating a general guideline for APIS using N-Tier, proxies, and SQL Scripts. Finally looking thought request flows and prototyping to find cross cutting concerns.
+After careful thought on multiple system designs a plan emerged that fits well for the user stories and principles. Next walking though implementation decisions with SOILD using dependency injection. Considerations with unit testing were reviewed. Then creating a general guideline for APIS using N-Tier, proxies, and SQL Scripts. Finally looking thought request flows and prototyping to find cross cutting concerns.
 
-These considerations have help set the table to hit the ground running with a clear high-level plan. I have heard that designing to early can cause over architecture instead of growing it as you need it. I have found that by the time it’s a major problem it can be a massive effort and level of risk to change it. Even if it’s a moderate effort explaining to your boss that you need take a few days, weeks, months to rewrite code for maintenance is an uphill battle.
+These considerations have help set the table to hit the ground running with a clear high-level plan. I have heard that designing to early can cause over architecture instead of growing it as you need it. I have found that by the time it’s a major problem it can be a massive effort and level of risk to change it. Explaining to your boss that you need take a few days, weeks, months to rewrite code for maintenance is an uphill battle.
