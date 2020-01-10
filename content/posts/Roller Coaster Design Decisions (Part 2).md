@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Roller Coaster Design Decisions (Part 2)
-date: 2020-01-09T07:00:00.000+00:00
+date: 2020-01-13T07:00:00+00:00
 
 ---
 # Design Decisions
