@@ -37,7 +37,7 @@ A single project and database with isolated data access using schemas.
 
 _Pros_
 
-* Data is protected by domain logic and limited access 
+* Data is protected by domain logic and limited access
 
 _Cons_
 
@@ -89,13 +89,11 @@ _Cons_
 * API Failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity
 * Increased hosting cost (multiple APIs and databases)
 
-
 ### (5) Microservices with Isolated Databases, Bus (Pub/Sub), and SignalR
 
-Multiple projects with their own database and a reporting API that contains non sensitive data. Communication between APIS is done though a bus via a pub/sub modal using SignalR for signaling. APIS can push to the user using SignalR. 
+Multiple projects with their own database and a reporting API that contains non sensitive data. Communication between APIS is done though a bus via a pub/sub modal using SignalR for signaling. APIS can push to the user using SignalR.
 
 ![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design5.png)
-
 
 _Pros_
 
@@ -114,8 +112,6 @@ _Cons_
 * Increased Response times (Bus)
 * Increased hosting cost (multiple APIs and databases)
 
-
-
 ### Additional System Design Considerations
 
 #### SQL / NoSQL
@@ -124,34 +120,33 @@ I have limited experince using CosmosDB (noSQL) professionally. But I wanted to 
 
 _Pros_
 
-* Increased Up time (Redundancy)
-* Ability to scale out instead of Up (Avoiding potential bottle necks)
-* Database designed for fast reads (with data duplication as needed
+* Increased up time (Redundancy)
+* Ability to scale out (Avoiding potential bottle necks)
+* Database designed for fast reads (with data duplication as needed)
 * Reduced Costs
 
 _Cons_
 
 * Limited ability to query
-* Complex Records
+* Complex records
 
-The pros look fantastic. I have concerns being able to query for reporting purposes but design (5) solves for that. The inability to query and complexity of the records for the coasters API do not seem worth the effort. I hope one day to improve my noSQL skills further but It does not appear to be a good fit for this project.
-
+The pros look fantastic. I have concerns being able to query for reporting purposes but design 3, 4, and 5 solves for that. The inability to query and complexity of the records for the coasters API do not seem worth the effort. I hope one day to improve my noSQL skills further but It does not appear to be a good fit for this project.
 
 #### Redis
 
-All designs except for (1) have databases that require you to go through the API to access it. Addtionly I intend to keep the database and there API on the same machine. With these requirements the benefits of redis became greatly diminished. If I find I have queries taking a long time or have load concerns on my database I will reconsider Redis in the future.
+All designs except for (1) have databases that require you to go through the API to access it. Addtionly I intend to keep the database and there API on the same machine. With these requirements the benefits of redis became greatly diminished. If I find I have queries taking a long time or have load concerns on my database I will reconsider redis in the future.
 
 ### Design Conclusion
 
-After reviewing designs with there pros and cons and then comparing them to my principles a clear winner stands out. I am going to go ahead with microservices with isolated databases, bus (Pub/Sub), and SignalR. The durableness of the design, ability to maintain, and flexibility it brings are worth increased responses times, complexity, additional work and hosting costs.
+After reviewing pros and cons of each design and then comparing them to my principles a clear winner stands out. I am going to go ahead with microservices with isolated databases, bus (Pub/Sub), and SignalR. The durableness of the design, ability to maintain, and flexibility it brings are worth increased responses times, complexity, additional work and hosting costs.
 
 ## SOLID
 
-SOLID helps keep applications maintainable and testable. These traits fit very well with my project principles. 
+SOLID helps keep applications maintainable and testable. These traits fit very well with my principles.
 
-In implementation detail that needs consideration is dependency inversion. This dictates that dependencies should depend upon abstractions instead of concrete classes. This brings the benefits of classes being extensible and testable. To solve for this generally factories or dependency injection are used.
+In implementation detail of SOLID that needs consideration is dependency inversion. This dictates that dependencies should depend upon abstractions instead of concrete classes. This brings the benefits of classes being extensible and testable. To solve for this generally factories or dependency injection are used.
 
-Factories generate in instance of another class. Dependency injection (DI) uses configuration, and injects the dependency where you need them. In reality DI injects them in more places then where you ask for your dependency but only as needed.
+Factories are methods that generate in instance of another class. Dependency injection (DI) uses configuration, and injects the dependency where you need them. In reality DI injects them in more places then where you ask for your dependency but only as needed.
 
 I have chosen to use dependency injection because it reduces code, reduces tests, reduces scope and has additional extensibility options.
 
@@ -163,25 +158,24 @@ _Pros_
 
 * Find a class of concerns early
 * Tests can be reused as regression tests
-* Requires fine grain look at code. Often solves for problems that unit testing does not directly test for.
+* Requires fine grain look at code that often solves for problems that unit testing does not directly test for.
 * Saves time in the long run (From my experience)
 
 _Cons_
 
 * Code needs to be designed to be unit tested (If you already follow SOLID, its rarely in issue)
-* Takes additional time, that should be done when the code is written
+* Takes additional time
 
-There are a lot of different styles and opinions on unit testing. These are mine.
+There are different opinions on how to unit testing and what should be tested. These are mine.
 
 * Test for return value, exceptions, state change, and interactions.
-* Test names follow UnitUndertest_Sencrio_Expected convention.
+* Test names follow UnitUnderTest_Scenario_Expected convention.
 * Each unit test I target one line of code and use as many asserts as needed for that line.
-* 100% Unit Test Coverage, every method independently tested (even if indirectly tested) and change my private methods to internal.
+* 100% Unit test coverage with every method independently tested (even if indirectly tested) and use internal methods over private.
 * For dependencies that have statics, and very challenging to test code, I choose to wrap them in another class and then add exclude from coverage.
-* For plan data objects that have no logic I exclude form code coverage.
+* For plan data objects that have no logic I exclude from code coverage.
 
-I have written unit tests on the daily for 12 months. I have found the process of writing units to be even more valuable than the unit tests. It forces me to slow down and take heavy considerations of my code by walk through all the of code paths without glossing over anything. I also enjoy the increased confidence I have when modifying in existing solution as breaks existing tests pointing me to places that I caused a change.
-
+I have written unit tests on the daily for 12 months. I have found the process of writing units to be even more valuable than the tests them selfs. It forces me to slow down and take heavy considerations of my code by walk through all the of code paths without glossing over anything. I also enjoy the increased confidence I have when modifying in existing solution as breaks existing tests pointing me to places that I caused a change.
 
 ## API Considerations
 
