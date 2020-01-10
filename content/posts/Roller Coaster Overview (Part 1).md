@@ -49,7 +49,7 @@ _Achievement_
 
 ### Principles
 
-After much consideration and speaking with many colleagues I determined principles highly depend on our project. For example, I have a brother who writes mobile app games for a living and many of his projects do not store any personal data or passwords. Putting in the extra effort to help ensure secure, correct and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as many of them are in a sense a prototype. I am aiming for a production ready system that contains some personal data and this drove me to the following principles.
+After much consideration and speaking with many colleagues I determined principles highly depend on the project. For example, I have a brother who writes mobile app games for a living and many of his projects do not store any personal data or passwords. Putting in the extra effort to help ensure secure, correct and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as many of them are in a sense a prototype. I am aiming for a production ready system that contains some personal data and this drove me to the following principles.
 
 _Secure_
 
