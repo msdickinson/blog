@@ -187,6 +187,7 @@ After reviewing my prototype, I came up with these cross-cutting concerns.
 * Encryption (Certificate) – ability to encode and decode strings with certs
 * Logger – adds correlation ids and redaction to all logging
 * Redactor – redacts objects and json strings with regular expression and property names
+* Test - adds ablity to DI unit tests, and helper methods
 
 _Versioning_
 
