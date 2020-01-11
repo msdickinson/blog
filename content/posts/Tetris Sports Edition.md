@@ -1,22 +1,15 @@
 +++
-date = 2013-12-01T07:00:00Z
-draft = true
+date = 2007-11-05T07:00:00Z
 layout = "post"
-title = "Imagine Cup – Toad Jam"
+title = "Tetris Sports Edition"
 
 +++
-Toad Jam is mobile phone puzzle game similar to that of Tetris. It was submitted to the Imagine Cup US Nationals contest in 2012 and was received with admiration. The imagine Cup is a worldwide software design competition sponsored by Microsoft. Our team – Mark, Luke, and Andy Dickinson (brothers).
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/tetris-sports-edition-title2.png)
 
-### **Our Entry**
+Tetris Sports Edition is a form of tetris, but with fun, upbeat music and a sports theme. It has a globetrotter to help you along your way, and will cheer you on when you score some points. If you’re looking for a fun and simple game, with a nice upbeat theme and support from the globetrotters, then this is the game for you. Built by Mark Dickinson, and Luke Dickinson
 
-Toad Jam is a puzzle game for Windows Phone, and Windows 8, built in **Silverlight** and **Photon**. The player’s goal is to stop the toads from reaching the top of the screen, in three different game modes: Classic, Online and Puzzle Mode. Classic is a survival mode, where you attempt to last as long as you can. Online is a battle mode, where you play with others online cross platform on windows 8. Puzzle mode is a challenge mode, where you have to remove the toads in the least amount of moves. The game additionally features a unique award system that can be viewed during play.
+[http://www.teamzonesports.com/SilverlightGameContest](http://www.teamzonesports.com/SilverlightGameContest "http://www.teamzonesports.com/SilverlightGameContest")
 
-**Videos**
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/tetris-sports-edition-titlepage.png)
 
-(Advertisement) [https://www.youtube.com/watch?f&v=y9dTWZEaTVo](https://www.youtube.com/watch?f&v=y9dTWZEaTVo "https://www.youtube.com/watch?f&v=y9dTWZEaTVo")
-
-(Full Game Presentation) [http://www.youtube.com/watch?v=wSMeUPkqpNo](http://www.youtube.com/watch?v=wSMeUPkqpNo "http://www.youtube.com/watch?v=wSMeUPkqpNo")
-
-**Screen Shots**
-
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/how-to-play.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/mainmenu.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/awards.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/online.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/world.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/levels.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/puzzelmode.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/onlineplay.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/tetris-sports-edition.png)
