@@ -4,8 +4,6 @@ layout = "post"
 title = "Imagine Cup – Toad Jam"
 
 +++
-# Imagine Cup – Toad Jam****
-
 Toad Jam is mobile phone puzzle game similar to that of Tetris. It was submitted to the Imagine Cup US Nationals contest in 2012 and was received with admiration. The imagine Cup is a worldwide software design competition sponsored by Microsoft. Our team – Mark, Luke, and Andy Dickinson (brothers).
 
 ### **Our Entry**
