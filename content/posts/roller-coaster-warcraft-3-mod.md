@@ -5,19 +5,16 @@ layout = "post"
 title = "Roller Coaster (Warcraft 3 Mod)"
 
 +++
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/rcwar1.png)
+Build and ride roller coasters! An easy-to-use, yet flexible builder allows for very creative coasters. Create loops, spins, and even go upside down. Coaster Stats show a general snap shot of your coaster. There are multiple viewpoints, with the ability to look around while riding in realistic physics. Customize your coaster with multiple themes including classic and Halloween.
 
-The game is written in with triggers using warcraft 3s World Editor. Players build and ride roller coasters. There are two games modes: Free Build and Ai Challenge. Its playable with up to 7 players at once, in which players can ride each others’ coasters.
+Roller Coaster is the number one Top Free Game on Windows Phone in the US, Japan, Italy, United Kingdom, Germany as of 11/1/2012.
 
-[https://www.hiveworkshop.com/threads/roller-coaster-beta-v-07.128062/](https://www.hiveworkshop.com/threads/roller-coaster-beta-v-07.128062/ "https://www.hiveworkshop.com/threads/roller-coaster-beta-v-07.128062/")
+There have been over one million coasters built, and over one million downloads as of 6/27/2014.
 
-**Key Features**
+[http://www.windowsphone.com/en-us/store/app/roller-coaster/139a20f7-31c2-40b9-8deb-de763c3c3032](http://www.windowsphone.com/en-us/store/app/roller-coaster/139a20f7-31c2-40b9-8deb-de763c3c3032 "http://www.windowsphone.com/en-us/store/app/roller-coaster/139a20f7-31c2-40b9-8deb-de763c3c3032")
 
-* Building coasters, with a large amount of flexability, yet designed to take only seconds to learn.
-* Ride coasters, from in the cart or from a third person perspective.
-* Ride other player’s coasters, or ride them together.
-* Two game modes: Free Build and Ai Challenge
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/RCMenu.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/RCRide.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/RcRide2.png)
 
-**Videos**
+_When Roller Coaster Hit #1 free game chart for windows phone_
 
-[http://www.youtube.com/watch?v=Qmed-mUYna4](http://www.youtube.com/watch?v=Qmed-mUYna4 "http://www.youtube.com/watch?v=Qmed-mUYna4")
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/rollercoasternum1.png)
