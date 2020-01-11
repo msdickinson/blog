@@ -1,16 +1,22 @@
 +++
-date = 2007-11-05T07:00:00Z
-draft = true
+date = 2009-05-04T07:00:00Z
 layout = "post"
-title = "Tetris Sports Edition"
+title = "Roller Coaster (Warcraft 3 Mod)"
 
 +++
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/tetris-sports-edition-title2.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/rcwar1.png)
 
-Tetris Sports Edition is a form of tetris, but with fun, upbeat music and a sports theme. It has a globetrotter to help you along your way, and will cheer you on when you score some points. If you’re looking for a fun and simple game, with a nice upbeat theme and support from the globetrotters, then this is the game for you. Built by Mark Dickinson, and Luke Dickinson
+The game is written in with triggers using warcraft 3s World Editor. Players build and ride roller coasters. There are two games modes: Free Build and Ai Challenge. Its playable with up to 7 players at once, in which players can ride each others’ coasters.
 
-[http://www.teamzonesports.com/SilverlightGameContest](http://www.teamzonesports.com/SilverlightGameContest "http://www.teamzonesports.com/SilverlightGameContest")
+[https://www.hiveworkshop.com/threads/roller-coaster-beta-v-07.128062/](https://www.hiveworkshop.com/threads/roller-coaster-beta-v-07.128062/ "https://www.hiveworkshop.com/threads/roller-coaster-beta-v-07.128062/")
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/tetris-sports-edition-titlepage.png)
+**Key Features**
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/tetris-sports-edition.png)
+* Building coasters, with a large amount of flexability, yet designed to take only seconds to learn.
+* Ride coasters, from in the cart or from a third person perspective.
+* Ride other player’s coasters, or ride them together.
+* Two game modes: Free Build and Ai Challenge
+
+**Videos**
+
+[http://www.youtube.com/watch?v=Qmed-mUYna4](http://www.youtube.com/watch?v=Qmed-mUYna4 "http://www.youtube.com/watch?v=Qmed-mUYna4")
