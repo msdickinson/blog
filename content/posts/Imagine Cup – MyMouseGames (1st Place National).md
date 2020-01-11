@@ -1,15 +1,20 @@
 +++
 date = 2009-12-07T07:00:00Z
-draft = true
 layout = "post"
 title = "Imagine Cup – MyMouseGames (1st Place National)"
 
 +++
-
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/IC09_Logo_reversed.png)
 
 MyMouseGames placed **First place** in the **Imagine Cup US Nation final**. The imagine Cup is a worldwide software design competition sponsored by Microsoft. Our team – Jimmy, Mark, and Luke Dickinson (brothers) advanced from first round to semi-finals to national finals in Cambridge, Massachusetts. Our prizes was $8,000 to split among us and to continue on to the **Imagine Cup World Finals in Cairo, Egypt**.
 
-[!\[\](https://markdickinsoninteractive.files.wordpress.com/2012/11/dsc02020.jpg?w=200&h=150 =200x150)](https://markdickinsoninteractive.files.wordpress.com/2012/11/dsc02020.jpg) [!\[\](https://markdickinsoninteractive.files.wordpress.com/2012/11/dsc02013.jpg?w=200&h=150 =200x150)](https://markdickinsoninteractive.files.wordpress.com/2012/11/dsc02013.jpg) [!\[\](https://markdickinsoninteractive.files.wordpress.com/2012/11/awards_web.jpg?w=200&h=133 =200x133)](https://markdickinsoninteractive.files.wordpress.com/2012/11/awards_web.jpg) [!\[\](https://markdickinsoninteractive.files.wordpress.com/2012/11/imaginecup2bus2bwinners.png?w=200&h=133 =200x133)](https://markdickinsoninteractive.files.wordpress.com/2012/11/imaginecup2bus2bwinners.png)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/dsc02020.jpg)
+
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/dsc02013.jpg)
+
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/awards_web.jpg)
+
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/imaginecup2bus2bwinners.png)
 
 **Our Entry**
 
@@ -21,7 +26,13 @@ Videos: [http://mymousegames.com/Videos.aspx](http://mymousegames.com/Videos.asp
 
 Press Coverage: [http://mymousegames.com/press_coverage.aspx](http://mymousegames.com/press_coverage.aspx "http://mymousegames.com/press_coverage.aspx")
 
-[!\[\](https://markdickinsoninteractive.files.wordpress.com/2012/11/bug300x400.jpg?w=200&h=150 =200x150)](https://markdickinsoninteractive.files.wordpress.com/2012/11/bug300x400.jpg) [!\[\](https://markdickinsoninteractive.files.wordpress.com/2012/11/teacher.png?w=200&h=183 =200x183)](https://markdickinsoninteractive.files.wordpress.com/2012/11/teacher.png) [!\[\](https://markdickinsoninteractive.files.wordpress.com/2012/11/monkey300x400.jpg?w=200&h=150 =200x150)](https://markdickinsoninteractive.files.wordpress.com/2012/11/monkey300x400.jpg) [!\[\](https://markdickinsoninteractive.files.wordpress.com/2012/11/race300x400.jpg?w=200&h=150 =200x150)](https://markdickinsoninteractive.files.wordpress.com/2012/11/race300x400.jpg)
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/bug300x400.jpg)
+
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/teacher.png)
+
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/monkey300x400.jpg)
+
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/race300x400.jpg)
 
 **Press Coverage**
 
