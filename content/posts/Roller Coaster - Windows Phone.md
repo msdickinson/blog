@@ -6,7 +6,7 @@ title = "Roller Coaster - Windows Phone"
 +++
 Build and ride roller coasters! An easy-to-use, yet flexible builder allows for very creative coasters. Create loops, spins, and even go upside down. Coaster Stats show a general snap shot of your coaster. There are multiple viewpoints, with the ability to look around while riding in realistic physics. Customize your coaster with multiple themes including classic and Halloween.
 
-Roller Coaster is the number one Top Free Game on Windows Phone in the US, Japan, Italy, United Kingdom, Germany as of 11/1/2012.
+Roller Coaster **hit #1 Top Free Game on Windows Phone** in the US, Japan, Italy, United Kingdom, Germany on 11/1/2012.
 
 There have been **over 1.5 million downloads** as of 6/27/2014.
 
