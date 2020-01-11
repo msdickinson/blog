@@ -1,58 +1,23 @@
 +++
-date = 2009-12-07T07:00:00Z
-draft = true
+date = 2013-12-01T07:00:00Z
 layout = "post"
-title = "Imagine Cup – MyMouseGames (1st Place National)"
+title = "Imagine Cup – Toad Jam"
 
 +++
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/IC09_Logo_reversed.png)
+# Imagine Cup – Toad Jam****
 
-MyMouseGames placed **First place** in the **Imagine Cup US Nation final**. The imagine Cup is a worldwide software design competition sponsored by Microsoft. Our team – Jimmy, Mark, and Luke Dickinson (brothers) advanced from first round to semi-finals to national finals in Cambridge, Massachusetts. Our prizes was $8,000 to split among us and to continue on to the **Imagine Cup World Finals in Cairo, Egypt**.
+Toad Jam is mobile phone puzzle game similar to that of Tetris. It was submitted to the Imagine Cup US Nationals contest in 2012 and was received with admiration. The imagine Cup is a worldwide software design competition sponsored by Microsoft. Our team – Mark, Luke, and Andy Dickinson (brothers).
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/dsc02020.jpg)
+### **Our Entry**
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/dsc02013.jpg)
+Toad Jam is a puzzle game for Windows Phone, and Windows 8, built in **Silverlight** and **Photon**. The player’s goal is to stop the toads from reaching the top of the screen, in three different game modes: Classic, Online and Puzzle Mode. Classic is a survival mode, where you attempt to last as long as you can. Online is a battle mode, where you play with others online cross platform on windows 8. Puzzle mode is a challenge mode, where you have to remove the toads in the least amount of moves. The game additionally features a unique award system that can be viewed during play.
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/awards_web.jpg)
+**Videos**
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/imaginecup2bus2bwinners.png)
+(Advertisement) [https://www.youtube.com/watch?f&v=y9dTWZEaTVo](https://www.youtube.com/watch?f&v=y9dTWZEaTVo "https://www.youtube.com/watch?f&v=y9dTWZEaTVo")
 
-**Our Entry**
+(Full Game Presentation) [http://www.youtube.com/watch?v=wSMeUPkqpNo](http://www.youtube.com/watch?v=wSMeUPkqpNo "http://www.youtube.com/watch?v=wSMeUPkqpNo")
 
-The theme of the Imagine Cup in 2009 was the 10 world goals of the UN, mostly helping developing countries. Therefore, we chose to focus on education and to build it in **Silverlight** and **ASP.NET**. Essentially, our entry was composed of several mini educational games that allow you to have multiple mice on one computer to play. The idea is that one computer can work for many students. In addition, the teachers can change the lesson data that is being used in each game. On top of that, this can be functioned completely through a simple web site. The purpose was to help every student have access to a computer in ill funded schools.
+**Screen Shots**
 
-Website: [http://mymousegames.com/](http://mymousegames.com/ "http://mymousegames.com/")
-
-Videos: [http://mymousegames.com/Videos.aspx](http://mymousegames.com/Videos.aspx "http://mymousegames.com/Videos.aspx")
-
-Press Coverage: [http://mymousegames.com/press_coverage.aspx](http://mymousegames.com/press_coverage.aspx "http://mymousegames.com/press_coverage.aspx")
-
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/bug300x400.jpg)
-
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/teacher.png)
-
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/monkey300x400.jpg)
-
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/race300x400.jpg)
-
-**Press Coverage**
-
-News – Winning US Imagine Cup
-
-Microsoft Research Center -Cambridge, MA  
-May 10th, 2009
-
-[http://www.oregonlive.com/washingtoncounty/index.ssf/2009/06/tigard_brothers_will_compete_i.html](http://www.oregonlive.com/washingtoncounty/index.ssf/2009/06/tigard_brothers_will_compete_i.html "http://www.oregonlive.com/washingtoncounty/index.ssf/2009/06/tigard_brothers_will_compete_i.html")  
-[http://www.networkworld.com/community/node/41636](http://www.networkworld.com/community/node/41636 "http://www.networkworld.com/community/node/41636") (videos)  
-[http://blogs.technet.com/unlimitedpotential/archive/2009/05/05/u-s-imagine-cup-winners-team-multipoint-web.aspx](http://blogs.technet.com/unlimitedpotential/archive/2009/05/05/u-s-imagine-cup-winners-team-multipoint-web.aspx "http://blogs.technet.com/unlimitedpotential/archive/2009/05/05/u-s-imagine-cup-winners-team-multipoint-web.aspx")  
-[http://www.microsoft.com/presspass/events/imaginecup/default.aspx](http://www.microsoft.com/presspass/events/imaginecup/default.aspx "http://www.microsoft.com/presspass/events/imaginecup/default.aspx")  
-[http://www.microsoft.com/presspass/events/imaginecup/imageGallery.aspx](http://www.microsoft.com/presspass/events/imaginecup/imageGallery.aspx "http://www.microsoft.com/presspass/events/imaginecup/imageGallery.aspx")  
-[http://blogs.msdn.com/springboard/archive/2009/05/05/winners-of-the-2009-us-imagine-cup-microsoft-student-competition.aspx](http://blogs.msdn.com/springboard/archive/2009/05/05/winners-of-the-2009-us-imagine-cup-microsoft-student-competition.aspx "http://blogs.msdn.com/springboard/archive/2009/05/05/winners-of-the-2009-us-imagine-cup-microsoft-student-competition.aspx")  
-[http://netfornews.blogspot.com/2009/05/imagine-cup-2009-virtual-pressroom.html](http://netfornews.blogspot.com/2009/05/imagine-cup-2009-virtual-pressroom.html "http://netfornews.blogspot.com/2009/05/imagine-cup-2009-virtual-pressroom.html")  
-[http://www.designtaxi.com/news.jsp?id=26796&monthview=0&month=5&year=2009](http://www.designtaxi.com/news.jsp?id=26796&monthview=0&month=5&year=2009 "http://www.designtaxi.com/news.jsp?id=26796&monthview=0&month=5&year=2009")  
-[http://www.sltrib.com/Utah/ci_12320477](http://www.sltrib.com/Utah/ci_12320477 "http://www.sltrib.com/Utah/ci_12320477")  
-[http://www.fastcompany.com/blog/clay-dillow/culture-buffet/young-minds-v-ancient-problems-imagine-cup-2009-winners-announced](http://www.fastcompany.com/blog/clay-dillow/culture-buffet/young-minds-v-ancient-problems-imagine-cup-2009-winners-announced "http://www.fastcompany.com/blog/clay-dillow/culture-buffet/young-minds-v-ancient-problems-imagine-cup-2009-winners-announced")  
-[http://www.mefeedia.com/entry/multipoint-wint-microsofts-imagine-cup/17791649](http://www.mefeedia.com/entry/multipoint-wint-microsofts-imagine-cup/17791649 "http://www.mefeedia.com/entry/multipoint-wint-microsofts-imagine-cup/17791649")  
-[http://www.masshightech.com/stories/2009/05/04/daily22-Web-learning-startup-takes-top-spot-in-Microsofts-Imagine-Cup.html](http://www.masshightech.com/stories/2009/05/04/daily22-Web-learning-startup-takes-top-spot-in-Microsofts-Imagine-Cup.html "http://www.masshightech.com/stories/2009/05/04/daily22-Web-learning-startup-takes-top-spot-in-Microsofts-Imagine-Cup.html") (MIT)  
-[http://www.inventorsdigest.com/?p=499](http://www.inventorsdigest.com/?p=499 "http://www.inventorsdigest.com/?p=499")  
-[http://www.cio.com/article/496885/Imagine_Cup_Winners_Design_Software_to_Solve_Global_Problems?taxonomyId=3000](http://www.cio.com/article/496885/Imagine_Cup_Winners_Design_Software_to_Solve_Global_Problems?taxonomyId=3000 "http://www.cio.com/article/496885/Imagine_Cup_Winners_Design_Software_to_Solve_Global_Problems?taxonomyId=3000")
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/how-to-play.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/mainmenu.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/awards.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/online.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/world.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/levels.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/puzzelmode.png)![](https://d3efwhw5kd1q0b.cloudfront.net/Media/onlineplay.png)
