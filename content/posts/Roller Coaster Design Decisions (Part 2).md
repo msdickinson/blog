@@ -25,7 +25,7 @@ _Pros_
 _Cons_
 
 * API coupling
-* Database coupling (Reporting queries are built on it)
+* Database coupling (reporting queries are built on it)
 * No partial deploys
 * Cannot scale APIs and databases independently
 
@@ -42,7 +42,7 @@ _Pros_
 _Cons_
 
 * API coupling
-* Database coupling (Reporting queries are built on it)
+* Database coupling (reporting queries are built on it)
 * No partial deploys
 * Cannot scale APIs and databases independently
 
@@ -64,7 +64,7 @@ _Cons_
 * API coupling
 * No partial deploys
 * Cannot scale APIs independently
-* API Failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity
+* API failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity
 * Increased hosting cost (multiple databases)
 
 ### (4) Microservices with Isolated Databases
@@ -84,9 +84,9 @@ _Pros_
 _Cons_
 
 * API coupling
-* Cross cutting concerns require NuGet Packages
-* Increased Response Times (Between APIS)
-* API Failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity
+* Cross cutting concerns require NuGet packages
+* Increased response times (between APIS)
+* API failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity
 * Increased hosting cost (multiple APIs and databases)
 
 ### (5) Microservices with Isolated Databases, Bus (Pub/Sub), and SignalR
@@ -109,7 +109,7 @@ _Cons_
 
 * Bus coupling
 * Cross cutting concerns require NuGet Packages
-* Increased Response times (Bus)
+* Increased Response times (bus)
 * Increased hosting cost (multiple APIs and databases)
 
 ### Additional System Design Considerations
@@ -123,7 +123,7 @@ _Pros_
 * Increased up time (Redundancy)
 * Ability to scale out (Avoiding potential bottle necks)
 * Database designed for fast reads (with data duplication as needed)
-* Reduced Costs
+* Reduced costs
 
 _Cons_
 
@@ -134,7 +134,7 @@ The pros look fantastic. I have concerns being able to query for reporting purpo
 
 #### Redis
 
-All designs except for (1) have databases that require you to go through the API to access it. Additionally, I intend to keep the database and their API on the same machine. With these requirements the benefits of redis became greatly diminished. If I find I have queries taking a long time or have load concerns on my database I will reconsider redis in the future.
+All designs except for (1) have databases that require you to go through the API to access it. Additionally I intend to keep the database and their API on the same machine. With these requirements the benefits of redis became greatly diminished. If I find I have queries taking a long time or load concerns on my database I will reconsider redis in the future.
 
 ### Design Conclusion
 
@@ -154,7 +154,7 @@ I have chosen to use dependency injection because it reduces code, reduces tests
 
 Each API will include the following projects
 
-* Abstractions – Shares models between view and proxy
+* Abstractions – shares models between view and proxy
 * View (Asp.net)
 * Logic (Library)
 * Infrastructure (Library)
@@ -163,11 +163,11 @@ Each API will include the following projects
 
 The two interesting points here are database and proxy. Keeping all of my database queries inside of source control has served me well in the past. The proxy for most APIS won’t be used in production, but will give me another option to test my API when running local, and when running integration tests.
 
-Each Project (excluding Database and Proxy runner) will have a Unit test project with them.
+Each project (excluding database and proxy runner) will have a unit test project with them.
 
 ## Cross Cutting Concerns (NuGet Packages)
 
-Now that I have a principles, design, and project structureI created this flow here. In this example, I can see that APIS will be using REST, SQL, and redacted logging.
+Now that I have principles, design and API considerations I have gone ahead and created a flow here. In this example, I can see that APIS will be using REST, SQL, and redacted logging.
 
 **High level Flow**
 
@@ -179,13 +179,13 @@ Before taking my theory too far, I decided it was time to create a quick prototy
 
 After reviewing my prototype, I came up with these cross-cutting concerns.
 
-* SQL – High Fidelity logging, Ability to unit test
-* Middleware - High Fidelity logging, correlation Ids, and handles exceptions
-* Durable Rest - High Fidelity logging, adds ability to retry requests
-* Guid - Ability to unit test
-* DateTime - Ability to unit test
-* Encryption (Certificate) – Ability to encode and decode strings with certs
-* Logger – Adds correlation ids and redaction to all logging
+* SQL – high fidelity logging, ability to unit test
+* Middleware - high fidelity logging, correlation Ids, and handles exceptions
+* Durable Rest - high fidelity logging, adds ability to retry requests
+* Guid - ability to unit test
+* DateTime - ability to unit test
+* Encryption (Certificate) – ability to encode and decode strings with certs
+* Logger – adds correlation ids and redaction to all logging
 * Redactor – redacts objects and json strings with regular expression and property names
 
 _Versioning_
@@ -194,11 +194,11 @@ After reading [https://devblogs.microsoft.com/devops/versioning-nuget-packages-c
 
 _Abstractions_
 
-At my place of work, we have a much larger stack for our use cases, and there is strong coupling between packages. I reviewed solutions to this and found Microsoft solves this by creating abstraction packages. I will add them only when another package depends on one.
+At my place of work, we have a much larger stack for our use cases, and there is strong coupling between packages. I reviewed solutions to this and found Microsoft solves this by creating abstraction packages. I will add them as needed.
 
 ## Unit Testing
 
-I have discussed with many developers the pros of cons of unit testing, and have made my own conclusions.
+I have discussed with many developers the pros of cons of unit testing and have made my own conclusions.
 
 _Pros_
 
@@ -216,19 +216,21 @@ There are different opinions on how to unit testing and what should be tested. T
 
 * Test for return value, exceptions, state change, and interactions.
 * Test names follow UnitUnderTest_Scenario_Expected convention.
+* Using setup, act, assert comments to keep consistant structure
 * Each unit test I target one line of code and use as many asserts as needed for that line.
 * 100% Unit test coverage with every method independently tested (even if indirectly tested) and use internal methods over private.
 * For dependencies that have statics, and very challenging to test code, I choose to wrap them in another class and then add exclude from coverage.
 * For plan data objects that have no logic I exclude from code coverage.
+* Not using the setup method as it bleeds concerns between tests. I choose to use a factory method if needed between tests.
 
 I have written unit tests on the daily for 12 months. I have found the process of writing units to be even more valuable than the tests themselves. It forces me to slow down and take heavy considerations of my code by walk through all the of code paths without glossing over anything. I also enjoy the increased confidence I have when modifying in existing solution as breaks existing tests pointing me to places that I caused a change.
 
 ## Integration Testing
 
-With all APIs having a Proxy built with them, integration testing should be an easy project to maintain. Integration tests will call all APIs and look for all expected returns except for server errors.
+With all APIs having a proxy built with them, integration testing should be an easy project to maintain. Integration tests will call all APIs and look for all expected returns except for server errors.
 
 ## Conclusion
 
 After careful thought on multiple system designs a plan emerged that fits well for the user stories and principles. Next walking though implementation decisions with SOILD using dependency injection. Then creating a general guideline for APIS using N-Tier, proxies, and SQL Scripts. Then looking though request flows and prototyping to find cross cutting concerns. Finally considerations with unit and integration testing were reviewed.
 
-These considerations have help set the table to hit the ground running with a clear high-level plan. I have heard that designing to early can cause over architecture instead of growing it as you need it. I have found that by the time it’s a major problem it can be a massive effort and level of risk to change it. Explaining to your boss that you need take a few days, weeks, months to rewrite code for maintenance is an uphill battle.
+These considerations have help set the table to hit the ground running with a clear high-level plan. I have heard that designing to early can cause over architecture instead of growing it as you need it. I have found that by the time it’s a major problem it can be a massive effort and high level of risk to change it. Explaining to your boss that you need take a few days, weeks, months to rewrite code for maintenance is an uphill battle.
