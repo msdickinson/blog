@@ -8,7 +8,7 @@ Build and ride roller coasters! An easy-to-use, yet flexible builder allows for 
 
 Roller Coaster is the number one Top Free Game on Windows Phone in the US, Japan, Italy, United Kingdom, Germany as of 11/1/2012.
 
-There have been over one million coasters built, and over one million downloads as of 6/27/2014.
+There have been **over 1.5 million downloads** as of 6/27/2014.
 
 [http://www.windowsphone.com/en-us/store/app/roller-coaster/139a20f7-31c2-40b9-8deb-de763c3c3032](http://www.windowsphone.com/en-us/store/app/roller-coaster/139a20f7-31c2-40b9-8deb-de763c3c3032 "http://www.windowsphone.com/en-us/store/app/roller-coaster/139a20f7-31c2-40b9-8deb-de763c3c3032")
 
