@@ -216,7 +216,7 @@ There are different opinions on how to unit testing and what should be tested. T
 
 * Test for return value, exceptions, state change, and interactions.
 * Test names follow UnitUnderTest_Scenario_Expected convention.
-* Using setup, act, assert comments to keep consistant structure
+* Using setup, act, assert comments to keep consistent structure
 * Each unit test I target one line of code and use as many asserts as needed for that line.
 * 100% Unit test coverage with every method independently tested (even if indirectly tested) and use internal methods over private.
 * For dependencies that have statics, and very challenging to test code, I choose to wrap them in another class and then add exclude from coverage.
@@ -231,6 +231,6 @@ With all APIs having a proxy built with them, integration testing should be an e
 
 ## Conclusion
 
-After careful thought on multiple system designs a plan emerged that fits well for the user stories and principles. Next walking though implementation decisions with SOILD using dependency injection. Then creating a general guideline for APIS using N-Tier, proxies, and SQL Scripts. Then looking though request flows and prototyping to find cross cutting concerns. Finally considerations with unit and integration testing were reviewed.
+After careful thought on multiple system designs a plan emerged that fits well for the user stories and principles. Next walking though implementation decisions with SOILD using dependency injection. Then creating a general guideline for APIS using N-Tier, proxies, and SQL Scripts. Then looking though request flows and prototyping to find cross cutting concerns. Finally, considerations with unit and integration testing were reviewed.
 
 These considerations have help set the table to hit the ground running with a clear high-level plan. I have heard that designing to early can cause over architecture instead of growing it as you need it. I have found that by the time it’s a major problem it can be a massive effort and high level of risk to change it. Explaining to your boss that you need take a few days, weeks, months to rewrite code for maintenance is an uphill battle.
