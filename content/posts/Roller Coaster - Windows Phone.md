@@ -1,8 +1,7 @@
 +++
-date = 2009-05-04T07:00:00Z
-draft = true
+date = 2012-11-05T07:00:00Z
 layout = "post"
-title = "Roller Coaster (Warcraft 3 Mod)"
+title = "Roller Coaster - Windows Phone"
 
 +++
 Build and ride roller coasters! An easy-to-use, yet flexible builder allows for very creative coasters. Create loops, spins, and even go upside down. Coaster Stats show a general snap shot of your coaster. There are multiple viewpoints, with the ability to look around while riding in realistic physics. Customize your coaster with multiple themes including classic and Halloween.
