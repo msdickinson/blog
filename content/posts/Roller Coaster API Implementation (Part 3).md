@@ -11,7 +11,7 @@ The stack is highly used across all of the projects and is great place for me to
 
 Builds exist in .github/workflows you can also view past builds by adding /actions/ to the Urls below. the production and test both live on my server.
 
-Branchs - Dev - No Deployments for local use, Test - Deploys to Test, Master - Deploys to prod 
+Branchs - Dev - No Deployments for local use, Test - Deploys to Test, Master - Deploys to prod
 
 _Stack (Nuget Packages)_
 
@@ -206,15 +206,6 @@ Working in order the Bus, and Web have zero depecnys. After them ill follow thou
 
 [https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-## Deployment
+## Health Plans
 
-* Builds
-* 
-
-DI
-
-Proxy
-
-SQL
-
-Postman
+## Perfomrance Testing
