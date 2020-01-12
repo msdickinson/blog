@@ -1,238 +1,220 @@
 +++
-date = 2020-01-09T07:00:00Z
+date = 2020-01-20T07:00:00Z
 draft = true
 layout = "post"
-title = "Roller Coaster Design Decisions (Part 2)"
+title = "Roller Coaster Implementation (Part 3)"
 
 +++
-# Roller Coaster - Design Decisions
+## Packages
 
-This section will deal with system designs, SOLID, API considerations, cross cutting concerns, unit testing, and integration testing.
+The stack is highly used across all of the projects and is great place for me to start.
 
-## System Designs
+Builds exist in .github/workflows you can also view past builds by adding /actions/ to the Urls below. the production and test both live on my server.
 
-I’ll work though different designs and find the design that fits my principles best.
+Branchs - Dev - No Deployments for local use, Test - Deploys to Test, Master - Deploys to prod 
 
-### (1) Monolith
+_Stack (Nuget Packages)_
 
-A single project and database.
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Stack.png)
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design1.png)
+Although not shown in the image above, But all of these packages for testing use the test package even if they are not a depdecny when pulling in the package it self. For the time being ill only build local versions of the packages.
 
-_Pros_
+### DickinsonBros.Test
 
-* Simple
+A wrapper library for DateTime
 
-_Cons_
+**Features**
 
-* API coupling
-* Database coupling (reporting queries are built on it)
-* No partial deploys
-* Cannot scale APIs and databases independently
+* DI unit tests in a clean fashion
+* Easily pull out mocks
+* Unit test controllers by injecting headers, claims and taking over the HttpContext for more precise unit tests
 
-### (2) Monolith with Isolated Schemas
+[https://github.com/msdickinson/DickinsonBros.Test](https://github.com/msdickinson/DickinsonBros.Test "https://github.com/msdickinson/DickinsonBros.Test")
 
-A single project and database with isolated data access using schemas.
+### DickinsonBros.DateTime
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design2.png)
+A wrapper Library for DateTime
 
-_Pros_
+**_Features_**
 
-* Data is protected by domain logic and limited access
+* Adds extensibility via abstraction
+* Allows for unit testing
 
-_Cons_
+[https://github.com/msdickinson/DickinsonBros.DateTime](https://github.com/msdickinson/DickinsonBros.DateTime "https://github.com/msdickinson/DickinsonBros.DateTime")
 
-* API coupling
-* Database coupling (reporting queries are built on it)
-* No partial deploys
-* Cannot scale APIs and databases independently
+### DickinsonBros.Encryption
 
-### (3) Monolith with Isolated Database
+Encrypt and Decrypt strings
 
-A single project with multiple databases and a reporting API that contains non sensitive data.
+**_Features_**
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design3.png)
+* Certificate based encryption
+* Configure certificate location
 
-_Pros_
+[https://github.com/msdickinson/Dickinsonbros.Encryption](https://github.com/msdickinson/Dickinsonbros.Encryption "https://github.com/msdickinson/Dickinsonbros.Encryption")
 
-* Data is protected by domain logic and limited access
-* Scale databases independently
-* Reporting API cannot query sensitive data and removes load from production databases
-* APIs run independently and push out results to other APIS
+### DickinsonBros.Guid
 
-_Cons_
+A wrapper Library for DateTime
 
-* API coupling
-* No partial deploys
-* Cannot scale APIs independently
-* API failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity
-* Increased hosting cost (multiple databases)
+**_Features_**
 
-### (4) Microservices with Isolated Databases
+* Adds extensibility via abstraction
+* Allows for unit testing
+* Sperate abstractions library to reduce coupling of packages.
 
-Multiple projects with their own database and a reporting API that contains non sensitive data.
+[https://github.com/msdickinson/DickinsonBros.Guid](https://github.com/msdickinson/DickinsonBros.Guid "https://github.com/msdickinson/DickinsonBros.Guid")
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design4.png)
+### DickinsonBros.Redactor
 
-_Pros_
+A redactor that can take a json string or an object and return a redacted string in json.
 
-* Data is protected by domain logic and limited access
-* Scale APIS and databases independently
-* Reporting API cannot query sensitive data and removes load from production databases
-* APIs run independently and push out results to other APIS
-* Ability to deploy single API
+**_Features_**
 
-_Cons_
+* Configurable properties to redact by name
+* Configurable regular expressions to validate against
+* Sperate abstractions library to reduce coupling of packages.
 
-* API coupling
-* Cross cutting concerns require NuGet packages
-* Increased response times (between APIS)
-* API failures can cause databases to become out of sync. Solving this with transactional requests would increase complexity
-* Increased hosting cost (multiple APIs and databases)
+[https://github.com/msdickinson/DickinsonBros.Redactor](https://github.com/msdickinson/DickinsonBros.Redactor "https://github.com/msdickinson/DickinsonBros.Redactor")
 
-### (5) Microservices with Isolated Databases, Bus (Pub/Sub), and SignalR
+### DickinsonBros.Logger
 
-Multiple projects with their own database and a reporting API that contains non sensitive data. Communication between APIS is done though a bus via a pub/sub modal using SignalR for signaling. APIS can push to the user using SignalR.
+A logging service that redacts all logs
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Design5.png)
+**_Features_**
 
-_Pros_
+* Redacts all logs
+* Allows for dictionary to become first class propertys in the log.
+* Ability to add a correlation id that works though async in straight forward fashion
+* Allows for improved testability
+* Sperate abstractions library to reduce coupling of packages.
 
-* Data is protected by domain logic and limited access
-* Scale APIS and databases independently
-* Reporting API cannot query sensitive data and removes load from production databases
-* APIS are durable, in the case of in outage they can recover with retries from the Bus
-* Increased hosting cost (multiple APIs and databases)
-* Ability to deploy single API
-* APIs can push a message to a user
+[https://github.com/msdickinson/DickinsonBros.Logger](https://github.com/msdickinson/DickinsonBros.Logger "https://github.com/msdickinson/DickinsonBros.Logger")
 
-_Cons_
+### DickinsonBros.Middleware
 
-* Bus coupling
-* Cross cutting concerns require NuGet Packages
-* Increased Response times (bus)
-* Increased hosting cost (multiple APIs and databases)
+Middleware for ASP.Net that adds redacted logging.
 
-### Additional System Design Considerations
+**_Features_**
 
-#### SQL / NoSQL
+* Logs requests redacted
+* Logs responses redacted and Status Codes
+* Catch all uncaught expectations and log them redacted
 
-I have limited experience using CosmosDB (noSQL) professionally. But I wanted to consider the pros and cons and see if noSQL was a good fit.
+[https://github.com/msdickinson/DickinsonBros.Middleware](https://github.com/msdickinson/DickinsonBros.Middleware "https://github.com/msdickinson/DickinsonBros.Middleware")
 
-_Pros_
+### DickinsonBros.SQL
 
-* Increased up time (Redundancy)
-* Ability to scale out (Avoiding potential bottle necks)
-* Database designed for fast reads (with data duplication as needed)
-* Reduced costs
+SQL abstraction that adds increased logging on exceptions
 
-_Cons_
+**_Features_**
 
-* Limited ability to query
-* Complex records
+* Improved Logs
+* Allows for improved testability
 
-The pros look fantastic. I have concerns being able to query for reporting purposes but design 3, 4, and 5 solves for that. The inability to query and complexity of the records for the coasters API do not seem worth the effort. I hope one day to improve my noSQL skills further but It does not appear to be a good fit for this project.
+[https://github.com/msdickinson/DickinsonBros.SQL](https://github.com/msdickinson/DickinsonBros.SQL "https://github.com/msdickinson/DickinsonBros.SQL")
 
-#### Redis
+### DickinsonBros.DurableRest
 
-All designs except for (1) have databases that require you to go through the API to access it. Additionally I intend to keep the database and their API on the same machine. With these requirements the benefits of redis became greatly diminished. If I find I have queries taking a long time or load concerns on my database I will reconsider redis in the future.
+SQL abstraction that adds increased logging on exceptions
 
-### Design Conclusion
+**_Features_**
 
-After reviewing pros and cons of each design and then comparing them to my principles a clear winner stands out. I am going to go ahead with microservices with isolated databases, bus (Pub/Sub), and SignalR. The durableness of the design, ability to maintain, and flexibility it brings are worth increased responses times, complexity, additional work and hosting costs.
+* Ability to retry requests
+* Timeouts
+* Logs all requests redacted with meta data
 
-## SOLID
+[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-SOLID helps keep applications maintainable and testable. These traits fit very well with my principles.
+## APIS
 
-In implementation detail of SOLID that needs consideration is dependency inversion. This dictates that dependencies should depend upon abstractions instead of concrete classes. This brings the benefits of classes being extensible and testable. To solve for this generally factories or dependency injection are used.
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Projects.png)
 
-Factories are methods that generate in instance of a class. Dependency injection (DI) uses configuration, and injects the dependency where you need them. In reality DI injects them in more places then where you ask for your dependency but only as needed.
+Working in order the Bus, and Web have zero depecnys. After them ill follow though with the others.
 
-I have chosen to use dependency injection because it reduces code, reduces tests, reduces scope and has additional extensibility options.
+### DickinsonBros.RollerCoaster.API.Bus
 
-## API Considerations
+...
 
-Each API will include the following projects
+**_Features_**
 
-* Abstractions – shares models between view and proxy
-* View (Asp.net)
-* Logic (Library)
-* Infrastructure (Library)
-* Database (SQL Scripts)
-* Proxy (Library) and Proxy Runner (Console)
+* ...
+* ...
+* ....
 
-The two interesting points here are database and proxy. Keeping all of my database queries inside of source control has served me well in the past. The proxy for most APIS won’t be used in production, but will give me another option to test my API when running local, and when running integration tests.
+[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-Each project (excluding database and proxy runner) will have a unit test project with them.
+### DickinsonBros.RollerCoaster.API.Web
 
-## Cross Cutting Concerns (NuGet Packages)
+...
 
-Now that I have principles, design and API considerations I have gone ahead and created a flow here. In this example, I can see that APIS will be using REST, SQL, and redacted logging.
+**_Features_**
 
-**High level Flow**
+* ...
+* ...
+* ....
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Flows+1.png)
+[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-Before taking my theory too far, I decided it was time to create a quick prototype of Account API and flush out unit tests. Doing so turned up concerns about testability and repeating patterns of code. Here are 2 of my main prototype flows.
+### DickinsonBros.RollerCoaster.API.Account
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Flows+2.png)
+...
 
-After reviewing my prototype, I came up with these cross-cutting concerns.
+**_Features_**
 
-* SQL – high fidelity logging, ability to unit test
-* Middleware - high fidelity logging, correlation Ids, and handles exceptions
-* Durable Rest - high fidelity logging, adds ability to retry requests
-* Guid - ability to unit test
-* DateTime - ability to unit test
-* Encryption (Certificate) – ability to encode and decode strings with certs
-* Logger – adds correlation ids and redaction to all logging
-* Redactor – redacts objects and json strings with regular expression and property names
-* Test - adds ablity to DI unit tests, and helper methods
+* ...
+* ...
+* ....
 
-_Versioning_
+[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-After reading [https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/](https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/ "https://devblogs.microsoft.com/devops/versioning-nuget-packages-cd-1/") from Microsoft I decided to follow their lead. All of the packages will follow semantic versioning. For development Ill add CI + Datetime to the version.
+### DickinsonBros.RollerCoaster.API.Achievement
 
-_Abstractions_
+...
 
-At my place of work, we have a much larger stack for our use cases, and there is strong coupling between packages. I reviewed solutions to this and found Microsoft solves this by creating abstraction packages. I will add them as needed.
+**_Features_**
 
-## Unit Testing
+* ...
+* ...
+* ....
 
-I have discussed with many developers the pros of cons of unit testing and have made my own conclusions.
+[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-_Pros_
+### DickinsonBros.RollerCoaster.API.Report
 
-* Find a class of concerns early
-* Tests can be reused as regression tests
-* Requires fine grain look at code that often solves for problems that unit testing does not directly test for.
-* Saves time in the long run (From my experience)
+...
 
-_Cons_
+**_Features_**
 
-* Code needs to be designed to be unit tested (If you already follow SOLID, its rarely in issue)
-* Takes additional time
+* ...
+* ...
+* ....
 
-There are different opinions on how to unit testing and what should be tested. These are mine.
+[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-* Test for return value, exceptions, state change, and interactions.
-* Test names follow UnitUnderTest_Scenario_Expected convention.
-* Using setup, act, assert comments to keep consistent structure
-* Each unit test I target one line of code and use as many asserts as needed for that line.
-* 100% Unit test coverage with every method independently tested (even if indirectly tested) and use internal methods over private.
-* For dependencies that have statics, and very challenging to test code, I choose to wrap them in another class and then add exclude from coverage.
-* For plan data objects that have no logic I exclude from code coverage.
-* Not using the setup method as it bleeds concerns between tests. I choose to use a factory method if needed between tests.
+## Integreation Tests
 
-I have written unit tests on the daily for 12 months. I have found the process of writing units to be even more valuable than the tests themselves. It forces me to slow down and take heavy considerations of my code by walk through all the of code paths without glossing over anything. I also enjoy the increased confidence I have when modifying in existing solution as breaks existing tests pointing me to places that I caused a change.
+### DickinsonBros.RollerCoaster.IntegrationTests
 
-## Integration Testing
+...
 
-With all APIs having a proxy built with them, integration testing should be an easy project to maintain. Integration tests will call all APIs and look for all expected returns except for server errors.
+**_Features_**
 
-## Conclusion
+* ...
+* ...
+* ....
 
-After careful thought on multiple system designs a plan emerged that fits well for the user stories and principles. Next walking though implementation decisions with SOILD using dependency injection. Then creating a general guideline for APIS using N-Tier, proxies, and SQL Scripts. Then looking though request flows and prototyping to find cross cutting concerns. Finally, considerations with unit and integration testing were reviewed.
+[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-These considerations have help set the table to hit the ground running with a clear high-level plan. I have heard that designing to early can cause over architecture instead of growing it as you need it. I have found that by the time it’s a major problem it can be a massive effort and high level of risk to change it. Explaining to your boss that you need take a few days, weeks, months to rewrite code for maintenance is an uphill battle.
+## Deployment
+
+* Builds
+* 
+
+DI
+
+Proxy
+
+SQL
+
+Postman
