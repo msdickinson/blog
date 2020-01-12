@@ -2,10 +2,10 @@
 date = 2020-01-20T07:00:00Z
 draft = true
 layout = "post"
-title = "Roller Coaster Game (Part 4)"
+title = "Roller Coaster Release (5)"
 
 +++
-## Game
+## Release
 
 Here is game plan
 
@@ -13,12 +13,6 @@ Math
 
 Testing
 
-## Blazor
+## Stats
 
-## Three JS
-
-## Integration with services
-
-## Building out the UI
-
-## Ready for release
+## Next Step Improvements
