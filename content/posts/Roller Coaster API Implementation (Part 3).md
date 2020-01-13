@@ -99,9 +99,14 @@ Middleware for ASP.Net that adds redacted logging.
 
 * Logs requests redacted
 * Logs responses redacted and Status Codes
+* creates collreation Id
 * Catch all uncaught expectations and log them redacted
 
 [https://github.com/msdickinson/DickinsonBros.Middleware](https://github.com/msdickinson/DickinsonBros.Middleware "https://github.com/msdickinson/DickinsonBros.Middleware")
+
+Lets take a closer look
+
+\-> EnsureCorrelationId
 
 ### DickinsonBros.SQL
 
@@ -143,6 +148,35 @@ Working in order the Bus, and Web have zero depecnys. After them ill follow thou
 * ....
 
 [https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
+
+    CREATE PROCEDURE [ServiceBus].[Dequeue]
+    	@userToken uniqueidentifier,
+        @count int
+    AS
+    	WITH cte_queueItems AS (
+    		SELECT top(@count)
+    			[ServiceBus].[Queue].QueueId, 
+    			[ServiceBus].[TopicItem].TopicId,
+    			[ServiceBus].[TopicItem].Payload,
+    			[ServiceBus].[TopicItem].CorrelationId
+    		FROM
+    			[ServiceBus].[Queue]
+    			inner join [ServiceBus].[TopicItem] on [ServiceBus].[TopicItem].TopicId = [ServiceBus].[Queue].TopicId
+    			inner join [ServiceBus].[User] on [ServiceBus].[User].UserId = [ServiceBus].[Queue].UserId
+    		WHERE 
+    			[ServiceBus].[User].UserToken = @userToken and 
+    			[ServiceBus].[Queue].[State] = 1 and
+    			[ServiceBus].[Queue].[RetryCount] <= 4
+    	)
+    	Update [ServiceBus].[Queue]
+    	SET
+    		[State] = 2,
+    		[LastStateChange] = SYSUTCDATETIME() 		
+    	OUTPUT cte_queueItems.QueueId, cte_queueItems.TopicId, cte_queueItems.Payload, cte_queueItems.CorrelationId
+    	FROM [ServiceBus].[Queue]
+    	INNER JOIN cte_queueItems on [ServiceBus].[Queue].QueueId = cte_queueItems.QueueId
+    RETURN 0
+    
 
 ### DickinsonBros.RollerCoaster.API.Web
 
