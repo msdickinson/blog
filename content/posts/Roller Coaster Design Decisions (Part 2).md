@@ -221,7 +221,7 @@ There are different opinions on how to unit testing and what should be tested. T
 * Each unit test I target one line of code and use as many asserts as needed for that line.
 * 100% Unit test coverage with every method independently tested (even if indirectly tested) and use internal methods over private.
 * For dependencies that have statics, and very challenging to test code, I choose to wrap them in another class and then add exclude from coverage.
-* For plan data objects that have no logic I exclude from code coverage.
+* For plain data objects that have no logic I exclude from code coverage.
 * Not using the setup method as it bleeds concerns between tests. I choose to use a factory method if needed between tests.
 
 I have written unit tests on the daily for 12 months. I have found the process of writing units to be even more valuable than the tests themselves. It forces me to slow down and take heavy considerations of my code by walk through all the of code paths without glossing over anything. I also enjoy the increased confidence I have when modifying in existing solution as breaks existing tests pointing me to places that I caused a change.
