@@ -1,7 +1,7 @@
 +++
 date = 2012-11-05T07:00:00Z
 layout = "post"
-title = "Roller Coaster - Windows Phone"
+title = "Roller Coaster - Windows Phone (1.5 Million Downloads)"
 
 +++
 Build and ride roller coasters! An easy-to-use, yet flexible builder allows for very creative coasters. Create loops, spins, and even go upside down. Coaster Stats show a general snap shot of your coaster. There are multiple viewpoints, with the ability to look around while riding in realistic physics. Customize your coaster with multiple themes including classic and Halloween.
