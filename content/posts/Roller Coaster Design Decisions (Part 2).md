@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Roller Coaster Design Decisions (Part 2)
-date: 2020-01-09T07:00:00+00:00
+date: 2020-01-09T07:00:00.000+00:00
 
 ---
 # Roller Coaster - Design Decisions
@@ -134,17 +134,17 @@ The pros look fantastic. I have concerns being able to query for reporting purpo
 
 #### Redis
 
-All designs except for (1) have databases that require you to go through the API to access it. Additionally I intend to keep the database and their API on the same machine. With these requirements the benefits of redis became greatly diminished. If I find I have queries taking a long time or load concerns on my database I will reconsider redis in the future.
+All designs except for (1) have databases that require you to go through the API to access it. Additionally, I intend to keep the database and their API on the same machine. With these requirements the benefits of Redis became greatly diminished. If I find I have queries taking a long time or load concerns on my database I will reconsider Redis in the future.
 
 ### Design Conclusion
 
-After reviewing pros and cons of each design and then comparing them to my principles a clear winner stands out. I am going to go ahead with microservices with isolated databases, bus (Pub/Sub), and SignalR. The durableness of the design, ability to maintain, and flexibility it brings are worth increased responses times, complexity, additional work and hosting costs.
+After reviewing pros and cons of each design and then comparing them to my principles a clear winner stands out. I am going to go ahead with microservices with isolated databases, bus (Pub/Sub), and SignalR. The durability of the design, ability to maintain, and flexibility it brings are worth increased responses times, complexity, additional work and hosting costs.
 
 ## SOLID
 
 SOLID helps keep applications maintainable and testable. These traits fit very well with my principles.
 
-In implementation detail of SOLID that needs consideration is dependency inversion. This dictates that dependencies should depend upon abstractions instead of concrete classes. This brings the benefits of classes being extensible and testable. To solve for this generally factories or dependency injection are used.
+An implementation detail of SOLID that needs consideration is dependency inversion. This dictates that dependencies should depend upon abstractions instead of concrete classes. This brings the benefits of classes being extensible and testable. To solve for this generally factories or dependency injection are used.
 
 Factories are methods that generate in instance of a class. Dependency injection (DI) uses configuration, and injects the dependency where you need them. In reality DI injects them in more places then where you ask for your dependency but only as needed.
 
@@ -161,7 +161,7 @@ Each API will include the following projects
 * Database (SQL Scripts)
 * Proxy (Library) and Proxy Runner (Console)
 
-The two interesting points here are database and proxy. Keeping all of my database queries inside of source control has served me well in the past. The proxy for most APIS won’t be used in production, but will give me another option to test my API when running local, and when running integration tests.
+The two interesting points here are database and proxy. Keeping all of my database queries inside of source control has served me well in the past. The proxy for most APIS won’t be used in production, but will give me another option to test my API when running locally, and when running integration tests.
 
 Each project (excluding database and proxy runner) will have a unit test project with them.
 
@@ -220,11 +220,11 @@ There are different opinions on how to unit testing and what should be tested. T
 * Using setup, act, assert comments to keep consistent structure
 * Each unit test I target one line of code and use as many asserts as needed for that line.
 * 100% Unit test coverage with every method independently tested (even if indirectly tested) and use internal methods over private.
-* For dependencies that have statics, and very challenging to test code, I choose to wrap them in another class and then add exclude from coverage.
+* For dependencies such as SQL that use statics I choose to wrap them in another class with an interface. I then add exclude use exclude from coverage for the wraper class.
 * For plain data objects that have no logic I exclude from code coverage.
 * Not using the setup method as it bleeds concerns between tests. I choose to use a factory method if needed between tests.
 
-I have written unit tests on the daily for 12 months. I have found the process of writing units to be even more valuable than the tests themselves. It forces me to slow down and take heavy considerations of my code by walk through all the of code paths without glossing over anything. I also enjoy the increased confidence I have when modifying in existing solution as breaks existing tests pointing me to places that I caused a change.
+I have written unit tests on the daily for 12 months. I have found the process of writing units to be even more valuable than the tests themselves. It forces me to slow down and take heavy considerations of my code by walking through all the of code paths without glossing over anything. I also enjoy the increased confidence I have when modifying an existing solution as breaks existing tests pointing me to places that I caused a change.
 
 ## Integration Testing
 
@@ -234,4 +234,4 @@ With all APIs having a proxy built with them, integration testing should be an e
 
 After careful thought on multiple system designs a plan emerged that fits well for the user stories and principles. Next walking though implementation decisions with SOILD using dependency injection. Then creating a general guideline for APIS using N-Tier, proxies, and SQL Scripts. Then looking though request flows and prototyping to find cross cutting concerns. Finally, considerations with unit and integration testing were reviewed.
 
-These considerations have help set the table to hit the ground running with a clear high-level plan. I have heard that designing to early can cause over architecture instead of growing it as you need it. I have found that by the time it’s a major problem it can be a massive effort and high level of risk to change it. Explaining to your boss that you need take a few days, weeks, months to rewrite code for maintenance is an uphill battle.
+These considerations have help set the table to hit the ground running with a clear high-level plan. I have heard that designing too early can cause over-architecting instead of growing it as you need it. I have found that by the time it’s a major problem it can be a massive effort and high level of risk to change it. Explaining to your boss that you need take a few days, weeks, or months to rewrite code for maintenance is an uphill battle.
