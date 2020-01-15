@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Roller Coaster Overview (Part 1)
-date: 2020-01-07T00:00:00+00:00
+date: 2020-01-07T00:00:00.000+00:00
 
 ---
 # Roller Coaster - Overview
@@ -10,9 +10,9 @@ date: 2020-01-07T00:00:00+00:00
 
 Roller coaster is a game that allows you to build and ride coasters. Over the past 11 years I have had a version on warcraft 3, windows phone and the web. Roller coaster has brought in over 1.5 million downloads on windows phone. My latest version in 2018 was a web version using web assembly (Blazor C#) and WebGL (Three.Js). My next version will allow you build, ride and share coasters on the web.
 
-12 months ago, I entered a new job and I joined a team with significantly different practices then what I was a custom to. Eventually most of those practices sunk in. There is a difference though between following practices, high level design decisions, and packages that were largely set in place vs going though that process myself.
+12 months ago, I entered a new job and I joined a team with significantly different practices then what I was accustomed to. Eventually most of those practices sunk in. There is a difference though between following practices, high level design decisions, and packages that were largely set in place vs going though that process myself.
 
-This project primary purposes are growing my skills by working though design decisions ,practicing my craft, building a portfolio project at a professional grade, create a foundation for other projects to come and to create a successful (100 new accounts daily) roller coaster game.
+This project’s primary purposes are growing my skills by working though design decisions ,practicing my craft, building a portfolio project at a professional grade, create a foundation for other projects to come and to create a successful (100 new accounts daily) roller coaster game.
 
 [http://rollercoaster.dickinsonbros.com](http://rollercoaster.dickinsonbros.com "http://rollercoaster.dickinsonbros.com") (2018 Version - Builder Only)
 
@@ -49,7 +49,7 @@ _Achievement_
 
 ### Principles
 
-After much consideration and speaking with many colleagues I determined principles highly depend on the project. For example, I have a brother who writes mobile app games for a living and many of his projects do not store any personal data or passwords. Putting in the extra effort to help ensure secure, correct and that the game is maintainable may not be worth the effort until he knows the game is popular enough. This is totally acceptable as many of them are in a sense a prototype. I am aiming for a production ready system that contains some personal data and this drove me to the following principles.
+After much consideration and speaking with many colleagues I determined principles highly depend on the project. For example, I have a brother who writes mobile app games for a living and many of his projects do not store any personal data or passwords. Putting in the extra effort to help ensure security, correctness, and maintainability may not be worth the effort until he knows the game is popular enough. This is totally acceptable as many of them are in a sense a prototype. I am aiming for a production ready system that contains some personal data and this drove me to the following principles.
 
 _Secure_
 
@@ -80,8 +80,8 @@ _Maintenance_
 * Documentation
 * Health checks
 
-For production applications I have seen differing opinions on the degree of correctness and ability to maintain a project. Lower quality projects tend to have more patching and having to patch even for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. My experience has shown me It is worth the extra effort to ensure its secure, correct, handles expected load, and is maintainable.
+For production applications I have seen differing opinions on the degree of correctness and maintainability. Lower quality projects tend to have more patching and having to patch even for a 1 liner can take meetings, coding, code reviews, releases and post release monitoring. My experience has shown me It is worth the extra effort to ensure its secure, correct, handles expected load, and is maintainable.
 
 ### Conclusion
 
-I have laid out the project and user stories and decided to build a production ready system. I have created principles and items that will help me measure and ensure they are meet. These high-level decisions will guide the decisions and creation of the project.
+I have laid out the project and user stories and decided to build a production ready system. I have created principles and items that will help me measure and ensure they are met. These high-level decisions will guide the decisions and creation of the project.
