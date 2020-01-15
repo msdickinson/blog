@@ -220,7 +220,7 @@ There are different opinions on how to unit testing and what should be tested. T
 * Using setup, act, assert comments to keep consistent structure
 * Each unit test I target one line of code and use as many asserts as needed for that line.
 * 100% Unit test coverage with every method independently tested (even if indirectly tested) and use internal methods over private.
-* For dependencies such as SQL that use statics I choose to wrap them in another class with an interface. I then add exclude use exclude from coverage for the wraper class.
+* For dependencies such as SQL that use statics I choose to wrap them in another class with an interface. I then use exclude from coverage for the wraper class.
 * For plain data objects that have no logic I exclude from code coverage.
 * Not using the setup method as it bleeds concerns between tests. I choose to use a factory method if needed between tests.
 
