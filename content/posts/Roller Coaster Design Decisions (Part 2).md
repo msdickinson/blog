@@ -46,7 +46,7 @@ _Cons_
 * No partial deploys
 * Cannot scale APIs and databases independently
 
-### (3) Monolith with Isolated Database
+### (3) Monolith with Isolated Databases
 
 A single project with multiple databases and a reporting API that contains non sensitive data.
 
@@ -101,7 +101,6 @@ _Pros_
 * Scale APIS and databases independently
 * Reporting API cannot query sensitive data and removes load from production databases
 * APIS are durable, in the case of in outage they can recover with retries from the Bus
-* Increased hosting cost (multiple APIs and databases)
 * Ability to deploy single API
 * APIs can push a message to a user
 
