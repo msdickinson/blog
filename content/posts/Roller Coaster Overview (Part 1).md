@@ -85,3 +85,7 @@ For production applications I have seen differing opinions on the degree of corr
 ### Conclusion
 
 I have laid out the project and user stories and decided to build a production ready system. I have created principles and items that will help me measure and ensure they are met. These high-level decisions will guide the decisions and creation of the project.
+
+_Design Decisions (Part 2)_
+
+[https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html "https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html")
