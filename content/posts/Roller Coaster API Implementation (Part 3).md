@@ -2,22 +2,28 @@
 date = 2020-01-25T07:00:00Z
 draft = true
 layout = "post"
-title = "Roller Coaster API Implementation (Part 3)"
+title = "Roller Coaster Cross Cutting Concerns (Part 3)"
 
 +++
-## Packages
+## Cross Cutting Concerns
 
-The stack is highly used across all of the projects and is great place for me to start.
+Roller coaster has mutiple APIs and all of them require testing. Building out a stack will help me follow SOLID by not repeating my self and having a single source of truth. As reviewed in my last post In X Section. 
 
-Builds exist in .github/workflows you can also view past builds by adding /actions/ to the Urls below. the production and test both live on my server.
+### Building Early
 
-Branchs - Dev - No Deployments for local use, Test - Deploys to Test, Master - Deploys to prod
+A common pratice in agile is to build things as you need them. I have seen how this can cause a massive amount of context switching between packages and APIS. One of the reasons it is suggested to follow this pratice is to not over aretche or build somthing you end up not needing. I am accepting that risk going ahead but only after i build our prototpyes and took extensive time to resserach my needs. I suspect my needs wont fit exactly with my resreash but I feel the benfits of handling the stack first outway the concerns.
 
-_Stack (Nuget Packages)_
+### Conintues Integaretion - Local
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Stack.png)
+For building local I created a powershell script to drop my packages into a root folder "C:\\Packages" and I add "ci-" with a datetime stamp to ensure quick development.
 
-Although not shown in the image above, But all of these packages for testing use the test package even if they are not a depdecny when pulling in the package it self. For the time being ill only build local versions of the packages.
+### Conintues Integaretion - Production
+
+My Production pipeline should ensure the project builds, tests pass, and releaseing to nuget. A major learning point is the power of a release pipeline such as azure devops releases. It gives you addtional check points that you can require mannaul intervention. Although currently it is not nesseary for the pacakges it will be for the APIS to come.
+
+At one point I was checking for code coverage from my unit tests. After days of fiddling with it and finding reported bugs in the applications I was using I decided to move on. This means that the pipeline will only check that the tests pass, and that is on the user making the PR to ensure 100% code coverage (one of my requirements for this project) see (  ... ).
+
+![](https://www.marksdickinson.com/Media/Nuget Pipeline.png)
 
 ### DickinsonBros.Test
 
@@ -131,115 +137,4 @@ SQL abstraction that adds increased logging on exceptions
 
 [https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-## APIS
-
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Projects.png)
-
-Working in order the Bus, and Web have zero depecnys. After them ill follow though with the others.
-
-### DickinsonBros.RollerCoaster.API.Bus
-
-...
-
-**_Features_**
-
-* ...
-* ...
-* ....
-
-[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
-
-    CREATE PROCEDURE [ServiceBus].[Dequeue]
-    	@userToken uniqueidentifier,
-        @count int
-    AS
-    	WITH cte_queueItems AS (
-    		SELECT top(@count)
-    			[ServiceBus].[Queue].QueueId, 
-    			[ServiceBus].[TopicItem].TopicId,
-    			[ServiceBus].[TopicItem].Payload,
-    			[ServiceBus].[TopicItem].CorrelationId
-    		FROM
-    			[ServiceBus].[Queue]
-    			inner join [ServiceBus].[TopicItem] on [ServiceBus].[TopicItem].TopicId = [ServiceBus].[Queue].TopicId
-    			inner join [ServiceBus].[User] on [ServiceBus].[User].UserId = [ServiceBus].[Queue].UserId
-    		WHERE 
-    			[ServiceBus].[User].UserToken = @userToken and 
-    			[ServiceBus].[Queue].[State] = 1 and
-    			[ServiceBus].[Queue].[RetryCount] <= 4
-    	)
-    	Update [ServiceBus].[Queue]
-    	SET
-    		[State] = 2,
-    		[LastStateChange] = SYSUTCDATETIME() 		
-    	OUTPUT cte_queueItems.QueueId, cte_queueItems.TopicId, cte_queueItems.Payload, cte_queueItems.CorrelationId
-    	FROM [ServiceBus].[Queue]
-    	INNER JOIN cte_queueItems on [ServiceBus].[Queue].QueueId = cte_queueItems.QueueId
-    RETURN 0
-    
-
-### DickinsonBros.RollerCoaster.API.Web
-
-...
-
-**_Features_**
-
-* ...
-* ...
-* ....
-
-[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
-
-### DickinsonBros.RollerCoaster.API.Account
-
-...
-
-**_Features_**
-
-* ...
-* ...
-* ....
-
-[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
-
-### DickinsonBros.RollerCoaster.API.Achievement
-
-...
-
-**_Features_**
-
-* ...
-* ...
-* ....
-
-[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
-
-### DickinsonBros.RollerCoaster.API.Report
-
-...
-
-**_Features_**
-
-* ...
-* ...
-* ....
-
-[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
-
-## Integreation Tests
-
-### DickinsonBros.RollerCoaster.IntegrationTests
-
-...
-
-**_Features_**
-
-* ...
-* ...
-* ....
-
-[https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
-
-## Health Plans
-
-## Perfomrance Testing
+## 
