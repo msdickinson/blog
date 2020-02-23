@@ -29,8 +29,11 @@ Agile for me has a place but what is often overlooked is design and prototyping 
 
 For my packages I am going to ignore SOLIDS extend and prefers breaking changes whenever it improves maintainability. I have taken time to do extensive planning and prototyping to scope in features. I have built out my packages more then I need today ignoring agile. I consider this in experiment as I have not worked this way before but expect less context switching and more code churn with increased maintainability.
 <br><br/>
+
 ### Continuous Integaretion
+
 <br><br><br><br>
+
 #### Local
 
 For building local I created a powershell script to drop my packages into a root folder "C:\\Packages" and I add "ci-" with a datetime stamp to ensure quick development.
@@ -75,8 +78,7 @@ A wrapper library for DateTime
 * Easily pull out mocks
 * Unit test controllers by injecting headers, claims and taking over the HttpContext for more precise unit tests
 
-[https://github.com/msdickinson/DickinsonBros.Test](https://github.com/msdickinson/DickinsonBros.Test "https://github.com/msdickinson/DickinsonBros.Test")
-<hr>
+[https://github.com/msdickinson/DickinsonBros.Test](https://github.com/msdickinson/DickinsonBros.Test "https://github.com/msdickinson/DickinsonBros.Test") <hr />
 
 #### DickinsonBros.DateTime
 
@@ -200,4 +202,4 @@ A wrapper library for Stopwatch
 
 [https://github.com/msdickinson/DickinsonBros.Stopwatch.Abstractions](https://github.com/msdickinson/DickinsonBros.Stopwatch.Abstractions)
 
-##
+## 
