@@ -28,7 +28,7 @@ _Agile Downsides_
 Agile for me has a place but what is often overlooked is design and prototyping outside a small scoped story. My experience as shown me systems often referred to as “the public toilet” and other undesirable terms when code follows SOLIDS extend and agile approach to strongly. Avoiding refactoring and/or breaking changes for too long can cause code rot and over time lock a system down. Working with such a system can cause massive increase to development time and risk.
 
 For my packages I am going to ignore SOLIDS extend and prefers breaking changes whenever it improves maintainability. I have taken time to do extensive planning and prototyping to scope in features. I have built out my packages more then I need today ignoring agile. I consider this in experiment as I have not worked this way before but expect less context switching and more code churn with increased maintainability.
-{{This is some <br />}}
+<br />
 ### Continuous Integaretion
 
 #### Local
