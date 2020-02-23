@@ -29,7 +29,9 @@ Agile for me has a place but what is often overlooked is design and prototyping 
 
 For my packages I am going to ignore SOLIDS extend and prefers breaking changes whenever it improves maintainability. I have taken time to do extensive planning and prototyping to scope in features. I have built out my packages more then I need today ignoring agile. I consider this in experiment as I have not worked this way before but expect less context switching and more code churn with increased maintainability.
 
-### Continuous Integaretion - Local
+### Continuous Integaretion
+
+#### Local
 
 For building local I created a powershell script to drop my packages into a root folder "C:\\Packages" and I add "ci-" with a datetime stamp to ensure quick development.
 
@@ -37,35 +39,33 @@ For building local I created a powershell script to drop my packages into a root
 
 ![](https://www.marksdickinson.com/Media/Part3-LocalPower.png)
 
+#### Production
 
-### Continuous Integaretion - Production
-
-My Production pipeline should ensure the project builds, tests pass and releaseing to nuget. A major learning point is the power of a release pipeline such as azure devops releases. It gives you addtional check points that you can require manaul intervention. Although currently it is not nesseary for the pacakges it will be for the APIS to come.
+My production pipeline should ensure the project builds, tests pass and releaseing to nuget. A major learning point is the power of a release pipeline such as azure devops releases. It gives you addtional check points that you can require manaul intervention. Although currently it is not nesseary for the pacakges it will be for the APIS to come.
 
 ![](https://www.marksdickinson.com/Media/Part3-CIPipeline.png)
 
-Walking though the Steps
-1.	Creating a Pull Request kicks off “Build and Unit Test” Pipeline
-![](https://www.marksdickinson.com/Media/Part3-GitHubPull.png)
-![](https://www.marksdickinson.com/Media/Part3-BuildRun.png)
+##### Walking though the Steps
 
-2.	When the pipeline is able to build and pass all unit tests you can merge it
-![](https://www.marksdickinson.com/Media/Part3-GitHubBuildPass.png)
- 
-3.	Once merged the pipeline publish release will run. This will create a release artifact
-![](https://www.marksdickinson.com/Media/Part3-PipelinePublish.png)
+1. Creating a Pull Request kicks off “Build and Unit Test” Pipeline
 
-4.	When a release pipeline is successful a release will start utilizing the artifacts creates in the release. 
-![](https://www.marksdickinson.com/Media/Part3-Release.png)
+   ![](https://www.marksdickinson.com/Media/Part3-GitHubPull.png)
+   ![](https://www.marksdickinson.com/Media/Part3-BuildRun.png)
+2. When the pipeline is able to build and pass all unit tests you can merge it
+
+   ![](https://www.marksdickinson.com/Media/Part3-GitHubBuildPass.png)
+3. Once merged the pipeline publish release will run. This will create a release artifact
+
+   ![](https://www.marksdickinson.com/Media/Part3-PipelinePublish.png)
+4. When a release pipeline is successful a release will start utilizing the artifacts creates in the release.
+
+   ![](https://www.marksdickinson.com/Media/Part3-Release.png)
 
 Note This step will fail If you do modify the version in the projs config. This is by design to ensure I don’t release nuget packages without following sematic versioning.
- 
 
+### Projects
 
-
-
-
-### DickinsonBros.Test
+#### DickinsonBros.Test
 
 A wrapper library for DateTime
 
@@ -77,7 +77,7 @@ A wrapper library for DateTime
 
 [https://github.com/msdickinson/DickinsonBros.Test](https://github.com/msdickinson/DickinsonBros.Test "https://github.com/msdickinson/DickinsonBros.Test")
 
-### DickinsonBros.DateTime
+#### DickinsonBros.DateTime
 
 A wrapper Library for DateTime
 
@@ -88,7 +88,9 @@ A wrapper Library for DateTime
 
 [https://github.com/msdickinson/DickinsonBros.DateTime](https://github.com/msdickinson/DickinsonBros.DateTime "https://github.com/msdickinson/DickinsonBros.DateTime")
 
-### DickinsonBros.Encryption
+[https://github.com/msdickinson/DickinsonBros.DateTime.Abstractions](https://github.com/msdickinson/DickinsonBros.DateTime.Abstractions)
+
+#### DickinsonBros.Encryption
 
 Encrypt and Decrypt strings
 
@@ -99,11 +101,11 @@ Encrypt and Decrypt strings
 
 [https://github.com/msdickinson/Dickinsonbros.Encryption](https://github.com/msdickinson/Dickinsonbros.Encryption "https://github.com/msdickinson/Dickinsonbros.Encryption")
 
-### DickinsonBros.Guid
+[https://github.com/msdickinson/DickinsonBros.Encryption.Abstractions](https://github.com/msdickinson/DickinsonBros.Encryption.Abstractions)
+
+#### DickinsonBros.Guid
 
 A wrapper Library for DateTime
-
-**_Features_**
 
 * Adds extensibility via abstraction
 * Allows for unit testing
@@ -111,7 +113,9 @@ A wrapper Library for DateTime
 
 [https://github.com/msdickinson/DickinsonBros.Guid](https://github.com/msdickinson/DickinsonBros.Guid "https://github.com/msdickinson/DickinsonBros.Guid")
 
-### DickinsonBros.Redactor
+[https://github.com/msdickinson/DickinsonBros.Guid.Abstractions](https://github.com/msdickinson/DickinsonBros.Guid.Abstractions)
+
+#### DickinsonBros.Redactor
 
 A redactor that can take a json string or an object and return a redacted string in json.
 
@@ -123,7 +127,9 @@ A redactor that can take a json string or an object and return a redacted string
 
 [https://github.com/msdickinson/DickinsonBros.Redactor](https://github.com/msdickinson/DickinsonBros.Redactor "https://github.com/msdickinson/DickinsonBros.Redactor")
 
-### DickinsonBros.Logger
+[https://github.com/msdickinson/DickinsonBros.Redactor.Abstractions]()
+
+#### DickinsonBros.Logger
 
 A logging service that redacts all logs
 
@@ -137,7 +143,9 @@ A logging service that redacts all logs
 
 [https://github.com/msdickinson/DickinsonBros.Logger](https://github.com/msdickinson/DickinsonBros.Logger "https://github.com/msdickinson/DickinsonBros.Logger")
 
-### DickinsonBros.Middleware
+[https://github.com/msdickinson/DickinsonBros.Logger.Abstractions]()
+
+#### DickinsonBros.Middleware
 
 Middleware for ASP.Net that adds redacted logging.
 
@@ -150,11 +158,7 @@ Middleware for ASP.Net that adds redacted logging.
 
 [https://github.com/msdickinson/DickinsonBros.Middleware](https://github.com/msdickinson/DickinsonBros.Middleware "https://github.com/msdickinson/DickinsonBros.Middleware")
 
-Lets take a closer look
-
-\-> EnsureCorrelationId
-
-### DickinsonBros.SQL
+#### DickinsonBros.SQL
 
 SQL abstraction that adds increased logging on exceptions
 
@@ -165,7 +169,9 @@ SQL abstraction that adds increased logging on exceptions
 
 [https://github.com/msdickinson/DickinsonBros.SQL](https://github.com/msdickinson/DickinsonBros.SQL "https://github.com/msdickinson/DickinsonBros.SQL")
 
-### DickinsonBros.DurableRest
+[https://github.com/msdickinson/DickinsonBros.SQL.Abstractions](https://github.com/msdickinson/DickinsonBros.SQL.Abstractions)
+
+#### DickinsonBros.DurableRest
 
 SQL abstraction that adds increased logging on exceptions
 
@@ -177,4 +183,19 @@ SQL abstraction that adds increased logging on exceptions
 
 [https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-##
+[https://github.com/msdickinson/DickinsonBros.DurableRest.Abstractions](https://github.com/msdickinson/DickinsonBros.DurableRest.Abstractions)
+
+#### DickinsonBros.Stopwatch
+
+A wrapper library for Stopwatch
+
+**_Features_**
+
+* Adds extensibility via abstraction
+* Allows for unit testing
+
+[https://github.com/msdickinson/DickinsonBros.Stopwatch](https://github.com/msdickinson/DickinsonBros.Stopwatch)
+
+[https://github.com/msdickinson/DickinsonBros.Stopwatch.Abstractions](https://github.com/msdickinson/DickinsonBros.Stopwatch.Abstractions)
+
+## 
