@@ -91,7 +91,7 @@ A wrapper Library for DateTime
 [https://github.com/msdickinson/DickinsonBros.DateTime](https://github.com/msdickinson/DickinsonBros.DateTime "https://github.com/msdickinson/DickinsonBros.DateTime")
 
 [https://github.com/msdickinson/DickinsonBros.DateTime.Abstractions](https://github.com/msdickinson/DickinsonBros.DateTime.Abstractions)
-
+<br /> <br />
 #### DickinsonBros.Encryption
 
 Encrypt and Decrypt strings
@@ -200,4 +200,4 @@ A wrapper library for Stopwatch
 
 [https://github.com/msdickinson/DickinsonBros.Stopwatch.Abstractions](https://github.com/msdickinson/DickinsonBros.Stopwatch.Abstractions)
 
-## 
+##
