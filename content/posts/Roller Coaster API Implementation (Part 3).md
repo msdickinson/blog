@@ -7,23 +7,63 @@ title = "Roller Coaster Cross Cutting Concerns (Part 3)"
 +++
 ## Cross Cutting Concerns
 
-Roller coaster has mutiple APIs and all of them require testing. Building out a stack will help me follow SOLID by not repeating my self and having a single source of truth. As reviewed in my last post In X Section. 
+Roller coaster has multiple packages and APIs and all of them require testing. Building out a stack will help me follow SOLID by not repeating myself. I covered in my last post how I came up with these packages and the high-level design designs.
 
-### Building Early
+![](https://www.marksdickinson.com/Media/Part3-Design.png)
 
-A common pratice in agile is to build things as you need them. I have seen how this can cause a massive amount of context switching between packages and APIS. One of the reasons it is suggested to follow this pratice is to not over aretche or build somthing you end up not needing. I am accepting that risk going ahead but only after i build our prototpyes and took extensive time to resserach my needs. I suspect my needs wont fit exactly with my resreash but I feel the benfits of handling the stack first outway the concerns.
+### Building Early Vs Agile
 
-### Conintues Integaretion - Local
+Let’s look at agile pros and cons to building packages.
+
+_Agile Upsides_
+
+* You don’t build things you don’t need. As you won’t know what you need until you actually need it.
+* No large upfront cost of building out packages up front. Pay as you go model.
+
+_Agile Downsides_
+
+* Iterating on a package as needed can cause breaking changes, undesirable architecture, over extending, and harder to use and maintain.
+* Increased amount of context switching between the API your working and the packages you need to update.
+
+Agile for me has a place but what is often overlooked is design and prototyping outside a small scoped story. My experience as shown me systems often referred to as “the public toilet” and other undesirable terms when code follows SOLIDS extend and agile approach to strongly. Avoiding refactoring and/or breaking changes for too long can cause code rot and over time lock a system down. Working with such a system can cause massive increase to development time and risk.
+
+For my packages I am going to ignore SOLIDS extend and prefers breaking changes whenever it improves maintainability. I have taken time to do extensive planning and prototyping to scope in features. I have built out my packages more then I need today ignoring agile. I consider this in experiment as I have not worked this way before but expect less context switching and more code churn with increased maintainability.
+
+### Continuous Integaretion - Local
 
 For building local I created a powershell script to drop my packages into a root folder "C:\\Packages" and I add "ci-" with a datetime stamp to ensure quick development.
 
-### Conintues Integaretion - Production
+![](https://www.marksdickinson.com/Media/Part3-Local.png)
 
-My Production pipeline should ensure the project builds, tests pass, and releaseing to nuget. A major learning point is the power of a release pipeline such as azure devops releases. It gives you addtional check points that you can require mannaul intervention. Although currently it is not nesseary for the pacakges it will be for the APIS to come.
+![](https://www.marksdickinson.com/Media/Part3-LocalPower.png)
 
-At one point I was checking for code coverage from my unit tests. After days of fiddling with it and finding reported bugs in the applications I was using I decided to move on. This means that the pipeline will only check that the tests pass, and that is on the user making the PR to ensure 100% code coverage (one of my requirements for this project) see (  ... ).
 
-![](https://www.marksdickinson.com/Media/Nuget Pipeline.png)
+### Continuous Integaretion - Production
+
+My Production pipeline should ensure the project builds, tests pass and releaseing to nuget. A major learning point is the power of a release pipeline such as azure devops releases. It gives you addtional check points that you can require manaul intervention. Although currently it is not nesseary for the pacakges it will be for the APIS to come.
+
+![](https://www.marksdickinson.com/Media/Part3-CIPipeline.png)
+
+Walking though the Steps
+1.	Creating a Pull Request kicks off “Build and Unit Test” Pipeline
+![](https://www.marksdickinson.com/Media/Part3-GitHubPull.png)
+![](https://www.marksdickinson.com/Media/Part3-BuildRun.png)
+
+2.	When the pipeline is able to build and pass all unit tests you can merge it
+![](https://www.marksdickinson.com/Media/Part3-GitHubBuildPass.png)
+ 
+3.	Once merged the pipeline publish release will run. This will create a release artifact
+![](https://www.marksdickinson.com/Media/Part3-PipelinePublish.png)
+
+4.	When a release pipeline is successful a release will start utilizing the artifacts creates in the release. 
+![](https://www.marksdickinson.com/Media/Part3-Release.png)
+
+Note This step will fail If you do modify the version in the projs config. This is by design to ensure I don’t release nuget packages without following sematic versioning.
+ 
+
+
+
+
 
 ### DickinsonBros.Test
 
@@ -137,4 +177,4 @@ SQL abstraction that adds increased logging on exceptions
 
 [https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
-## 
+##
