@@ -188,7 +188,25 @@ SQL abstraction that adds increased logging on exceptions
 [https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
 [https://github.com/msdickinson/DickinsonBros.DurableRest.Abstractions](https://github.com/msdickinson/DickinsonBros.DurableRest.Abstractions)
-# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### DickinsonBros.Stopwatch
 
 A wrapper library for Stopwatch
