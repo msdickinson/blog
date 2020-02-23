@@ -78,7 +78,7 @@ A wrapper library for DateTime
 * Easily pull out mocks
 * Unit test controllers by injecting headers, claims and taking over the HttpContext for more precise unit tests
 
-[https://github.com/msdickinson/DickinsonBros.Test](https://github.com/msdickinson/DickinsonBros.Test "https://github.com/msdickinson/DickinsonBros.Test") <hr />
+[https://github.com/msdickinson/DickinsonBros.Test](https://github.com/msdickinson/DickinsonBros.Test "https://github.com/msdickinson/DickinsonBros.Test")
 
 #### DickinsonBros.DateTime
 
@@ -188,7 +188,7 @@ SQL abstraction that adds increased logging on exceptions
 [https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 
 [https://github.com/msdickinson/DickinsonBros.DurableRest.Abstractions](https://github.com/msdickinson/DickinsonBros.DurableRest.Abstractions)
-
+# 
 #### DickinsonBros.Stopwatch
 
 A wrapper library for Stopwatch
@@ -202,4 +202,4 @@ A wrapper library for Stopwatch
 
 [https://github.com/msdickinson/DickinsonBros.Stopwatch.Abstractions](https://github.com/msdickinson/DickinsonBros.Stopwatch.Abstractions)
 
-## 
+##
