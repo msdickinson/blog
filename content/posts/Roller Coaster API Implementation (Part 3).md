@@ -90,7 +90,6 @@ A wrapper Library for DateTime
 * Allows for unit testing
 
 [https://github.com/msdickinson/DickinsonBros.DateTime](https://github.com/msdickinson/DickinsonBros.DateTime "https://github.com/msdickinson/DickinsonBros.DateTime")
-
 [https://github.com/msdickinson/DickinsonBros.DateTime.Abstractions](https://github.com/msdickinson/DickinsonBros.DateTime.Abstractions)
 <br /> <br />
 
@@ -104,7 +103,6 @@ Encrypt and Decrypt strings
 * Configure certificate location
 
 [https://github.com/msdickinson/Dickinsonbros.Encryption](https://github.com/msdickinson/Dickinsonbros.Encryption "https://github.com/msdickinson/Dickinsonbros.Encryption")
-
 [https://github.com/msdickinson/DickinsonBros.Encryption.Abstractions](https://github.com/msdickinson/DickinsonBros.Encryption.Abstractions)
 
 #### DickinsonBros.Guid
@@ -116,7 +114,6 @@ A wrapper Library for DateTime
 * Sperate abstractions library to reduce coupling of packages.
 
 [https://github.com/msdickinson/DickinsonBros.Guid](https://github.com/msdickinson/DickinsonBros.Guid "https://github.com/msdickinson/DickinsonBros.Guid")
-
 [https://github.com/msdickinson/DickinsonBros.Guid.Abstractions](https://github.com/msdickinson/DickinsonBros.Guid.Abstractions)
 
 #### DickinsonBros.Redactor
@@ -130,8 +127,7 @@ A redactor that can take a json string or an object and return a redacted string
 * Sperate abstractions library to reduce coupling of packages.
 
 [https://github.com/msdickinson/DickinsonBros.Redactor](https://github.com/msdickinson/DickinsonBros.Redactor "https://github.com/msdickinson/DickinsonBros.Redactor")
-
-[https://github.com/msdickinson/DickinsonBros.Redactor.Abstractions]()
+[https://github.com/msdickinson/DickinsonBros.Redactor.Abstractions](https://github.com/msdickinson/DickinsonBros.Redactor.Abstractions "https://github.com/msdickinson/DickinsonBros.Redactor.Abstractions")
 
 #### DickinsonBros.Logger
 
@@ -146,7 +142,6 @@ A logging service that redacts all logs
 * Sperate abstractions library to reduce coupling of packages.
 
 [https://github.com/msdickinson/DickinsonBros.Logger](https://github.com/msdickinson/DickinsonBros.Logger "https://github.com/msdickinson/DickinsonBros.Logger")
-
 [https://github.com/msdickinson/DickinsonBros.Logger.Abstractions]()
 
 #### DickinsonBros.Middleware
@@ -172,7 +167,6 @@ SQL abstraction that adds increased logging on exceptions
 * Allows for improved testability
 
 [https://github.com/msdickinson/DickinsonBros.SQL](https://github.com/msdickinson/DickinsonBros.SQL "https://github.com/msdickinson/DickinsonBros.SQL")
-
 [https://github.com/msdickinson/DickinsonBros.SQL.Abstractions](https://github.com/msdickinson/DickinsonBros.SQL.Abstractions)
 
 #### DickinsonBros.DurableRest
@@ -186,25 +180,7 @@ SQL abstraction that adds increased logging on exceptions
 * Logs all requests redacted with meta data
 
 [https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
-
 [https://github.com/msdickinson/DickinsonBros.DurableRest.Abstractions](https://github.com/msdickinson/DickinsonBros.DurableRest.Abstractions)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #### DickinsonBros.Stopwatch
@@ -217,7 +193,6 @@ A wrapper library for Stopwatch
 * Allows for unit testing
 
 [https://github.com/msdickinson/DickinsonBros.Stopwatch](https://github.com/msdickinson/DickinsonBros.Stopwatch)
-
 [https://github.com/msdickinson/DickinsonBros.Stopwatch.Abstractions](https://github.com/msdickinson/DickinsonBros.Stopwatch.Abstractions)
 
 ##
