@@ -78,7 +78,7 @@ Each project has the same general layout.
 
 ### Projects
 
-Below I have listed all packages completed with a summary and link to theirsource code.
+Below I have listed all packages completed with a summary and link to their source code.
 
 All Builds are viewable at [Pipelines (Builds)](https://dev.azure.com/marksamdickinson/DickinsonBros/_build?view=folders "Pipelines (Builds)")
 
