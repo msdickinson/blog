@@ -1,6 +1,5 @@
 +++
 date = 2020-02-25T15:00:00Z
-draft = true
 layout = "post"
 title = "Roller Coaster Cross Cutting Concerns (Part 3)"
 
