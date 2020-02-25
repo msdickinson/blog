@@ -1,5 +1,5 @@
 +++
-date = 2020-01-25T07:00:00Z
+date = 2020-02-25T13:00:00Z
 draft = true
 layout = "post"
 title = "Roller Coaster Cross Cutting Concerns (Part 3)"
@@ -7,19 +7,13 @@ title = "Roller Coaster Cross Cutting Concerns (Part 3)"
 +++
 ## Overview
 
-In [roller-coaster-overview-part-1](https://www.marksdickinson.com/posts/roller-coaster-overview-part-1.html) we walked though the projects summary, user stories and principles. Then in [roller-coaster-design-decisions-part-2](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html "roller-coaster-design-decisions-part-2") we walked though design desisions, and came up with a set of cross cutting concerns after prototyping.
+In [part 1](https://www.marksdickinson.com/posts/roller-coaster-overview-part-1.html "part 1") we walked through the projects summary, user stories and principles. Then in [part 2](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html "part 2") we walked though design decisions, and came up with a set of cross cutting concerns after prototyping.
 
-This post will focus on the cross cutting concerns (packages), building packages early, continuous integration with links to all packages.
+This post will focus on the cross-cutting concerns (packages), building packages early, continuous integration with links to all builds, releases, and packages.
 
 ## Cross Cutting Concerns
 
-Roller coaster has multiple packages and APIs and all of them require testing. Building out a stack will help me follow SOLID by not repeating myself.
-
-In [roller-coaster-design-decisions-part-1](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-1.html "roller-coaster-design-decisions-part-1") we reviewed high level
-
-[roller-coaster-design-decisions-part-2](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html "roller-coaster-design-decisions-part-2")
-
-roller-coaster-design-decisions-part-1
+Roller coaster has multiple packages and APIs and all of them require testing. Building out a stack will help me follow SOLID by not repeating myself. As mentioned in [part 2](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html "part 2") The abstraction layer (a set of interfaces) is built to help reduce coupling. 
 
 ![](https://www.marksdickinson.com/Media/Part3-Design.png)
 
@@ -45,7 +39,7 @@ For my packages I am going to ignore SOLIDS extend and prefer breaking changes w
 
 #### Local
 
-For building local I created a powershell script to drop my packages into a root folder "C:\\Packages" and I add "ci-" with a datetime stamp to ensure quick development.
+For building local I created a PowerShell script to drop my packages into a root folder "C:\\Packages" and I add "ci-" with a datetime stamp to ensure quick development.
 
 ![](https://www.marksdickinson.com/Media/Part3-Local.png)
 
@@ -53,7 +47,7 @@ For building local I created a powershell script to drop my packages into a root
 
 #### Production
 
-My production pipeline should ensure the project builds, tests pass and releaseing to nuget. A major learning point is the power of a release pipeline such as azure devops releases. It gives you addtional check points that you can require manaul intervention. Although currently it is not nesseary for the pacakges it will be for the APIS to come.
+This pipeline will build the projects, run the tests and release to NuGet. A major learning point is the power of a release pipeline such as azure devops releases. It gives you additional check points that you can require manual intervention. Although currently it is not necessary for the packages it will be for the APIS to come.
 
 ![](https://www.marksdickinson.com/Media/Part3-CIPipeline.png)
 
@@ -73,20 +67,20 @@ My production pipeline should ensure the project builds, tests pass and releasei
 
    ![](https://www.marksdickinson.com/Media/Part3-Release.png)
 
-Note This step will fail If you do modify the version in the projs config. This is by design to ensure I don’t release nuget packages without following sematic versioning.
+Note This step will fail If you do modify the version in the projs config. This is by design to ensure I don’t release NuGet packages without following sematic versioning.
 
 ### Project Layout
 
 Each project has the same general layout.
 
-1. A Libary folder containing the libary project and test project
-2. A misc folder containing both builds, unit test settings used to iqnore test files, and a prerelease power schell scrpit to be able to run your CI local.
+1. A library folder containing the library project and test project
+2. A misc. folder containing both builds, unit test settings, and a prerelease power PowerShell script to be able to run your CI local.
 
 ![](https://www.marksdickinson.com/Media/Part3-ProjectOverview2.png)
 
 ### Projects
 
-Below I have listed all packages completed with a summary and link to there source code.
+Below I have listed all packages completed with a summary and link to theirsource code.
 
 All Builds are viewable at [Pipelines (Builds)](https://dev.azure.com/marksamdickinson/DickinsonBros/_build?view=folders "Pipelines (Builds)")
 
@@ -94,9 +88,7 @@ All Releases are viewable at [Releases](https://dev.azure.com/marksamdickinson/D
 
 #### DickinsonBros.Test
 
-A wrapper library for DateTime
-
-**Features**
+A test library to assist with unit testing
 
 * DI unit tests in a clean fashion
 * Easily pull out mocks
@@ -108,8 +100,6 @@ A wrapper library for DateTime
 
 A wrapper Library for DateTime
 
-**_Features_**
-
 * Adds extensibility via abstraction
 * Allows for unit testing
 
@@ -120,8 +110,6 @@ A wrapper Library for DateTime
 
 Encrypt and Decrypt strings
 
-**_Features_**
-
 * Certificate based encryption
 * Configure certificate location
 
@@ -130,11 +118,10 @@ Encrypt and Decrypt strings
 
 #### DickinsonBros.Guid
 
-A wrapper Library for DateTime
+A wrapper Library for Guid
 
 * Adds extensibility via abstraction
 * Allows for unit testing
-* Sperate abstractions library to reduce coupling of packages.
 
 [https://github.com/msdickinson/DickinsonBros.Guid](https://github.com/msdickinson/DickinsonBros.Guid "https://github.com/msdickinson/DickinsonBros.Guid")
 [https://github.com/msdickinson/DickinsonBros.Guid.Abstractions](https://github.com/msdickinson/DickinsonBros.Guid.Abstractions)
@@ -143,11 +130,8 @@ A wrapper Library for DateTime
 
 A redactor that can take a json string or an object and return a redacted string in json.
 
-**_Features_**
-
 * Configurable properties to redact by name
 * Configurable regular expressions to validate against
-* Sperate abstractions library to reduce coupling of packages.
 
 [https://github.com/msdickinson/DickinsonBros.Redactor](https://github.com/msdickinson/DickinsonBros.Redactor "https://github.com/msdickinson/DickinsonBros.Redactor")
 [https://github.com/msdickinson/DickinsonBros.Redactor.Abstractions](https://github.com/msdickinson/DickinsonBros.Redactor.Abstractions "https://github.com/msdickinson/DickinsonBros.Redactor.Abstractions")
@@ -156,13 +140,10 @@ A redactor that can take a json string or an object and return a redacted string
 
 A logging service that redacts all logs
 
-**_Features_**
-
 * Redacts all logs
-* Allows for dictionary to become first class propertys in the log.
+* Allows for dictionary to become first class properties in the log.
 * Ability to add a correlation id that works though async in straight forward fashion
 * Allows for improved testability
-* Sperate abstractions library to reduce coupling of packages.
 
 [https://github.com/msdickinson/DickinsonBros.Logger](https://github.com/msdickinson/DickinsonBros.Logger "https://github.com/msdickinson/DickinsonBros.Logger")
 [https://github.com/msdickinson/DickinsonBros.Logger.Abstractions]()
@@ -171,11 +152,9 @@ A logging service that redacts all logs
 
 Middleware for ASP.Net that adds redacted logging.
 
-**_Features_**
-
 * Logs requests redacted
 * Logs responses redacted and Status Codes
-* creates collreation Id
+* Creates correlation Id
 * Catch all uncaught expectations and log them redacted
 
 [https://github.com/msdickinson/DickinsonBros.Middleware](https://github.com/msdickinson/DickinsonBros.Middleware "https://github.com/msdickinson/DickinsonBros.Middleware")
@@ -183,8 +162,6 @@ Middleware for ASP.Net that adds redacted logging.
 #### DickinsonBros.SQL
 
 SQL abstraction that adds increased logging on exceptions
-
-**_Features_**
 
 * Improved Logs
 * Allows for improved testability
@@ -194,9 +171,7 @@ SQL abstraction that adds increased logging on exceptions
 
 #### DickinsonBros.DurableRest
 
-SQL abstraction that adds increased logging on exceptions
-
-**_Features_**
+Handles requests in a durable fashion with reporting
 
 * Ability to retry requests
 * Timeouts
@@ -208,8 +183,6 @@ SQL abstraction that adds increased logging on exceptions
 #### DickinsonBros.Stopwatch
 
 A wrapper library for Stopwatch
-
-**_Features_**
 
 * Adds extensibility via abstraction
 * Allows for unit testing
