@@ -8,7 +8,7 @@ title = "Roller Coaster Cross Cutting Concerns (Part 3)"
 
 In [part 1](https://www.marksdickinson.com/posts/roller-coaster-overview-part-1.html "part 1") we walked through the projects summary, user stories and principles. Then in [part 2](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html "part 2") we walked though design decisions, and came up with a set of cross cutting concerns after prototyping.
 
-This post will focus on the cross-cutting concerns (packages), building packages early, continuous integration with links to all builds, releases, and packages.
+This post will focus on the cross-cutting concerns (packages), building packages early, continuous integration with links to all builds, releases, and packages. 
 
 ## Cross Cutting Concerns
 
