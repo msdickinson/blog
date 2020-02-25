@@ -82,7 +82,7 @@ Each project has the same general layout.
 1. A Libary folder containing the libary project and test project
 2. A misc folder containing both builds, unit test settings used to iqnore test files, and a prerelease power schell scrpit to be able to run your CI local.
 
-![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Part3-ProjectOverview)
+![](https://www.marksdickinson.com/Media/Part3-ProjectOverview.png)
 
 ### Projects
 
