@@ -13,7 +13,7 @@ This post will focus on the cross-cutting concerns (packages), building packages
 
 ## Cross Cutting Concerns
 
-Roller coaster has multiple packages and APIs and all of them require testing. Building out a stack will help me follow SOLID by not repeating myself. As mentioned in [part 2](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html "part 2") The abstraction layer (a set of interfaces) is built to help reduce coupling. 
+Roller coaster has multiple packages and APIs and all of them require testing. Building out a stack will help me follow SOLID by not repeating myself. As mentioned in [part 2](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html "part 2") The abstraction layer (a set of interfaces) is built to help reduce coupling.
 
 ![](https://www.marksdickinson.com/Media/Part3-Design.png)
 
@@ -47,9 +47,7 @@ For building local I created a PowerShell script to drop my packages into a root
 
 #### Production
 
-This pipeline will build the projects, run the tests and release to NuGet. A major learning point is the power of a release pipeline such as azure devops releases. It gives you additional check points that you can require manual intervention. Although currently it is not necessary for the packages it will be for the APIS to come.
-
-![](https://www.marksdickinson.com/Media/Part3-CIProd.PNG)
+This pipeline will build the projects, run the tests and release to NuGet. A major learning point is the power of a release pipeline such as azure devops releases. It gives you additional check points that you can require manual intervention. Although currently it is not necessary for the packages it will be for the APIS to come.![](https://www.marksdickinson.com/Media/Part3-CIProd.PNG)
 
 ##### Walking though the Steps
 
