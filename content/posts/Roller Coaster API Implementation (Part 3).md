@@ -77,7 +77,7 @@ Note This step will fail If you do modify the version in the projs config. This 
 
 ### Project Layout
 
-Each project has the same general layout. 
+Each project has the same general layout.
 
 1. A Libary folder containing the libary project and test project
 2. A misc folder containing both builds, unit test settings used to iqnore test files, and a prerelease power schell scrpit to be able to run your CI local.
@@ -88,9 +88,9 @@ Each project has the same general layout.
 
 Below I have listed all packages completed with a summary and link to there source code.
 
-[Pipelines (Builds)](https://dev.azure.com/marksamdickinson/DickinsonBros/_build?view=folders "Pipelines (Builds)")
+All Builds are viewable at [Pipelines (Builds)](https://dev.azure.com/marksamdickinson/DickinsonBros/_build?view=folders "Pipelines (Builds)")
 
-[Releases](https://dev.azure.com/marksamdickinson/DickinsonBros/_release?_a=releases&view=all&definitionId=15 "Releases")
+All Releases are viewable at [Releases](https://dev.azure.com/marksamdickinson/DickinsonBros/_release?_a=releases&view=all&definitionId=15 "Releases")
 
 #### DickinsonBros.Test
 
@@ -115,7 +115,6 @@ A wrapper Library for DateTime
 
 [https://github.com/msdickinson/DickinsonBros.DateTime](https://github.com/msdickinson/DickinsonBros.DateTime "https://github.com/msdickinson/DickinsonBros.DateTime")
 [https://github.com/msdickinson/DickinsonBros.DateTime.Abstractions](https://github.com/msdickinson/DickinsonBros.DateTime.Abstractions)
-<br /> <br />
 
 #### DickinsonBros.Encryption
 
