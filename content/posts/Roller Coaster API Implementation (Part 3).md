@@ -49,7 +49,7 @@ For building local I created a PowerShell script to drop my packages into a root
 
 This pipeline will build the projects, run the tests and release to NuGet. A major learning point is the power of a release pipeline such as azure devops releases. It gives you additional check points that you can require manual intervention. Although currently it is not necessary for the packages it will be for the APIS to come.
 
-![](https://www.marksdickinson.com/Media/Part3-CIPipeline.png)
+![](https://www.marksdickinson.com/Media/Part3-CIProd.PNG)
 
 ##### Walking though the Steps
 
