@@ -5,9 +5,21 @@ layout = "post"
 title = "Roller Coaster Cross Cutting Concerns (Part 3)"
 
 +++
+## Overview
+
+In [roller-coaster-design-decisions-part-1](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-1.html "roller-coaster-design-decisions-part-1") we walked though the projects summary, user stories and principles. Then in [roller-coaster-design-decisions-part-2](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html "roller-coaster-design-decisions-part-2") we walked though design desisions, and came up with a set of cross cutting concerns after prototyping.
+
+This post will focus on the cross cutting concerns (packages), building packages early, continuous integration with links to all packages.
+
 ## Cross Cutting Concerns
 
-Roller coaster has multiple packages and APIs and all of them require testing. Building out a stack will help me follow SOLID by not repeating myself. I covered in my last post how I came up with these packages and the high-level design designs.
+Roller coaster has multiple packages and APIs and all of them require testing. Building out a stack will help me follow SOLID by not repeating myself.
+
+In [roller-coaster-design-decisions-part-1](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-1.html "roller-coaster-design-decisions-part-1") we reviewed high level
+
+[roller-coaster-design-decisions-part-2](https://www.marksdickinson.com/posts/roller-coaster-design-decisions-part-2.html "roller-coaster-design-decisions-part-2")
+
+roller-coaster-design-decisions-part-1
 
 ![](https://www.marksdickinson.com/Media/Part3-Design.png)
 
@@ -29,9 +41,7 @@ Agile for me has a place but what is often overlooked is design and prototyping 
 
 For my packages I am going to ignore SOLIDS extend and prefer breaking changes whenever it improves maintainability. I have taken time to do extensive planning and prototyping to scope in features. I have built out my packages more then I need today ignoring agile. I consider this in experiment as I have not worked this way before but expect less context switching and more code churn with increased maintainability.
 
-### Continuous Integaretion
-
-<br><br><br><br>
+### Continuous Integration
 
 #### Local
 
@@ -65,7 +75,22 @@ My production pipeline should ensure the project builds, tests pass and releasei
 
 Note This step will fail If you do modify the version in the projs config. This is by design to ensure I don’t release nuget packages without following sematic versioning.
 
+### Project Layout
+
+Each project has the same general layout. 
+
+1. A Libary folder containing the libary project and test project
+2. A misc folder containing both builds, unit test settings used to iqnore test files, and a prerelease power schell scrpit to be able to run your CI local.
+
+![](https://d3efwhw5kd1q0b.cloudfront.net/Media/Part3-ProjectOverview)
+
 ### Projects
+
+Below I have listed all packages completed with a summary and link to there source code.
+
+[Pipelines (Builds)](https://dev.azure.com/marksamdickinson/DickinsonBros/_build?view=folders "Pipelines (Builds)")
+
+[Releases](https://dev.azure.com/marksamdickinson/DickinsonBros/_release?_a=releases&view=all&definitionId=15 "Releases")
 
 #### DickinsonBros.Test
 
@@ -180,7 +205,6 @@ SQL abstraction that adds increased logging on exceptions
 
 [https://github.com/msdickinson/DickinsonBros.DurableRest](https://github.com/msdickinson/DickinsonBros.DurableRest "https://github.com/msdickinson/DickinsonBros.DurableRest")
 [https://github.com/msdickinson/DickinsonBros.DurableRest.Abstractions](https://github.com/msdickinson/DickinsonBros.DurableRest.Abstractions)
-
 
 #### DickinsonBros.Stopwatch
 
